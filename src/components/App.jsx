@@ -8,11 +8,11 @@ import {
 import DashboardPage from 'page/DashboardPage/DashboardPage';
 import LoginPage from 'page/LoginPage/LoginPage';
 import RegistrationPage from 'page/RegistrationPage/RegistrationPage';
-import SummaryPage from 'page/SummaryPage/SummaryPage';
 import CurrencyPage from 'page/CurrencyPage/CurrencyPage';
 
 import '../index.css';
 import Example from './Example/Example';
+import StatisticPage from 'page/StatisticPage/StatisticPage';
 
 const App = () => {
  
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/home" />}></Route>
             <Route path="/home" element={<DashboardPage />}></Route>
-            <Route path="/statistic" element={<SummaryPage />}></Route>
+            <Route path="/statistic" element={<StatisticPage />}></Route>
             <Route path="/currency" element={<CurrencyPage />}></Route>
           </Route>
           <Route path="/login" element={<LoginPage />}></Route>

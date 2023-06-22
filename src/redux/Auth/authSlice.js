@@ -12,6 +12,7 @@ const initialState = {
     email: '',
   },
   token: null,
+  balance: 0,
   isLoggedIn: false,
   isRefresher: false,
   isLoading: false,
