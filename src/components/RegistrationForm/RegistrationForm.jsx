@@ -4,21 +4,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registrationUser } from 'redux/Auth/authOperations';
 import css from './RegistrationForm.module.css';
-// const RegistrationForm = () => {
-//   const dispatch = useDispatch();
-
-//   const handleRegistration = () => {
-//     dispatch(registrationUser());
-//   };
-//   return (
-//     <div>
-//       RegistrationForm
-//       <button onClick={handleRegistration}>Registration</button>
-//     </div>
-//   );
-// };
-
-// export default RegistrationForm;
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -127,7 +112,7 @@ const RegistrationForm = () => {
       <div>Status</div>
       <div className={css.navig}>
         <button className={css.button} type="submit">
-          REGISTER
+          <span className={css.tittle}>REGISTER</span>
         </button>
         <Link className={css.link} to="/login">
           LOG IN

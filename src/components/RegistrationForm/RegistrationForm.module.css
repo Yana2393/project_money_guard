@@ -13,7 +13,7 @@
 @media screen and (min-width: 1280px) {
   .form {
     width: 533px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     padding-bottom: 80px;
     margin-top: 75px;
     margin-bottom: 75px;
-    background-color: rgba(47, 21, 176, 0.73);
+    background-color: rgba(255, 255, 255, 0.1);
     background-image: url(../../images/logo.png);
     background-position-x: 175px;
     background-position-y: 80px;
@@ -35,6 +35,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    background-color: inherit;
   }
   .navig {
     display: flex;
@@ -49,14 +50,46 @@
     border-radius: 20px;
     width: 300px;
     height: 50px;
-    color: black;
-    background-color: white;
+    color: #623f8b;
+    text-align: center;
+    font-size: 18px;
+    /* font-family: Poppins; */
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgb(252, 252, 252);
+  }
+  .link:hover {
+    background: rgb(252, 252, 252, 0.9);
   }
   .button {
+    background: linear-gradient(
+      167deg,
+      #ffc727 0%,
+      #9e40ba 61.46%,
+      #7000ff 90.54%
+    );
     border: none;
     border-radius: 20px;
     width: 300px;
     height: 50px;
     margin-top: 12px;
+  }
+  .button:hover {
+    background: linear-gradient(
+      167deg,
+      #ffc727 20%,
+      #9e40ba 61.46%,
+      #7000ff 80.54%
+    );
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .tittle {
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-size: 18px;
+    /* font-family: Poppins; */
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
   }
 }

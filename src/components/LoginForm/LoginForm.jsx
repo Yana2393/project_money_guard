@@ -1,17 +1,12 @@
-// import { useDispatch } from 'react-redux';
 import css from './LoginForm.module.css';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
-// const LoginForm = () => {
-//   return (
-//     <div className={css.loginForm}>LoginForm</div>
-//   )
-// }
+import { loginUser } from 'redux/Auth/authOperations';
+import { useDispatch } from 'react-redux';
 
-// export default LoginForm
 const LoginForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Required'),
     password: yup
@@ -27,9 +22,7 @@ const LoginForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      // dispatch(
-      //   registrationUser(values.username, values.email, values.password)
-      // );
+      dispatch(loginUser(values));
       console.log(values.email, values.password);
       resetForm();
     },
@@ -70,7 +63,7 @@ const LoginForm = () => {
       </div>
       <div className={css.navig}>
         <button className={css.button} type="submit">
-          LOG IN
+          <span className={css.tittle}>LOG IN</span>
         </button>
         <Link className={css.link} to="/registration">
           REGISTER
