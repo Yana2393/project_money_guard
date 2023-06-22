@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/project_money_guard/static/css/main.313955be.css",
-    "main.js": "/project_money_guard/static/js/main.e99b57f2.js",
+    "main.css": "/project_money_guard/static/css/main.fbb0b8db.css",
+    "main.js": "/project_money_guard/static/js/main.3eb7c678.js",
     "index.html": "/project_money_guard/index.html",
-    "main.313955be.css.map": "/project_money_guard/static/css/main.313955be.css.map",
-    "main.e99b57f2.js.map": "/project_money_guard/static/js/main.e99b57f2.js.map"
+    "main.fbb0b8db.css.map": "/project_money_guard/static/css/main.fbb0b8db.css.map",
+    "main.3eb7c678.js.map": "/project_money_guard/static/js/main.3eb7c678.js.map"
   },
   "entrypoints": [
-    "static/css/main.313955be.css",
-    "static/js/main.e99b57f2.js"
+    "static/css/main.fbb0b8db.css",
+    "static/js/main.3eb7c678.js"
   ]
 }
