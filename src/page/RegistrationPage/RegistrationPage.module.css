@@ -1,0 +1,29 @@
+@media screen and (max-width: 320px) {
+}
+/* mobile */
+@media screen and (min-width: 375px) {
+}
+
+/* tablet */
+
+@media screen and (min-width: 768px) {
+}
+/* десктоп */
+
+@media screen and (min-width: 1280px) {
+  .registration {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/desktop/register_destop.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .registration {
+      background-image: url(../../images/desktop/register_destop@2x.jpg);
+    }
+  }
+}
