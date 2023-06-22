@@ -15,6 +15,8 @@ import { authReducer } from './Auth/authSlice';
 import { transactionReducer } from './Transaction/transactionSlice';
 import { financeReducer } from './Finance/financeSlice';
 import { viewportReducer } from './Viewport/viewportSlice';
+import { TransactionCategoriesReducer } from './TransactionCategories/TransactionCategoriesSlice';
+import { TransactionSummaryControllerReduser } from './TransactionSummaryController/TransactionSummaryControllerSlice';
 
 const persistConfigAuth = {
   key: 'auth',
@@ -30,6 +32,8 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     finance: financeReducer,
     viewport: viewportReducer,
+    transaction_categories: TransactionCategoriesReducer,
+    transaction_summary_controller: TransactionSummaryControllerReduser,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

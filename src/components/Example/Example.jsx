@@ -29,7 +29,7 @@ const Tablet = ({ children }) => {
 };
 const Mobile = ({ children }) => {
   const dispatch = useDispatch();
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 767.9 });
   //console.log('isMobile', isMobile);
   viewport.mobile = isMobile;
 

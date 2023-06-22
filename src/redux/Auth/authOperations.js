@@ -17,30 +17,34 @@ export const registrationUser = createAsyncThunk(
     }
   }
 );
-export const refreshUser = createAsyncThunk();
-//   'user/refresh',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
 
-//     const persistToken = state.auth.token;
-//     if (!persistToken) {
-//       return thunkAPI.rejectWithValue('No token');
-//     }
-//     try {
-//       token.set(persistToken);
-//       const { data } = await Api.get('users/current');
-//       return data;
-//     } catch (err) {
-//       token.unset();
-//       return thunkAPI.rejectWithValue(err.message);
-//     }
-//   }
+export const refreshUser = createAsyncThunk(
+  'user/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+
+    const persistToken = state.auth.token;
+    if (!persistToken) {
+      return thunkAPI.rejectWithValue('No token');
+    }
+    try {
+      token.set(persistToken);
+      const { data } = await Api.get('users/current');
+      return data;
+    } catch (err) {
+      token.unset();
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
 export const userLogOut = createAsyncThunk(
   'user/logOut',
   async (_, thunkAPI) => {
     try {
       // token.set(persistToken);
-      const { data } = await Api.post('auth/sign-out');
+      const { data } = await Api.delete('auth/sign-out');
+      console.log('DATA LOG_OUT:  ', data);
       token.unset();
       return data;
     } catch (error) {
