@@ -7,7 +7,7 @@ import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 
 const Navigation = () => {
   const viewport = useSelector(selectViewPort);
-  console.log('viewport', viewport);
+
   return (
     <div className={css.navigation}>
       <NavLink to="home">Home</NavLink>
