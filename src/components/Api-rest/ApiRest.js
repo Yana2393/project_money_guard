@@ -14,7 +14,7 @@ import {
 import { getCategories } from 'redux/TransactionCategories/TransactionCategorOperations';
 import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
 
-const Api_rest = () => {
+const ApiRest = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     username: '',
@@ -180,4 +180,4 @@ const Api_rest = () => {
   );
 };
 
-export default Api_rest;
+export default ApiRest;
