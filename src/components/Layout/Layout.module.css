@@ -1,0 +1,30 @@
+.layOut {
+  display: flex;
+  flex-direction: column;
+}
+.navigate_balance {
+  background-color: #daadad;
+}
+.VisiblePageCurrency {
+  background-color: #8d7171;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .position {
+    display: flex;
+  }
+  .navigate_balance {
+    flex: 1;
+  }
+  .VisiblePageCurrency {
+    flex: 1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .layOut {
+    flex-direction: row;
+  }
+  .navigate_balance {
+    width: 480px;
+  }
+}
