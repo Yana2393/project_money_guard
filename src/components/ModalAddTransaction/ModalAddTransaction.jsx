@@ -1,15 +1,17 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 
 const ModalAddTransaction = () => {
+  const modalRoot = document.getElementById("modal-root");
   const status = {
     Income: 'income',
     Expence: 'expence',
   };
 
-  const handleChange = () => {};
-
-  return (
-    <div>
+  const handleChange = () => { };
+  
+  const jsx = <div>
       <section>
         <h2>Add transaction</h2>
         <label>
@@ -34,6 +36,9 @@ const ModalAddTransaction = () => {
         </label>
       </section>
     </div>
+
+  return createPortal(jsx,modalRoot)
+    
   );
 };
 
