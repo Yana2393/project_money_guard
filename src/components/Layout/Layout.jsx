@@ -10,7 +10,7 @@ import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 
 const Layout = () => {
   const viewport = useSelector(selectViewPort);
-  console.log('viewport', viewport);
+
   return (
     <div>
       <Header />
