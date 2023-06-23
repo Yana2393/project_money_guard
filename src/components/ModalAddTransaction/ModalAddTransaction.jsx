@@ -35,7 +35,6 @@ const ModalAddTransaction = () => {
         comment,
       };
       dispatch(transaction);
-      console.log(values);
       resetForm();
     },
   });
@@ -44,8 +43,8 @@ const ModalAddTransaction = () => {
 
   const jsx = (
     <>
+      <h1>Add transaction</h1>
       <div>
-        <h2>Add transaction</h2>
         <label>
           Income
           <input
