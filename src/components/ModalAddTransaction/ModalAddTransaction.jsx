@@ -3,9 +3,18 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import css from './ModalAddTransaction.module.css';
+import { useState } from 'react';
 
 const ModalAddTransaction = () => {
-  const modalRoot = document.getElementById('modal-root');
+  const [transaction, setTransaction] = useState({
+    transactionDate: '',
+    type: '',
+    categoryId: '',
+    comment: '',
+    amount: '',
+  });
+
+  // const modalRoot = document.getElementById('modal-root');
   const status = {
     Income: 'income',
     Expence: 'expence',
@@ -41,7 +50,7 @@ const ModalAddTransaction = () => {
 
   const handleChange = () => {};
 
-  const jsx = (
+  return (
     <>
       <h1>Add transaction</h1>
       <div>
@@ -123,6 +132,7 @@ const ModalAddTransaction = () => {
     </>
   );
 
-  return createPortal(jsx, modalRoot);
+  // return createPortal(jsx, modalRoot);
+  // return <div> Modal AddModal</div>;
 };
 export default ModalAddTransaction;

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import css from './ ModalAddTransaction.module.css';
+import css from './ModalBackground.module.css';
 
-const Modal = ({ children }, onCloseModal) => {
+const ModalBackground = ({ children }, onCloseModal) => {
   useEffect(() => {
     const handleKeydown = e => {
       if (e.key === 'Escape') {
@@ -29,9 +29,9 @@ const Modal = ({ children }, onCloseModal) => {
       <div className={css.modalContent} onClick={handleBackdrop}>
         <button type="button" onClick={onCloseModal} aria-label="close" />
 
-        <div className={css.modaBody}>{children}</div>
+        <div className={css.modalBody}>{children}</div>
       </div>
     </>
   );
 };
-export default Modal;
+export default ModalBackground;
