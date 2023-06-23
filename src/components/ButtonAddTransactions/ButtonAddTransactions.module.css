@@ -1,0 +1,22 @@
+@import url(../../index.css);
+
+.button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(
+    110deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button:hover,
+.button:focus {
+  background: var(--color-gradient-btn);
+}
