@@ -1,9 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import css from './RegistrationForm.module.css';
+import css from './ModalAddTransaction.module.css';
 
 const ModalAddTransaction = () => {
   const modalRoot = document.getElementById('modal-root');
@@ -35,7 +34,7 @@ const ModalAddTransaction = () => {
         date,
         comment,
       };
-      dispatch(registrationUser(transaction));
+      dispatch(transaction);
       console.log(values);
       resetForm();
     },
