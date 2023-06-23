@@ -19,7 +19,6 @@ const ModalAddTransaction = () => {
     Income: 'income',
     Expence: 'expence',
   };
-  
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -33,7 +32,7 @@ const ModalAddTransaction = () => {
   const formik = useFormik({
     initialValues: {
       sum: '',
-      date: 'Today',
+      date: 'Date.now()',
       comment: '',
     },
     validationSchema: validationSchema,
@@ -51,12 +50,17 @@ const ModalAddTransaction = () => {
 
   const handleChange = () => {};
 
+  const closeModal = () => {};
+
   return (
     <>
+      <button type="button" onClick={closeModal}>
+        X
+      </button>
       <h1>Add transaction</h1>
       <SwitchExample typeOfTransaction={typeOfTransaction} />
 
-      <form>
+      <form className={css.form}>
         <div>
           <input
             className={css.input}
