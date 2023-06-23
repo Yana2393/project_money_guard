@@ -3,7 +3,9 @@ import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registrationUser } from 'redux/Auth/authOperations';
+import { AiOutlineLock, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 import css from './RegistrationForm.module.css';
+import { PasswordIndicator } from 'react-passcode-strength-bar';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -12,17 +14,20 @@ const RegistrationForm = () => {
       .string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
-      .required('Required'),
-    email: yup.string().email('Invalid email').required('Required'),
+      .required('You forgot to enter your name'),
+    email: yup
+      .string()
+      .email('Invalid email')
+      .required('You forgot to enter your email'),
     password: yup
       .string()
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
-      .required('Required'),
+      .required('You forgot to enter your password'),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref('password'), null], 'Passwords must match')
-      .required('Required'),
+      .required('You forgot confirm your password'),
   });
   const formik = useFormik({
     initialValues: {
@@ -48,9 +53,11 @@ const RegistrationForm = () => {
   return (
     <form className={css.form} onSubmit={formik.handleSubmit}>
       <div>
+        <span>
+          <AiOutlineUser className={css.icons_name} />
+        </span>
         <input
-          // id="username"
-          className={css.input}
+          className={css.input_name}
           placeholder="Name"
           name="username"
           type="text"
@@ -59,14 +66,16 @@ const RegistrationForm = () => {
           value={formik.values.username}
         />
         {formik.touched.username && formik.errors.username ? (
-          <div>{formik.errors.username}</div>
+          <div className={css.error_message}>{formik.errors.username}</div>
         ) : null}
       </div>
       <div>
+        <span>
+          <AiOutlineMail className={css.icons_email} />
+        </span>
         <input
-          // id="email"
           className={css.input}
-          placeholder="Email"
+          placeholder="E-mail"
           name="email"
           type="text"
           onChange={formik.handleChange}
@@ -74,13 +83,15 @@ const RegistrationForm = () => {
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div className={css.error_message}>{formik.errors.email}</div>
         ) : null}
       </div>
 
       <div>
+        <span>
+          <AiOutlineLock className={css.icons_password} />
+        </span>
         <input
-          // id="password"
           className={css.input}
           placeholder="Password"
           name="password"
@@ -90,13 +101,15 @@ const RegistrationForm = () => {
           value={formik.values.password}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
+          <div className={css.error_message}>{formik.errors.password}</div>
         ) : null}
       </div>
 
       <div>
+        <span>
+          <AiOutlineLock className={css.icons_confirmpassword} />
+        </span>
         <input
-          // id="confirmPassword"
           className={css.input}
           placeholder="Confirm password"
           name="confirmPassword"
@@ -106,10 +119,25 @@ const RegistrationForm = () => {
           value={formik.values.confirmPassword}
         />
         {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-          <div>{formik.errors.confirmPassword}</div>
+          <div className={css.error_message}>
+            {formik.errors.confirmPassword}
+          </div>
         ) : null}
       </div>
-      <div>Status</div>
+      <div className={css.strength_bar}>
+        <PasswordIndicator
+          password={formik.values.password}
+          show={true}
+          indicate={value => console.log(value)}
+          colorConfig={{ strong: 'green', moderate: 'black', weak: 'yellow' }}
+          containerStyle={{
+            borderRadius: '10px',
+            padding: '3px',
+            width: '280px',
+            height: '5px',
+          }}
+        />
+      </div>
       <div className={css.navig}>
         <button className={css.button} type="submit">
           <span className={css.tittle}>REGISTER</span>
