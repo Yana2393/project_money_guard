@@ -70,6 +70,7 @@ const ApiRest = () => {
     console.log('user', user);
   };
   const userLog_Out = () => {
+    console.log('user logged out');
     dispatch(userLogOut());
   };
   const transactionUser = () => {

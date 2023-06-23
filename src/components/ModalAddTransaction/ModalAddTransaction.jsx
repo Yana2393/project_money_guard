@@ -127,5 +127,4 @@ const ModalAddTransaction = () => {
 
   return createPortal(jsx, modalRoot);
 };
-
 export default ModalAddTransaction;
