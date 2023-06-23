@@ -1,4 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import { AiFillHome } from 'react-icons/ai';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import css from './Navigation.module.css';
 // import VisibleNavLincCurrency from 'components/VisibleNavLincCurrency/VisibleNavLincCurrency';
@@ -10,11 +13,39 @@ const Navigation = () => {
 
   return (
     <div className={css.navigation}>
-      <NavLink to="home">Home</NavLink>
-      <NavLink to="statistic">Statistics</NavLink>
-      {/* <VisibleNavLincCurrency> */}
-      {viewport.mobile && <NavLink to="currency">Currency</NavLink>}
-      {/* </VisibleNavLincCurrency> */}
+      <NavLink
+        to="home"
+        className={({ isActive }) =>
+          isActive ? `${css.link} ${css.active}` : `${css.link}`
+        }
+      >
+        <div className={css.navigationBtn}>
+          <AiFillHome /> {!viewport.mobile && <span>Home</span>}
+        </div>
+      </NavLink>
+      <NavLink
+        to="statistic"
+        className={({ isActive }) =>
+          isActive ? `${css.link} ${css.active}` : `${css.link}`
+        }
+      >
+        <div className={css.navigationBtn}>
+          <TimelineIcon /> {!viewport.mobile && <span>Statistics</span>}
+        </div>
+      </NavLink>
+
+      {viewport.mobile && (
+        <NavLink
+          to="currency"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : `${css.link}`
+          }
+        >
+          <div className={css.navigationBtn}>
+            <AttachMoneyIcon />
+          </div>
+        </NavLink>
+      )}
     </div>
   );
 };

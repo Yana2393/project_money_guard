@@ -17,6 +17,7 @@ import { financeReducer } from './Finance/financeSlice';
 import { viewportReducer } from './Viewport/viewportSlice';
 import { TransactionCategoriesReducer } from './TransactionCategories/TransactionCategoriesSlice';
 import { TransactionSummaryControllerReduser } from './TransactionSummaryController/TransactionSummaryControllerSlice';
+import { ModalAddOpenReduser } from './ModalAddOpen/ModalAddOpenSlice';
 
 const persistConfigAuth = {
   key: 'auth',
@@ -34,6 +35,7 @@ export const store = configureStore({
     viewport: viewportReducer,
     transaction_categories: TransactionCategoriesReducer,
     transaction_summary_controller: TransactionSummaryControllerReduser,
+    modalAddOpen: ModalAddOpenReduser,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
