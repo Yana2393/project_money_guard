@@ -13,20 +13,39 @@ const Navigation = () => {
 
   return (
     <div className={css.navigation}>
-      <NavLink to="home">
-        <AiFillHome /> Home
+      <NavLink
+        to="home"
+        className={({ isActive }) =>
+          isActive ? `${css.link} ${css.active}` : `${css.link}`
+        }
+      >
+        <div className={css.navigationBtn}>
+          <AiFillHome /> {!viewport.mobile && <span>Home</span>}
+        </div>
       </NavLink>
-      <NavLink to="statistic">
-        <TimelineIcon /> Statistics
+      <NavLink
+        to="statistic"
+        className={({ isActive }) =>
+          isActive ? `${css.link} ${css.active}` : `${css.link}`
+        }
+      >
+        <div className={css.navigationBtn}>
+          <TimelineIcon /> {!viewport.mobile && <span>Statistics</span>}
+        </div>
       </NavLink>
-      {/* <VisibleNavLincCurrency> */}
+
       {viewport.mobile && (
-        <NavLink to="currency">
-          {' '}
-          <AttachMoneyIcon />
+        <NavLink
+          to="currency"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : `${css.link}`
+          }
+        >
+          <div className={css.navigationBtn}>
+            <AttachMoneyIcon />
+          </div>
         </NavLink>
       )}
-      {/* </VisibleNavLincCurrency> */}
     </div>
   );
 };

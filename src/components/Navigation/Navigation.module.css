@@ -1,5 +1,31 @@
+@import url('../../index.css');
+
 .navigation {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 12px 0;
+}
+.navigationBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 5px;
+  background: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.link {
+  background: var(--color-white-40);
+  border-radius: 5px;
+  color: var(--color-blue-gradient-some);
+}
+.active {
+  background: var(--color-violet);
+  border-radius: 5px;
+  color: white;
 }
 @media screen and (max-width: 768px) {
   .navigation {

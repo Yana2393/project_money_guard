@@ -35,7 +35,6 @@ const App = () => {
     }
     // dispatch(fetchContacts());
   }, [dispatch, token]);
-  console.log('open modal= ', openModal);
 
   return isRefresher ? (
     <Loader />
@@ -57,10 +56,10 @@ const App = () => {
               path="/transaction/:transactionId"
               element={<ModalAddTransaction />}
             ></Route>
-            <Route
+            {/* <Route
               path="/transaction/add_transaction"
               element={<ModalAddTransaction />}
-            ></Route>
+            ></Route> */}
             <Route path="*" element={<Navigate to="/home" />}></Route>
           </Routes>
         </div>
