@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 body {
   margin: 0;
@@ -9,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 
 :root {
   --color-gradient-btn: linear-gradient(167deg, #FFC727 0%, #9E40BA 61.46%, #7000FF 90.54%);
