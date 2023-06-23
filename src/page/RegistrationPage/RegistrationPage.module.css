@@ -1,12 +1,57 @@
 @media screen and (max-width: 320px) {
+  .registration {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/mobile/mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .registration {
+      background-image: url(../../images/mobile/mobile@2x.jpg);
+    }
+  }
 }
 /* mobile */
 @media screen and (min-width: 375px) {
+  .registration {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/mobile/mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .registration {
+      background-image: url(../../images/mobile/mobile@2x.jpg);
+    }
+  }
 }
 
 /* tablet */
 
 @media screen and (min-width: 768px) {
+  .registration {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/tablet/register_tablet.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .registration {
+      background-image: url(../../images/tablet/register_tablet@2x.jpg);
+    }
+  }
 }
 /* десктоп */
 
