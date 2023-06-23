@@ -84,10 +84,10 @@ const ApiRest = () => {
   const addTransact = () => {
     const transaction = {
       transactionDate: new Date(),
-      type: 'INCOME',
-      categoryId: '063f1132-ba5d-42b4-951d-44011ca46262',
-      comment: '5 оплата  проплата ',
-      amount: 55550,
+      type: 'EXPENSE',
+      categoryId: 'c9d9e447-1b83-4238-8712-edc77b18b739',
+      comment: 'gggggg  jjj   yyyyyy',
+      amount: -450,
     };
     dispatch(addTransaction(transaction));
   };

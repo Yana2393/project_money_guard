@@ -1,4 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import { AiFillHome } from 'react-icons/ai';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import css from './Navigation.module.css';
 // import VisibleNavLincCurrency from 'components/VisibleNavLincCurrency/VisibleNavLincCurrency';
@@ -10,10 +13,19 @@ const Navigation = () => {
 
   return (
     <div className={css.navigation}>
-      <NavLink to="home">Home</NavLink>
-      <NavLink to="statistic">Statistics</NavLink>
+      <NavLink to="home">
+        <AiFillHome /> Home
+      </NavLink>
+      <NavLink to="statistic">
+        <TimelineIcon /> Statistics
+      </NavLink>
       {/* <VisibleNavLincCurrency> */}
-      {viewport.mobile && <NavLink to="currency">Currency</NavLink>}
+      {viewport.mobile && (
+        <NavLink to="currency">
+          {' '}
+          <AttachMoneyIcon />
+        </NavLink>
+      )}
       {/* </VisibleNavLincCurrency> */}
     </div>
   );
