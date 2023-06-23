@@ -11,34 +11,60 @@ import Example from './Example/Example';
 import StatisticPage from 'page/StatisticPage/StatisticPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/Auth/authOperations';
-import { selectIsRefresher } from 'redux/Auth/authSelector';
+import { selectIsRefresher, selectToken } from 'redux/Auth/authSelector';
 import { Loader } from './Loader/Loader';
+import { getTransaction } from 'redux/Transaction/transactionOperation';
+import { getCategories } from 'redux/TransactionCategories/TransactionCategorOperations';
+import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
+
+import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
+import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
+  const token = useSelector(selectToken);
+  const openModal = useSelector(modalAddOpen);
   useEffect(() => {
     dispatch(refreshUser());
+    if (token) {
+      console.log('Token: ', token);
+      dispatch(getTransaction());
+      dispatch(getCategories());
+      dispatch(getSummary({ month: 6, year: 2023 }));
+    }
     // dispatch(fetchContacts());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return isRefresher ? (
     <Loader />
   ) : (
-    <Example>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="/home" />}></Route>
-            <Route path="/home" element={<DashboardPage />}></Route>
-            <Route path="/statistic" element={<StatisticPage />}></Route>
-            <Route path="/currency" element={<CurrencyPage />}></Route>
-          </Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/registration" element={<RegistrationPage />}></Route>
-        </Routes>
-      </div>
-    </Example>
+    <>
+      {openModal && <ModalAddTransaction />}
+      <Example>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Navigate to="/home" />}></Route>
+              <Route path="/home" element={<DashboardPage />}></Route>
+              <Route path="/statistic" element={<StatisticPage />}></Route>
+              <Route path="/currency" element={<CurrencyPage />}></Route>
+            </Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/registration" element={<RegistrationPage />}></Route>
+            <Route
+              path="/transaction/:transactionId"
+              element={<ModalAddTransaction />}
+            ></Route>
+            {/* <Route
+              path="/transaction/add_transaction"
+              element={<ModalAddTransaction />}
+            ></Route> */}
+            <Route path="*" element={<Navigate to="/home" />}></Route>
+          </Routes>
+        </div>
+      </Example>
+    </>
   );
 };
 

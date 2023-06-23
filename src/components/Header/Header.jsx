@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className={css.header}>
       Header Headre
-      <button> Log Out</button>
+      <button> ВИЙТИ</button>
     </div>
   );
 };
