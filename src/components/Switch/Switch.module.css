@@ -1,0 +1,24 @@
+.radioBtnSpan {
+  color: rgb(149, 0, 255);
+  padding: 0 24px;
+  font-size: 24px;
+  text-align: center;
+  align-items: middle;
+  line-height: 30px;
+}
+
+.switchContainer {
+  background-color: rgb(182, 182, 192);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 100%;
+}
+
+.radioBtnLabel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

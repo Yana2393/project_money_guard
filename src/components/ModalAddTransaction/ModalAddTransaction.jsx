@@ -1,24 +1,25 @@
-import { createPortal } from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import css from './ModalAddTransaction.module.css';
 import { useState } from 'react';
+import { SwitchExample } from '../Switch/Switch';
+
+import css from './ModalAddTransaction.module.css';
 
 const ModalAddTransaction = () => {
   const [transaction, setTransaction] = useState({
     transactionDate: '',
-    type: '',
+    type: 'false',
     categoryId: '',
     comment: '',
     amount: '',
   });
 
-  // const modalRoot = document.getElementById('modal-root');
-  const status = {
+  const typeOfTransaction = {
     Income: 'income',
     Expence: 'expence',
   };
+  
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -53,28 +54,8 @@ const ModalAddTransaction = () => {
   return (
     <>
       <h1>Add transaction</h1>
-      <div>
-        <label>
-          Income
-          <input
-            type="radio"
-            checked={status === status.Income}
-            name="income"
-            value={status.Income}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Expence
-          <input
-            type="radio"
-            checked={status === status.Expence}
-            name="expence"
-            value={status.Expence}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
+      <SwitchExample typeOfTransaction={typeOfTransaction} />
+
       <form>
         <div>
           <input
@@ -107,7 +88,6 @@ const ModalAddTransaction = () => {
         </div>
         <div>
           <input
-            // id="username"
             className={css.input}
             placeholder="____________"
             name="comment"
@@ -131,8 +111,5 @@ const ModalAddTransaction = () => {
       </form>
     </>
   );
-
-  // return createPortal(jsx, modalRoot);
-  // return <div> Modal AddModal</div>;
 };
 export default ModalAddTransaction;
