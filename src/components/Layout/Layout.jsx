@@ -21,9 +21,7 @@ const Layout = () => {
             <Balance />
           </div>
           <div className={css.VisiblePageCurrency}>
-            {/* <VisiblePageCurrency> */}
             {!viewport.mobile && <CurrencyPage />}
-            {/* </VisiblePageCurrency> */}
           </div>
         </div>
 
