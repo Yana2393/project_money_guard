@@ -12,9 +12,11 @@ const Layout = () => {
   const viewport = useSelector(selectViewPort);
 
   return (
-    <div>
+    <>
       <Header />
+
       <div className={css.layOut}>
+        {/* <div className="container"> */}
         <div className={css.position}>
           <div className={css.navigate_balance}>
             <Navigation />
@@ -24,10 +26,10 @@ const Layout = () => {
             {!viewport.mobile && <CurrencyPage />}
           </div>
         </div>
-
         <Outlet />
+        {/* </div> */}
       </div>
-    </div>
+    </>
   );
 };
 

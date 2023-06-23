@@ -1,4 +1,24 @@
 .header {
-  /* height: 100px; */
-  background-color: antiquewhite;
+  height: 60px;
+  width: 320px;
+  background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
+  margin: 0 auto;
+}
+
+/* @media screen and (min-width: 375px) {
+  .header {
+    width: 375px;
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 80px;
+    width: 768px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header {
+    width: 1280px;
+  }
 }
