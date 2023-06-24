@@ -39,12 +39,12 @@ const Navigation = () => {
       currency: true,
     });
   };
-  console.log(
-    'viewport.mobile ',
-    viewport.mobile,
-    ' iconActive.currency:',
-    iconActive.currency
-  );
+  // console.log(
+  //   'viewport.mobile ',
+  //   viewport.mobile,
+  //   ' iconActive.currency:',
+  //   iconActive.currency
+  // );
 
   return (
     <>

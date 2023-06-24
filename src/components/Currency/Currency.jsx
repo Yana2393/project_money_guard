@@ -19,12 +19,12 @@ const Currency = () => {
           <th>Purchase</th>
           <th>Sale</th>
         </tr>
-        <tr>
+        <tr className={css.margin}>
           <td>USD</td>
           <td>usdPurch</td>
           <td>usdSale</td>
         </tr>
-        <tr>
+        <tr className={css.margin}>
           <td>EUR</td>
           <td>eurPurch</td>
           <td>eurSale</td>
