@@ -19,7 +19,7 @@ export const getCurrency = createAsyncThunk(
 
     try {
       const { data } = await ApiCurrency.get();
-      console.log('Currensy Data: ', data);
+
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);

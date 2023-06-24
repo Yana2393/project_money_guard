@@ -19,6 +19,10 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
+import PublicRoute from './PublicRoute/PublicRoute';
+import LoginForm from './LoginForm/LoginForm';
+import RegistrationForm from './RegistrationForm/RegistrationForm';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,27 +47,60 @@ const App = () => {
     <>
       {openModal && <ModalAddTransaction />}
       <Example>
-        {/* <div className="container"> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/home" />}></Route>
-            <Route path="/home" element={<DashboardPage />}></Route>
-            <Route path="/statistic" element={<StatisticPage />}></Route>
-            <Route path="/currency" element={<CurrencyPage />}></Route>
+
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<DashboardPage />}
+                />
+              }
+            ></Route>
+            <Route
+              path="/statistic"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<StatisticPage />}
+                />
+              }
+            ></Route>
+            <Route
+              path="/currency"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<CurrencyPage />}
+                />
+              }
+            ></Route>
           </Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/registration" element={<RegistrationPage />}></Route>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute redirectTo="/home" component={<LoginForm />} />
+            }
+          ></Route>
+          <Route
+            path="/registration"
+            element={
+              <PublicRoute
+                redirectTo="/home"
+                component={<RegistrationForm />}
+              />
+            }
+          ></Route>
           <Route
             path="/transaction/:transactionId"
             element={<ModalAddTransaction />}
           ></Route>
-          {/* <Route
-              path="/transaction/add_transaction"
-              element={<ModalAddTransaction />}
-            ></Route> */}
+
           <Route path="*" element={<Navigate to="/home" />}></Route>
         </Routes>
-        {/* </div> */}
       </Example>
     </>
   );
