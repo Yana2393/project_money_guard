@@ -15,7 +15,7 @@ const HomeTab = () => {
   const categories = useSelector(selectTransactionCategories);
   const dispatch = useDispatch();
 
-  const isMobile = useMediaQuery({ query: '(min-width: 375px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   const handleDeleteClick = id => {
     dispatch(deleteTransaction(id));
@@ -26,7 +26,7 @@ const HomeTab = () => {
 
   return (
     <div className={css.HomeTabPage}>
-      {!isMobile ? (
+      {isMobile ? (
         <ul>
           {transactionData.map(transaction => {
             return (
