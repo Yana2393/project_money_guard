@@ -21,6 +21,8 @@ import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
 
+// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
+
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
