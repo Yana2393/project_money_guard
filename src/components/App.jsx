@@ -19,19 +19,22 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+import { selectCurrency } from 'redux/Currency/CurrencySelectors';
+import { getCurrency } from 'redux/Currency/CurrencyOperations';
 
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
+
   useEffect(() => {
     dispatch(refreshUser());
     if (token) {
-      console.log('Token: ', token);
       dispatch(getTransaction());
       dispatch(getCategories());
       dispatch(getSummary({ month: 6, year: 2023 }));
+      dispatch(getCurrency());
     }
     // dispatch(fetchContacts());
   }, [dispatch, token]);

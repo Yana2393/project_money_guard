@@ -11,3 +11,7 @@ export const token = {
     Api.defaults.headers.common.Authorization = '';
   },
 };
+
+export const ApiCurrency = axios.create({
+  baseURL: 'https://api.monobank.ua/bank/currency',
+});
