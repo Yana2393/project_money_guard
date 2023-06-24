@@ -1,3 +1,4 @@
+@import url('../../index.css');
 .header {
   height: 60px;
   width: 320px;
@@ -14,6 +15,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.headerBtn {
+  border: none;
+  background: inherit;
+  color: var(--color-white-60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.headerRigth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white-60);
+  gap: 12px;
+}
+.iconBtn {
+  width: 18px;
+  height: 18px;
+  color: var(--color-white-60);
+}
+
+.userText {
+  font-size: 16px;
+  color: inherit;
 }
 @media screen and (max-width: 320px) {
   .header {
