@@ -1,0 +1,98 @@
+.HomeTabMobileItem {
+  margin-top: 8px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  background: rgba(47, 21, 176, 0.73);
+  position: relative;
+}
+
+.HomeTabMobileItem:nth-child(1) {
+  margin-top: 32px;
+}
+
+.HomeTabMobileSideLine {
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background-color: var(--color-dashboard-text);
+  rotate: 90deg;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  transform: translate(142px, 157px);
+  z-index: 2;
+}
+
+.HomeTabMobileTableItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  height: 48px;
+}
+
+.HomeTabMobileTableHeader {
+  color: var(--color-white);
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 600;
+}
+
+.HomeTabMobileTableBottomLine {
+  position: absolute;
+  width: 280px;
+  transform: translate(-7%, 24px);
+  border-bottom: 1px solid;
+  border-color: #ffffff, #ffffff;
+}
+.HomeTabMobileTableValue {
+  color: var(--color-white);
+  text-align: right;
+  font-size: 16px;
+  font-family: Poppins;
+}
+.income {
+  color: var(--color-yellow);
+  font-weight: 600;
+}
+.outcome {
+  color: var(--color-dashboard-text);
+  font-weight: 600;
+}
+.HomeTabMobileDeleteBtn {
+  display: inline-flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border: 0px;
+  border-radius: 18px;
+  background: var(--color-gradient-btn);
+
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+}
+.HomeTabMobileDeleteBtnText {
+  color: var(--color-white);
+  text-align: center;
+  font-size: 14px;
+  font-family: Poppins;
+}
+.HomeTabMobileEditBtn {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background-color: inherit;
+  border: 0px;
+}
+.HomeTabMobileEditIcon {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-white-60);
+}
+.HomeTabMobileEdit {
+  color: var(--color-white-60);
+  text-align: center;
+  font-size: 16px;
+  font-family: Poppins;
+  letter-spacing: 0.32px;
+}

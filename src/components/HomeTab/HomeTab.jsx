@@ -27,52 +27,83 @@ const HomeTab = () => {
   return (
     <div className={css.HomeTabPage}>
       {isMobile ? (
-        <ul>
+        <ul className={css.HomeTabMobileList}>
           {transactionData.map(transaction => {
             return (
-              <li key={transaction.id}>
-                <ul>
-                  <li>
-                    <p>Date</p>
-                    <p>{transaction.transactionDate}</p>
-                  </li>
-                  <li>
-                    <p>Type</p>
-                    <p>{transaction.type === 'INCOME' ? '+' : '-'}</p>
-                  </li>
-                  <li>
-                    <p>Category</p>
-                    <p>
-                      {categories.map(category =>
-                        category.id === transaction.categoryId ? (
-                          category.name
-                        ) : (
-                          <></>
-                        )
-                      )}
-                    </p>
-                  </li>
-                  <li>
-                    <p>Comment</p>
-                    <p>{transaction.comment}</p>
-                  </li>
-                  <li>
-                    <p>Sum</p>
-                    <p>{transaction.amount}</p>
-                  </li>
-                  <li>
-                    <button>Delete</button>
-                    <button
-                      onClick={() =>
-                        handleEditClick(transaction.id, transaction)
-                      }
-                    >
-                      <EditOutlinedIcon color="info" />
-                      <p>Edit</p>
-                    </button>
-                  </li>
-                </ul>
-              </li>
+              <>
+                <li key={transaction.id} className={css.HomeTabMobileItem}>
+                  <span className={css.HomeTabMobileSideLine}></span>
+                  <ul className={css.HomeTabMobileTableList}>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <p className={css.HomeTabMobileTableHeader}>Date</p>
+                      <p className={css.HomeTabMobileTableValue}>
+                        {transaction.transactionDate}
+                      </p>
+                      <span className={css.HomeTabMobileTableBottomLine}></span>
+                    </li>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <p className={css.HomeTabMobileTableHeader}>Type</p>
+                      <p className={css.HomeTabMobileTableValue}>
+                        {transaction.type === 'INCOME' ? '+' : '-'}
+                      </p>
+                      <span className={css.HomeTabMobileTableBottomLine}></span>
+                    </li>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <p className={css.HomeTabMobileTableHeader}>Category</p>
+                      <p className={css.HomeTabMobileTableValue}>
+                        {categories.map(category =>
+                          category.id === transaction.categoryId ? (
+                            category.name
+                          ) : (
+                            <></>
+                          )
+                        )}
+                      </p>
+                      <span className={css.HomeTabMobileTableBottomLine}></span>
+                    </li>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <p className={css.HomeTabMobileTableHeader}>Comment</p>
+                      <p className={css.HomeTabMobileTableValue}>
+                        {transaction.comment}
+                      </p>
+                      <span className={css.HomeTabMobileTableBottomLine}></span>
+                    </li>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <p className={css.HomeTabMobileTableHeader}>Sum</p>
+                      <p
+                        className={
+                          transaction.type === 'INCOME'
+                            ? `${css.HomeTabMobileTableValue} ${css.income}`
+                            : `${css.HomeTabMobileTableValue} ${css.outcome}`
+                        }
+                      >
+                        {transaction.amount}
+                      </p>
+                      <span className={css.HomeTabMobileTableBottomLine}></span>
+                    </li>
+                    <li className={css.HomeTabMobileTableItem}>
+                      <button
+                        onClick={() => handleDeleteClick(transaction.id)}
+                        className={css.HomeTabMobileDeleteBtn}
+                      >
+                        <p className={css.HomeTabMobileDeleteBtnText}>Delete</p>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleEditClick(transaction.id, transaction)
+                        }
+                        className={css.HomeTabMobileEditBtn}
+                      >
+                        <EditOutlinedIcon
+                          color="info"
+                          className={css.HomeTabMobileEditIcon}
+                        />
+                        <p className={css.HomeTabMobileEdit}>Edit</p>
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </>
             );
           })}
         </ul>
