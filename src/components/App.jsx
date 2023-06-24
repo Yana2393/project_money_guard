@@ -24,6 +24,8 @@ import LoginForm from './LoginForm/LoginForm';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
+// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
+
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);

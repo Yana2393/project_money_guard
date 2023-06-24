@@ -54,27 +54,10 @@ const RegistrationForm = () => {
     <form className={css.form} onSubmit={formik.handleSubmit}>
       <div>
         <span>
-          <AiOutlineUser className={css.icons_name} />
-        </span>
-        <input
-          className={css.input_name}
-          placeholder="Name"
-          name="username"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.username}
-        />
-        {formik.touched.username && formik.errors.username ? (
-          <div className={css.error_message}>{formik.errors.username}</div>
-        ) : null}
-      </div>
-      <div>
-        <span>
           <AiOutlineMail className={css.icons_email} />
         </span>
         <input
-          className={css.input}
+          className={css.input_name}
           placeholder="E-mail"
           name="email"
           type="text"
@@ -137,6 +120,23 @@ const RegistrationForm = () => {
             height: '5px',
           }}
         />
+      </div>
+      <div>
+        <span>
+          <AiOutlineUser className={css.icons_name} />
+        </span>
+        <input
+          className={css.input_last}
+          placeholder="Name"
+          name="username"
+          type="text"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.username}
+        />
+        {formik.touched.username && formik.errors.username ? (
+          <div className={css.error_message}>{formik.errors.username}</div>
+        ) : null}
       </div>
       <div className={css.navig}>
         <button className={css.button} type="submit">
