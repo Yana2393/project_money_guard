@@ -19,7 +19,13 @@ const Header = () => {
     <div className={css.header}>
       <div className="container">
         <div className={css.headerInfo}>
-          <img src={logo} alt="logo" width="86px" height="36px" />
+          <img
+            className={css.logo}
+            src={logo}
+            alt="logo"
+            width="86px"
+            height="36px"
+          />
           <div className={css.headerRigth}>
             <span className={css.userText}>
               {currentUser?.username && currentUser.username}
