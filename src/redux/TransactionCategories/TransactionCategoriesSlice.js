@@ -2,7 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getCategories } from './TransactionCategorOperations';
 
 const initialState = {
-  categories: [],
+  categories: [
+    {
+      id: '2',
+      name: 'Gift',
+      type: 'INCOME',
+    },
+  ],
   isLoading: false,
   isError: '',
 };
