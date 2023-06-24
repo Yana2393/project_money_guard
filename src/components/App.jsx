@@ -19,6 +19,7 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
   const dispatch = useDispatch();
