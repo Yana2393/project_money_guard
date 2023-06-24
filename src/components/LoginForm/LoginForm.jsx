@@ -4,16 +4,20 @@ import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import { loginUser } from 'redux/Auth/authOperations';
 import { useDispatch } from 'react-redux';
+import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
-    email: yup.string().email('Invalid email').required('Required'),
+    email: yup
+      .string()
+      .email('Invalid email')
+      .required('You forgot to enter your email address'),
     password: yup
       .string()
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
-      .required('Required'),
+      .required('You forgot to enter your password'),
   });
   const formik = useFormik({
     initialValues: {
@@ -31,10 +35,12 @@ const LoginForm = () => {
   return (
     <form className={css.form} onSubmit={formik.handleSubmit}>
       <div>
+        <span>
+          <AiOutlineMail className={css.icons_email} />
+        </span>
         <input
-          className={css.input}
-          // id="email"
-          placeholder="Email"
+          className={css.input_email}
+          placeholder="E-mail"
           name="email"
           type="text"
           onChange={formik.handleChange}
@@ -42,14 +48,16 @@ const LoginForm = () => {
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div className={css.error_message}>{formik.errors.email}</div>
         ) : null}
       </div>
 
       <div>
+        <span>
+          <AiOutlineLock className={css.icons_password} />
+        </span>
         <input
           className={css.input}
-          // id="password"
           placeholder="Password"
           name="password"
           type="password"
@@ -58,7 +66,7 @@ const LoginForm = () => {
           value={formik.values.password}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
+          <div className={css.error_message}>{formik.errors.password}</div>
         ) : null}
       </div>
       <div className={css.navig}>

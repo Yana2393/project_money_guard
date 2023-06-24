@@ -1,12 +1,57 @@
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
+  .login {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/mobile/mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .login {
+      background-image: url(../../images/mobile/mobile@2x.jpg);
+    }
+  }
 }
 /* mobile */
 @media screen and (min-width: 375px) {
+  .login {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/mobile/mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .login {
+      background-image: url(../../images/mobile/mobile@2x.jpg);
+    }
+  }
 }
 
 /* tablet */
 
 @media screen and (min-width: 768px) {
+  .login {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../images/tablet/login_tablet.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .login {
+      background-image: url(../../images/tablet/login_tablet@2x.jpg);
+    }
+  }
 }
 /* десктоп */
 
