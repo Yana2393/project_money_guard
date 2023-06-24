@@ -4,51 +4,111 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import css from './Navigation.module.css';
-// import VisibleNavLincCurrency from 'components/VisibleNavLincCurrency/VisibleNavLincCurrency';
+
 import { useSelector } from 'react-redux';
 import { selectViewPort } from 'redux/Viewport/viewportSelectors';
+import { useState } from 'react';
+import { Balance } from '@mui/icons-material';
 
 const Navigation = () => {
   const viewport = useSelector(selectViewPort);
+  const [iconActive, setIconActive] = useState({
+    home: false,
+    statistics: false,
+    currency: false,
+  });
+
+  const handleActiveHome = () => {
+    setIconActive({
+      home: true,
+      statistics: false,
+      currency: false,
+    });
+  };
+  const handleActiveStatistics = () => {
+    setIconActive({
+      home: false,
+      statistics: true,
+      currency: false,
+    });
+  };
+  const handleActiveCurrency = () => {
+    setIconActive({
+      home: false,
+      statistics: false,
+      currency: true,
+    });
+  };
 
   return (
-    <div className={css.navigation}>
-      <NavLink
-        to="home"
-        className={({ isActive }) =>
-          isActive ? `${css.link} ${css.active}` : `${css.link}`
-        }
-      >
-        <div className={css.navigationBtn}>
-          <AiFillHome className={css.home} />
-          {!viewport.mobile && <span>Home</span>}
+    <>
+      <div className={css.navigation}>
+        <div className={css.navigation_block}>
+          <NavLink
+            to="home"
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : `${css.link}`
+            }
+            onClick={handleActiveHome}
+          >
+            <div className={css.navigationBtn}>
+              <AiFillHome className={css.home} />
+            </div>
+          </NavLink>
+          {!viewport.mobile && (
+            <span
+              className={
+                iconActive.home
+                  ? `${css.navigationBtnText} ${css.navigationBtnTextActive}`
+                  : `${css.navigationBtnText}`
+              }
+            >
+              Home
+            </span>
+          )}
         </div>
-      </NavLink>
-      <NavLink
-        to="statistic"
-        className={({ isActive }) =>
-          isActive ? `${css.link} ${css.active}` : `${css.link}`
-        }
-      >
-        <div className={css.navigationBtn}>
-          <TimelineIcon sx={{ fontSize: 24 }} />{' '}
-          {!viewport.mobile && <span>Statistics</span>}
+        <div className={css.navigation_block}>
+          <NavLink
+            to="statistic"
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : `${css.link}`
+            }
+            onClick={handleActiveStatistics}
+          >
+            <div className={css.navigationBtn}>
+              <TimelineIcon
+                sx={viewport.mobile ? { fontSize: 24 } : { fontSize: 18 }}
+              />
+            </div>
+          </NavLink>
+          {!viewport.mobile && (
+            <span
+              className={
+                iconActive.statistics
+                  ? `${css.navigationBtnText} ${css.navigationBtnTextActive}`
+                  : `${css.navigationBtnText}`
+              }
+            >
+              Statistics
+            </span>
+          )}
         </div>
-      </NavLink>
-
-      {viewport.mobile && (
-        <NavLink
-          to="currency"
-          className={({ isActive }) =>
-            isActive ? `${css.link} ${css.active}` : `${css.link}`
-          }
-        >
-          <div className={css.navigationBtn}>
-            <AttachMoneyIcon sx={{ fontSize: 24 }} />
-          </div>
-        </NavLink>
-      )}
-    </div>
+        {viewport.mobile && (
+          <NavLink
+            to="currency"
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : `${css.link}`
+            }
+            onClick={handleActiveCurrency}
+          >
+            <div className={css.navigationBtn}>
+              <AttachMoneyIcon sx={{ fontSize: 24 }} />
+            </div>
+          </NavLink>
+        )}
+      </div>
+      {!viewport.mobile && !iconActive.currency && <Balance />}
+    </>
   );
 };
 
