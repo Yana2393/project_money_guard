@@ -16,7 +16,6 @@ import { Loader } from './Loader/Loader';
 import { getTransaction } from 'redux/Transaction/transactionOperation';
 import { getCategories } from 'redux/TransactionCategories/TransactionCategorOperations';
 import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
-
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
