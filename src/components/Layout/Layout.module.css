@@ -1,18 +1,24 @@
 @import url('../../index.css');
 
 .layOut {
+  width: 320px;
   display: flex;
   flex-direction: column;
   background: var(--color-backgroundMain);
+  margin: 0 auto;
 }
-.navigate_balance {
-  /* background-color: #daadad; */
+
+@media screen and (max-width: 320px) {
+  .layOut {
+    max-width: 320px;
+  }
 }
-.VisiblePageCurrency {
-  /* background-color: #8d7171; */
-}
-.position {
-  width: 100%;
+/* mobile */
+@media screen and (min-width: 320px) {
+  .layOut {
+    width: 280px;
+    padding: 0 20px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -25,10 +31,16 @@
   .VisiblePageCurrency {
     flex: 1;
   }
+  .layOut {
+    width: 704px;
+    padding: 0 32px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .layOut {
     flex-direction: row;
+    width: 1248px;
+    padding: 0 16px;
   }
   .navigate_balance {
     width: 480px;

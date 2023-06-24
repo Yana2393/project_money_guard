@@ -20,7 +20,8 @@ const Navigation = () => {
         }
       >
         <div className={css.navigationBtn}>
-          <AiFillHome /> {!viewport.mobile && <span>Home</span>}
+          <AiFillHome className={css.home} />
+          {!viewport.mobile && <span>Home</span>}
         </div>
       </NavLink>
       <NavLink
@@ -30,7 +31,8 @@ const Navigation = () => {
         }
       >
         <div className={css.navigationBtn}>
-          <TimelineIcon /> {!viewport.mobile && <span>Statistics</span>}
+          <TimelineIcon sx={{ fontSize: 24 }} />{' '}
+          {!viewport.mobile && <span>Statistics</span>}
         </div>
       </NavLink>
 
@@ -42,7 +44,7 @@ const Navigation = () => {
           }
         >
           <div className={css.navigationBtn}>
-            <AttachMoneyIcon />
+            <AttachMoneyIcon sx={{ fontSize: 24 }} />
           </div>
         </NavLink>
       )}

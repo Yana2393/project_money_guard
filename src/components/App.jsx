@@ -42,27 +42,27 @@ const App = () => {
     <>
       {openModal && <ModalAddTransaction />}
       <Example>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Navigate to="/home" />}></Route>
-              <Route path="/home" element={<DashboardPage />}></Route>
-              <Route path="/statistic" element={<StatisticPage />}></Route>
-              <Route path="/currency" element={<CurrencyPage />}></Route>
-            </Route>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/registration" element={<RegistrationPage />}></Route>
-            <Route
-              path="/transaction/:transactionId"
-              element={<ModalAddTransaction />}
-            ></Route>
-            {/* <Route
+        {/* <div className="container"> */}
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Navigate to="/home" />}></Route>
+            <Route path="/home" element={<DashboardPage />}></Route>
+            <Route path="/statistic" element={<StatisticPage />}></Route>
+            <Route path="/currency" element={<CurrencyPage />}></Route>
+          </Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/registration" element={<RegistrationPage />}></Route>
+          <Route
+            path="/transaction/:transactionId"
+            element={<ModalAddTransaction />}
+          ></Route>
+          {/* <Route
               path="/transaction/add_transaction"
               element={<ModalAddTransaction />}
             ></Route> */}
-            <Route path="*" element={<Navigate to="/home" />}></Route>
-          </Routes>
-        </div>
+          <Route path="*" element={<Navigate to="/home" />}></Route>
+        </Routes>
+        {/* </div> */}
       </Example>
     </>
   );
