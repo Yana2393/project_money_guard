@@ -19,7 +19,6 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { selectCurrency } from 'redux/Currency/CurrencySelectors';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
 
 const App = () => {
