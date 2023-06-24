@@ -20,8 +20,6 @@ import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
 import PublicRoute from './PublicRoute/PublicRoute';
-import LoginForm from './LoginForm/LoginForm';
-import RegistrationForm from './RegistrationForm/RegistrationForm';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 // import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
@@ -84,7 +82,7 @@ const App = () => {
           <Route
             path="/login"
             element={
-              <PublicRoute redirectTo="/home" component={<LoginForm />} />
+              <PublicRoute redirectTo="/home" component={<LoginPage />} />
             }
           ></Route>
           <Route
@@ -92,7 +90,7 @@ const App = () => {
             element={
               <PublicRoute
                 redirectTo="/home"
-                component={<RegistrationForm />}
+                component={<RegistrationPage />}
               />
             }
           ></Route>
