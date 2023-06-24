@@ -8,7 +8,7 @@ import css from './Navigation.module.css';
 import { useSelector } from 'react-redux';
 import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 import { useState } from 'react';
-import { Balance } from '@mui/icons-material';
+import Balance from 'components/Balance/Balance';
 
 const Navigation = () => {
   const viewport = useSelector(selectViewPort);
@@ -39,6 +39,12 @@ const Navigation = () => {
       currency: true,
     });
   };
+  console.log(
+    'viewport.mobile ',
+    viewport.mobile,
+    ' iconActive.currency:',
+    iconActive.currency
+  );
 
   return (
     <>
@@ -107,7 +113,8 @@ const Navigation = () => {
           </NavLink>
         )}
       </div>
-      {!viewport.mobile && !iconActive.currency && <Balance />}
+
+      {!viewport.mobile ? <Balance /> : !iconActive.currency && <Balance />}
     </>
   );
 };

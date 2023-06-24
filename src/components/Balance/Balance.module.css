@@ -1,27 +1,42 @@
-.Balance{
-    background: #523B7E99;
-    padding-left: 56px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-
-    font-family: Poppins;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0em;
-    text-align: left;
-
-    color: #FFFFFF66;
-    /* кольорова гамма зміниться коли буде фон */
-
+.Balance {
+  background: #523b7e99;
+  padding-left: 32px;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  color: #ffffff66;
+  /* кольорова гамма зміниться коли буде фон */
 }
 
-.Money{
-    font-family: Poppins;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 45px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #FBFBFB;
+.Money {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fbfbfb;
+}
+.total {
+  color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .Balance {
+    padding-left: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .Balance {
+    padding-left: 56px;
+    margin-left: -16px;
+    border-radius: 0;
+  }
 }

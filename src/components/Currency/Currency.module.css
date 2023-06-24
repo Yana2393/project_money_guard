@@ -1,0 +1,45 @@
+.CurrencyPage {
+  height: 200px;
+  /* background-color: rgb(231, 201, 201); */
+}
+
+.Currency th {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fbfbfb;
+}
+.Currency td {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fbfbfb;
+}
+.Currency {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+.Currency th {
+  height: 56px;
+  text-align: center;
+  background-color: #ffffff33;
+  padding: 0px;
+}
+.Currency td {
+  padding: 12px;
+  height: 24px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1280px) {
+  .CurrencyPage {
+    margin-left: -16px;
+  }
+}

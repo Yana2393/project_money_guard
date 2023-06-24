@@ -8,8 +8,10 @@ import {
 
 const initialState = {
   user: {
-    name: '',
+    balance: '',
     email: '',
+    id: '',
+    username: '',
   },
   token: null,
   balance: 0,
