@@ -1,21 +1,17 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
 import { updateTransaction } from 'redux/Transaction/transactionOperation';
 import css from './ModalEditTransaction.module.css';
 import { useState } from 'react';
-import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+// import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
-import { selectTransaction } from 'redux/Transaction/transactionSelectors';
+// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+// import { selectTransaction } from 'redux/Transaction/transactionSelectors';
 
 const ModalEditTransaction = typeOfTransaction => {
-  const transCategory = useSelector(selectTransactionCategories);
-  // console.log('selectTransactionCategories :>> ', selectTransactionCategories);
-  const allTransactions = useSelector(selectTransaction);
-  // console.log('allTransactions :>> ', allTransactions);
   const transactionId = '1bbf56eb-f888-4d26-b132-4266e866e44d';
 
   const [type, setType] = useState('INCOME');

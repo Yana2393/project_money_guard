@@ -27,7 +27,7 @@ const ModalBackground = ({ children }, onCloseModal) => {
   };
   return createPortal(
     <>
-      <div className={css.modalBackdrop} />
+      <div className={css.modalBack} />
       <div className={css.modalContent} onClick={handleBackdrop}>
         <button type="button" onClick={onCloseModal} aria-label="close" />
 

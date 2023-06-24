@@ -8,10 +8,10 @@ import css from './ModalAddTransaction.module.css';
 import { useState } from 'react';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 
 const ModalAddTransaction = typeOfTransaction => {
-  const transCategory = useSelector(selectTransactionCategories);
+  // const transCategory = useSelector(selectTransactionCategories);
   const [type, setType] = useState('INCOME');
   const [categoryId, setCategoryId] = useState(
     '3acd0ecd-5295-4d54-8e7c-d3908f4d0402'

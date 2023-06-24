@@ -13,7 +13,7 @@ export class SwitchExample extends Component {
 
   handleChange(checked) {
     this.setState({ checked });
-    const typeOfTransaction = this.state.checked;
+    // const typeOfTransaction = this.state.checked;
     // console.log({ typeOfTransaction });
   }
 
