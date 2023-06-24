@@ -1,119 +1,127 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { SwitchExample } from '../Switch/Switch';
-
+import { addTransaction } from 'redux/Transaction/transactionOperation';
 import css from './ModalAddTransaction.module.css';
+import { useState } from 'react';
+import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 
-const ModalAddTransaction = () => {
-  const [transaction, setTransaction] = useState({
-    transactionDate: '',
-    type: 'false',
-    categoryId: '',
-    comment: '',
-    amount: '',
-  });
+const ModalAddTransaction = typeOfTransaction => {
+  const transCategory = useSelector(selectTransactionCategories);
+  const [type, setType] = useState('INCOME');
+  const [categoryId, setCategoryId] = useState(
+    '3acd0ecd-5295-4d54-8e7c-d3908f4d0402'
+  );
 
-  const typeOfTransaction = {
-    Income: 'income',
-    Expence: 'expence',
-  };
+  // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
-    sum: yup
+    amount: yup
       .string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
+      // .min(2, 'Too Short!')
+      // .max(50, 'Too Long!')
       .required('Required'),
-    date: yup.string().email('Invalid date').required('Required'),
+    transactionDate: yup
+      .date()
+      // .transactionDate('Invalid date')
+      .required('Required'),
   });
   const formik = useFormik({
     initialValues: {
-      sum: '',
-      date: 'Date.now()',
+      sum: '0.00',
+      transactionDate: 'Date()',
       comment: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      const { sum, date, comment } = values;
+      const { amount, transactionDate, comment } = values;
       const transaction = {
-        sum,
-        date,
+        amount,
+        transactionDate,
         comment,
+        categoryId,
+        type,
       };
-      dispatch(transaction);
+      dispatch(addTransaction(transaction));
       resetForm();
     },
   });
 
-  const handleChange = () => {};
-
-  const closeModal = () => {};
+  const closeModal = () => {
+    dispatch(toggleOpenAdd());
+  };
+  const statusModal = useSelector(modalAddOpen);
+  console.log(statusModal);
 
   return (
-    <>
-      <button type="button" onClick={closeModal}>
-        X
-      </button>
-      <h1>Add transaction</h1>
-      <SwitchExample typeOfTransaction={typeOfTransaction} />
+    statusModal && (
+      <>
+        <button className={css.closeBtn} type="button" onClick={closeModal}>
+          X
+        </button>
+        <h1 className={css.addModalTitle}>Add transaction</h1>
+        <SwitchExample typeOfTransaction={typeOfTransaction} />
 
-      <form className={css.form}>
-        <div>
-          <input
-            className={css.input}
-            placeholder="____________"
-            name="sum"
-            type="number"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.sum}
-          />
-          {formik.touched.sum && formik.errors.sum ? (
-            <div>{formik.errors.sum}</div>
-          ) : null}
-        </div>
+        <form className={css.form} onSubmit={formik.handleSubmit}>
+          <div>
+            <input
+              className={css.input}
+              placeholder=""
+              name="amount"
+              type="number"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.amount}
+            />
+            {formik.touched.amount && formik.errors.amount ? (
+              <div>{formik.errors.amoount}</div>
+            ) : null}
+          </div>
 
-        <div>
-          <input
-            className={css.input}
-            placeholder="__________"
-            name="date"
-            type="date"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.date}
-          />
-          {formik.touched.date && formik.errors.date ? (
-            <div>{formik.errors.date}</div>
-          ) : null}
-        </div>
-        <div>
-          <input
-            className={css.input}
-            placeholder="____________"
-            name="comment"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.comment}
-          />
-          {formik.touched.comment && formik.errors.comment ? (
-            <div>{formik.errors.comment}</div>
-          ) : null}
-        </div>
-        <div className={css.navig}>
-          <button className={css.button} type="submit">
-            <span className={css.tittle}>ADD</span>
-          </button>
-          <button className={css.button} type="submit">
-            <span className={css.tittle}>CANCEL</span>
-          </button>
-        </div>
-      </form>
-    </>
+          <div>
+            <input
+              className={css.input}
+              placeholder=""
+              name="transactionDate"
+              type="date"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.transactionDate}
+            />
+            {formik.touched.transactionDate && formik.errors.transactionDate ? (
+              <div>{formik.errors.transactionDate}</div>
+            ) : null}
+          </div>
+          <div>
+            <input
+              className={css.input}
+              placeholder="Comment"
+              name="comment"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.comment}
+            />
+            {formik.touched.comment && formik.errors.comment ? (
+              <div>{formik.errors.comment}</div>
+            ) : null}
+          </div>
+          <div className={css.navig}>
+            <button className={css.button} type="submit">
+              <span className={css.tittle}>ADD</span>
+            </button>
+            <button className={css.button} type="submit">
+              <span className={css.tittle}>CANCEL</span>
+            </button>
+          </div>
+        </form>
+      </>
+    )
   );
 };
 export default ModalAddTransaction;

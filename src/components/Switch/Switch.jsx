@@ -3,7 +3,6 @@ import Switch from 'react-switch';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import css from './Switch.module.css';
-// import { useDispatch } from 'react-redux';
 
 export class SwitchExample extends Component {
   constructor() {
@@ -15,7 +14,7 @@ export class SwitchExample extends Component {
   handleChange(checked) {
     this.setState({ checked });
     const typeOfTransaction = this.state.checked;
-    console.log({ typeOfTransaction });
+    // console.log({ typeOfTransaction });
   }
 
   render() {

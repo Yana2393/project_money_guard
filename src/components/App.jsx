@@ -19,6 +19,7 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
     if (token) {
-      console.log('Token: ', token);
+      // console.log('Token: ', token);
       dispatch(getTransaction());
       dispatch(getCategories());
       dispatch(getSummary({ month: 6, year: 2023 }));
@@ -54,7 +55,7 @@ const App = () => {
             <Route path="/registration" element={<RegistrationPage />}></Route>
             <Route
               path="/transaction/:transactionId"
-              element={<ModalAddTransaction />}
+              element={<ModalEditTransaction />}
             ></Route>
             {/* <Route
               path="/transaction/add_transaction"
