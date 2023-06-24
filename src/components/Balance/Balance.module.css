@@ -37,5 +37,6 @@
   .Balance {
     padding-left: 56px;
     margin-left: -16px;
+    border-radius: 0;
   }
 }

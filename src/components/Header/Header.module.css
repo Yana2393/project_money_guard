@@ -19,11 +19,16 @@
 .headerBtn {
   border: none;
   background: inherit;
+  border-radius: 8px;
   color: var(--color-white-60);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
+}
+.headerBtn:hover,
+.headerBtn:hover:focus {
+  background: #2e225f;
 }
 .headerRigth {
   display: flex;
