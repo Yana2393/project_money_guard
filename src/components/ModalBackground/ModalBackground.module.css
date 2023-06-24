@@ -10,7 +10,7 @@
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .registration {
+    .modalBack {
       background-image: url(../../images/mobile/mobile@2x.jpg);
     }
   }
@@ -28,7 +28,7 @@
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .registration {
+    .modalBack {
       background-image: url(../../images/mobile/mobile@2x.jpg);
     }
   }
@@ -48,7 +48,7 @@
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .registration {
+    .modalBack {
       background-image: url(../../images/tablet/register_tablet@2x.jpg);
     }
   }
@@ -67,7 +67,7 @@
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .registration {
+    .modalBack {
       background-image: url(../../images/desktop/register_destop@2x.jpg);
     }
   }

@@ -56,7 +56,7 @@ const ModalEditTransaction = typeOfTransaction => {
   });
 
   const closeModal = () => {
-    dispatch(toggleOpenAdd());
+    // dispatch(toggleOpenAdd());
   };
 
   return (

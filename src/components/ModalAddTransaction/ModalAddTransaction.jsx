@@ -11,8 +11,10 @@ import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
 // import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 
 const ModalAddTransaction = typeOfTransaction => {
+  const [type, setType] = useState(false);
+
   // const transCategory = useSelector(selectTransactionCategories);
-  const [type, setType] = useState('INCOME');
+  // const [type, setType] = useState('INCOME');
   const [categoryId, setCategoryId] = useState(
     '3acd0ecd-5295-4d54-8e7c-d3908f4d0402'
   );
@@ -52,11 +54,16 @@ const ModalAddTransaction = typeOfTransaction => {
     },
   });
 
+  const getStatusType = value => {
+    setType(value);
+    console.log('type', value);
+  };
+
   const closeModal = () => {
-    dispatch(toggleOpenAdd());
+    // dispatch(toggleOpenAdd());
   };
   const statusModal = useSelector(modalAddOpen);
-  console.log(statusModal);
+  // console.log(statusModal);
 
   return (
     statusModal && (
@@ -65,7 +72,12 @@ const ModalAddTransaction = typeOfTransaction => {
           X
         </button>
         <h1 className={css.addModalTitle}>Add transaction</h1>
-        <SwitchExample typeOfTransaction={typeOfTransaction} />
+        <SwitchExample
+          getStatusType={getStatusType}
+          typeOfTransaction={typeOfTransaction}
+        />
+
+        {!type && <div>SELECT</div>}
 
         <form className={css.form} onSubmit={formik.handleSubmit}>
           <div>
