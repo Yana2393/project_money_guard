@@ -16,8 +16,8 @@
   width: 100%;
   background-color: var(--color-dashboard-text);
   rotate: 90deg;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   transform: translate(142px, 157px);
   z-index: 2;
 }
