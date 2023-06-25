@@ -44,7 +44,7 @@ export const userLogOut = createAsyncThunk(
     try {
       // token.set(persistToken);
       const { data } = await Api.delete('auth/sign-out');
-      console.log('DATA LOG_OUT:  ', data);
+
       token.unset();
       return data;
     } catch (error) {

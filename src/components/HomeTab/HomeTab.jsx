@@ -9,6 +9,8 @@ import { selectTransactionCategories } from 'redux/TransactionCategories/Transac
 import css from './HomeTab.module.css';
 import { useMediaQuery } from 'react-responsive';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+//import { refreshUser } from 'redux/Auth/authOperations';
+import { updateBalance } from 'redux/Auth/authSlice';
 
 const HomeTab = () => {
   const transactionData = useSelector(selectTransaction);
@@ -17,8 +19,9 @@ const HomeTab = () => {
 
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
-  const handleDeleteClick = id => {
-    dispatch(deleteTransaction(id));
+  const handleDeleteClick = transaction => {
+    dispatch(deleteTransaction(transaction));
+    dispatch(updateBalance(transaction.amount));
   };
   const handleEditClick = (id, body) => {
     dispatch(updateTransaction(id, body));
@@ -108,7 +111,11 @@ const HomeTab = () => {
           })}
         </ul>
       ) : (
-        <table>
+<<<<<<< Updated upstream
+        <table className={css.table}>
+=======
+        <table className={css.HomeTabTable}>
+>>>>>>> Stashed changes
           <thead>
             <tr>
               <th>Date</th>
@@ -122,7 +129,7 @@ const HomeTab = () => {
           <tbody>
             {transactionData.map(transaction => {
               return (
-                <tr key={transaction.id}>
+                <tr key={transaction.id} className={css.HomeTabTableRow}>
                   <td>{transaction.transactionDate}</td>
                   <td>{transaction.type === 'INCOME' ? '+' : '-'}</td>
                   <td>
@@ -135,16 +142,35 @@ const HomeTab = () => {
                     )}
                   </td>
                   <td>{transaction.comment}</td>
-                  <td>{transaction.amount}</td>
+                  <td
+                    className={
+                      transaction.type === 'INCOME'
+                        ? `${css.income}`
+                        : `${css.outcome}`
+                    }
+                  >
+                    {transaction.amount}
+                  </td>
                   <td>
                     <button
                       onClick={() =>
                         handleEditClick(transaction.id, transaction)
                       }
+                      className={css.HomeTabTableEditBtn}
                     >
-                      <EditOutlinedIcon color="info" />
+                      <EditOutlinedIcon
+                        color="info"
+                        className={css.HomeTabTableEditIcon}
+                      />
                     </button>
-                    <button onClick={() => handleDeleteClick(transaction.id)}>
+<<<<<<< Updated upstream
+                    <button onClick={() => handleDeleteClick(transaction)}>
+=======
+                    <button
+                      onClick={() => handleDeleteClick(transaction.id)}
+                      className={css.HomeTabTableDeleteBtn}
+                    >
+>>>>>>> Stashed changes
                       Delete
                     </button>
                   </td>

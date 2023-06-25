@@ -14,7 +14,7 @@ export const getCategories = createAsyncThunk(
       //     return thunk_Api.rejectWithValue('No token');
       //   }
       const { data } = await Api.get('transaction-categories');
-      console.log('getCategories: ', data);
+
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);

@@ -18,14 +18,24 @@ import { viewportReducer } from './Viewport/viewportSlice';
 import { TransactionCategoriesReducer } from './TransactionCategories/TransactionCategoriesSlice';
 import { TransactionSummaryControllerReduser } from './TransactionSummaryController/TransactionSummaryControllerSlice';
 import { ModalAddOpenReduser } from './ModalAddOpen/ModalAddOpenSlice';
+import { CurrencyReducer } from './Currency/CurrencySlice';
 
 const persistConfigAuth = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
+const persistConfigCurrencyDate = {
+  key: 'currencyDate',
+  storage,
+  whitelist: ['dataCurrency', 'currency'],
+};
 
 const persistedAuthReducer = persistReducer(persistConfigAuth, authReducer);
+const persistedCurrencyReducer = persistReducer(
+  persistConfigCurrencyDate,
+  CurrencyReducer
+);
 
 export const store = configureStore({
   reducer: {
@@ -36,6 +46,7 @@ export const store = configureStore({
     transaction_categories: TransactionCategoriesReducer,
     transaction_summary_controller: TransactionSummaryControllerReduser,
     modalAddOpen: ModalAddOpenReduser,
+    currency: persistedCurrencyReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

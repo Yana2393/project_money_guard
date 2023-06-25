@@ -1,67 +1,67 @@
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+// import { useFormik } from 'formik';
+// import * as yup from 'yup';
+// import { useDispatch } from 'react-redux';
 
-import { SwitchExample } from '../Switch/Switch';
-import { updateTransaction } from 'redux/Transaction/transactionOperation';
-import css from './ModalEditTransaction.module.css';
-import { useState } from 'react';
-// import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
-// import { selectTransaction } from 'redux/Transaction/transactionSelectors';
+// import { SwitchExample } from '../Switch/Switch';
+// import { updateTransaction } from 'redux/Transaction/transactionOperation';
+// import css from './ModalEditTransaction.module.css';
+// import { useState } from 'react';
+// // import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+// import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+// // import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+// // import { selectTransaction } from 'redux/Transaction/transactionSelectors';
 
-const ModalEditTransaction = typeOfTransaction => {
-  const transactionId = '1bbf56eb-f888-4d26-b132-4266e866e44d';
+//const ModalEditTransaction = typeOfTransaction => {
+// const transactionId = '1bbf56eb-f888-4d26-b132-4266e866e44d';
 
-  const [type, setType] = useState('INCOME');
-  const [categoryId, setCategoryId] = useState(
-    '3acd0ecd-5295-4d54-8e7c-d3908f4d0402'
-  );
+// const [type, setType] = useState('INCOME');
+// const [categoryId, setCategoryId] = useState(
+//   '3acd0ecd-5295-4d54-8e7c-d3908f4d0402'
+// );
 
-  // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
-  // console.log('type :>> ', type);
+// // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
+// // console.log('type :>> ', type);
 
-  const dispatch = useDispatch();
-  const validationSchema = yup.object().shape({
-    amount: yup
-      .string()
-      // .min(2, 'Too Short!')
-      // .max(50, 'Too Long!')
-      .required('Required'),
-    transactionDate: yup
-      .date()
-      // .transactionDate('Invalid date')
-      .required('Required'),
-  });
-  const formik = useFormik({
-    initialValues: {
-      sum: '0.00',
-      transactionDate: 'Date()',
-      comment: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      const { amount, transactionDate, comment } = values;
-      const transaction = {
-        amount,
-        transactionDate,
-        comment,
-        categoryId,
-        type,
-      };
-      dispatch(updateTransaction({ transactionId, transaction }));
-      resetForm();
-    },
-  });
+// const dispatch = useDispatch();
+// const validationSchema = yup.object().shape({
+//   amount: yup
+//     .string()
+//     // .min(2, 'Too Short!')
+//     // .max(50, 'Too Long!')
+//     .required('Required'),
+//   transactionDate: yup
+//     .date()
+//     // .transactionDate('Invalid date')
+//     .required('Required'),
+// });
+// const formik = useFormik({
+//   initialValues: {
+//     sum: '0.00',
+//     transactionDate: 'Date()',
+//     comment: '',
+//   },
+//   validationSchema: validationSchema,
+//   onSubmit: (values, { resetForm }) => {
+//     const { amount, transactionDate, comment } = values;
+//     const transaction = {
+//       amount,
+//       transactionDate,
+//       comment,
+//       categoryId,
+//       type,
+//     };
+//     dispatch(updateTransaction({ transactionId, transaction }));
+//     resetForm();
+//   },
+// });
 
-  const closeModal = () => {
-    // dispatch(toggleOpenAdd());
-  };
+// const closeModal = () => {
+//   // dispatch(toggleOpenAdd());
+// };
 
-  return (
-    <>
-      <button className={css.closeBtn} type="button" onClick={closeModal}>
+//return (
+<>
+  {/* <button className={css.closeBtn} type="button" onClick={closeModal}>
         X
       </button>
       <h1 className={css.addModalTitle}>Edit transaction</h1>
@@ -119,8 +119,8 @@ const ModalEditTransaction = typeOfTransaction => {
             <span className={css.tittle}>CANCEL</span>
           </button>
         </div>
-      </form>
-    </>
-  );
-};
-export default ModalEditTransaction;
+      </form> */}
+</>;
+// );
+//};
+//export default ModalEditTransaction;
