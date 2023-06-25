@@ -111,11 +111,7 @@ const HomeTab = () => {
           })}
         </ul>
       ) : (
-<<<<<<< Updated upstream
-        <table className={css.table}>
-=======
         <table className={css.HomeTabTable}>
->>>>>>> Stashed changes
           <thead>
             <tr>
               <th>Date</th>
@@ -158,19 +154,12 @@ const HomeTab = () => {
                       }
                       className={css.HomeTabTableEditBtn}
                     >
-                      <EditOutlinedIcon
-                        color="info"
-                        className={css.HomeTabTableEditIcon}
-                      />
+                      <EditOutlinedIcon className={css.HomeTabTableEditIcon} />
                     </button>
-<<<<<<< Updated upstream
-                    <button onClick={() => handleDeleteClick(transaction)}>
-=======
                     <button
-                      onClick={() => handleDeleteClick(transaction.id)}
+                      onClick={() => handleDeleteClick(transaction)}
                       className={css.HomeTabTableDeleteBtn}
                     >
->>>>>>> Stashed changes
                       Delete
                     </button>
                   </td>
