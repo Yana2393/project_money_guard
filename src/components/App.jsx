@@ -36,10 +36,10 @@ const App = () => {
       dispatch(getTransaction());
       dispatch(getCategories());
 
-      const date = new Date();
-      dispatch(
-        getSummary({ month: date.getMonth(), year: date.getFullYear() })
-      );
+      // const date = new Date();
+      // dispatch(
+      //   getSummary({ month: date.getMonth(), year: date.getFullYear() })
+      // );
     }
   }, [dispatch, token]);
 
