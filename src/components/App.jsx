@@ -15,10 +15,10 @@ import { selectIsRefresher, selectToken } from 'redux/Auth/authSelector';
 import { Loader } from './Loader/Loader';
 import { getTransaction } from 'redux/Transaction/transactionOperation';
 import { getCategories } from 'redux/TransactionCategories/TransactionCategorOperations';
-import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
+
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { getCurrency } from 'redux/Currency/CurrencyOperations';
+
 import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
@@ -36,11 +36,7 @@ const App = () => {
       dispatch(getTransaction());
       dispatch(getCategories());
 
-      // const date = new Date();
-      // dispatch(
-      //   getSummary({ month: date.getMonth(), year: date.getFullYear() })
-      // );
-    }
+    
   }, [dispatch, token]);
 
   return isRefresher ? (
