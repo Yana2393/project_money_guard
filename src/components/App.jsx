@@ -33,7 +33,7 @@ const App = () => {
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
-  const isErrorLogin = useSelector(selectIsError);
+  const isErrorLoginRegistration = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -49,7 +49,7 @@ const App = () => {
 
   const handleToach = () => {
     console.log('error');
-    toast.error(isErrorLogin, {
+    toast.error(isErrorLoginRegistration, {
       position: toast.POSITION.TOP_CENTER,
     });
   };
