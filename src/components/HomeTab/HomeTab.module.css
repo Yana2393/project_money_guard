@@ -107,6 +107,7 @@
   }
   table {
     border-collapse: collapse;
+    width: 100%;
   }
   thead {
     border-radius: 8px;
@@ -200,7 +201,9 @@
     width: 715px;
   }
   .HomeTabPage {
-    padding-left: 69px;
     padding-top: 46px;
+  }
+  table {
+    margin-left: auto;
   }
 }
