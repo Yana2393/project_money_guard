@@ -34,9 +34,14 @@
   padding: 0px;
 }
 .Currency td {
-  padding: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   height: 24px;
   text-align: center;
+}
+
+.Diagram{  
+  position: relative;
 }
 
 @media screen and (min-width: 1280px) {
@@ -46,5 +51,11 @@
   .margin {
     margin-left: -16px;
     /* background: var(--color-whitw-10); */
+  }
+  .Diagram{
+    width: 480px;
+    height: 167px;
+    opacity: 60%;
+    position: relative;
   }
 }
