@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getCurrency } from 'redux/Currency/CurrencyOperations';
 import { updateDataCurrency } from 'redux/Currency/CurrencySlice';
-import { selectDataCurrency } from 'redux/Currency/CurrencySelectors';
+import { selectCurrency, selectDataCurrency } from 'redux/Currency/CurrencySelectors';
 
 const Currency = () => {
   const viewport = useSelector(selectViewPort);
@@ -13,6 +13,12 @@ const Currency = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const dataCurrency = useSelector(selectDataCurrency);
+
+  const currency = useSelector(selectCurrency);
+  const usdPurch = currency[0].rateBuy.toFixed(2)
+  const usdSale = currency[0].rateSell.toFixed(2)
+  const eurPurch = currency[1].rateBuy.toFixed(2)
+  const eurSale = currency[1].rateSell.toFixed(2)
 
   useEffect(() => {
     const getTime = new Date() - new Date(dataCurrency);
@@ -28,6 +34,8 @@ const Currency = () => {
   if (!viewport.mobile && location.pathname === '/currency') {
     navigate('/home');
   }
+
+
   return (
     <div className={css.CurrencyPage}>
       <table className={css.Currency}>
@@ -38,13 +46,13 @@ const Currency = () => {
         </tr>
         <tr className={css.margin}>
           <td>USD</td>
-          <td>usdPurch</td>
-          <td>usdSale</td>
+          <td>{usdPurch}</td>
+          <td>{usdSale}</td>
         </tr>
         <tr className={css.margin}>
           <td>EUR</td>
-          <td>eurPurch</td>
-          <td>eurSale</td>
+          <td>{eurPurch}</td>
+          <td>{eurSale}</td>
         </tr>
       </table>
     </div>
