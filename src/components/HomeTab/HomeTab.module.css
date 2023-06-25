@@ -1,0 +1,11 @@
+.table {
+  width: 100%;
+}
+
+@media screen and (min-width: 1280px) {
+  .HomeTabPage {
+    margin-top: 46px;
+    width: 715px;
+    margin-left: auto;
+  }
+}

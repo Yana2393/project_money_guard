@@ -77,7 +77,7 @@ const HomeTab = () => {
           })}
         </ul>
       ) : (
-        <table>
+        <table className={css.table}>
           <thead>
             <tr>
               <th>Date</th>
