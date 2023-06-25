@@ -11,15 +11,12 @@ import { selectTransactionCategories } from 'redux/TransactionCategories/Transac
 import css from './ModalAddTransaction.module.css';
 
 const ModalAddTransaction = typeOfTransaction => {
-  const [type, setType] = useState(false);
+  const [type, setType] = useState('EXPENSE');
 
   // const transCategory = useSelector(selectTransactionCategories);
-  // const [type, setType] = useState('INCOME');
   // const [categoryId, setCategoryId] = useState(
   const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
   // );
-
-  // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -35,11 +32,12 @@ const ModalAddTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      sum: '0.00',
+      amount: '0.00',
       transactionDate: 'Date()',
       comment: '',
     },
     validationSchema: validationSchema,
+
     onSubmit: (values, { resetForm }) => {
       const { amount, transactionDate, comment } = values;
       const transaction = {
@@ -53,10 +51,8 @@ const ModalAddTransaction = typeOfTransaction => {
       resetForm();
     },
   });
-
   const getStatusType = value => {
-    setType(value);
-    console.log('type', value);
+    setType({ value } ? 'INCOME' : 'EXPENSE');
   };
 
   const closeModal = () => {
@@ -68,48 +64,52 @@ const ModalAddTransaction = typeOfTransaction => {
     statusModal && (
       <div className={css.modalBody}>
         <button className={css.closeBtn} type="button" onClick={closeModal}>
-          X
+          <span className={css.closeIcon}>X</span>
         </button>
         <h1 className={css.addModalTitle}>Add transaction</h1>
-        <SwitchExample
-          getStatusType={getStatusType}
-          typeOfTransaction={typeOfTransaction}
-        />
+        <div className={css.switchWrapper}>
+          <SwitchExample
+            getStatusType={getStatusType}
+            typeOfTransaction={typeOfTransaction}
+          />
+        </div>
+        <form className={css.formModal} onSubmit={formik.handleSubmit}>
+          {/* {!type && <div><withFormik /></div>} */}
+          <div className={css.inputLine}>
+            <div>
+              <input
+                className={css.amountInput}
+                placeholder=""
+                name="amount"
+                type="number"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.amount}
+              />
+              {formik.touched.amount && formik.errors.amount ? (
+                <div>{formik.errors.amount}</div>
+              ) : null}
+            </div>
 
-        <form className={css.form} onSubmit={formik.handleSubmit}>
-          {!type && <div>{/* <withFormik /> */}</div>}
-          <div>
-            <input
-              className={css.input}
-              placeholder=""
-              name="amount"
-              type="number"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.amount}
-            />
-            {formik.touched.amount && formik.errors.amount ? (
-              <div>{formik.errors.amoount}</div>
-            ) : null}
-          </div>
-
-          <div>
-            <input
-              className={css.input}
-              placeholder=""
-              name="transactionDate"
-              type="date"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.transactionDate}
-            />
-            {formik.touched.transactionDate && formik.errors.transactionDate ? (
-              <div>{formik.errors.transactionDate}</div>
-            ) : null}
+            <div>
+              <input
+                className={css.dateInput}
+                placeholder=""
+                name="transactionDate"
+                type="date"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.transactionDate}
+              />
+              {formik.touched.transactionDate &&
+              formik.errors.transactionDate ? (
+                <div>{formik.errors.transactionDate}</div>
+              ) : null}
+            </div>
           </div>
           <div>
             <input
-              className={css.input}
+              className={css.commentInput}
               placeholder="Comment"
               name="comment"
               type="text"
@@ -125,7 +125,7 @@ const ModalAddTransaction = typeOfTransaction => {
             <button className={css.button} type="submit">
               <span className={css.tittle}>ADD</span>
             </button>
-            <button className={css.button} type="submit">
+            <button className={css.buttonCancel} type="button">
               <span className={css.tittle}>CANCEL</span>
             </button>
           </div>
