@@ -8,11 +8,10 @@
 }
 
 .switchContainer {
-  background-color: rgb(182, 182, 192);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  width: 400px;
+  width: 254px;
   height: 100%;
 }
 

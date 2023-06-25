@@ -1,5 +1,11 @@
 @media screen and (min-width: 320px) {
   .modalBack {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* height: 800px; */
     display: flex;
     justify-content: center;
     background-image: url(../../images/mobile/mobile.jpg);
@@ -72,3 +78,4 @@
     }
   }
 }
+/* ______________________________________________________________________ */

@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
 import { addTransaction } from 'redux/Transaction/transactionOperation';
-import css from './ModalAddTransaction.module.css';
 import { useState } from 'react';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-// import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+import css from './ModalAddTransaction.module.css';
 
 const ModalAddTransaction = typeOfTransaction => {
   const [type, setType] = useState(false);
@@ -60,14 +60,13 @@ const ModalAddTransaction = typeOfTransaction => {
   };
 
   const closeModal = () => {
-    // dispatch(toggleOpenAdd());
+    dispatch(toggleOpenAdd());
   };
   const statusModal = useSelector(modalAddOpen);
-  // console.log(statusModal);
 
   return (
     statusModal && (
-      <>
+      <div className={css.modalBody}>
         <button className={css.closeBtn} type="button" onClick={closeModal}>
           X
         </button>
@@ -77,9 +76,8 @@ const ModalAddTransaction = typeOfTransaction => {
           typeOfTransaction={typeOfTransaction}
         />
 
-        {!type && <div>SELECT</div>}
-
         <form className={css.form} onSubmit={formik.handleSubmit}>
+          {!type && <div>{/* <withFormik /> */}</div>}
           <div>
             <input
               className={css.input}
@@ -132,7 +130,7 @@ const ModalAddTransaction = typeOfTransaction => {
             </button>
           </div>
         </form>
-      </>
+      </div>
     )
   );
 };

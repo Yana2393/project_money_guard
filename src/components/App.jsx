@@ -19,6 +19,7 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
+import ModalBackground from './ModalBackground/ModalBackground';
 // import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
@@ -41,7 +42,11 @@ const App = () => {
     <Loader />
   ) : (
     <>
-      {openModal && <ModalAddTransaction />}
+      {openModal && (
+        <ModalBackground>
+          <ModalAddTransaction />
+        </ModalBackground>
+      )}
       <Example>
         <div className="container">
           <Routes>
