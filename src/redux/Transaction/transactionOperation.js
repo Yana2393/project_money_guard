@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import { refreshUser } from 'redux/Auth/authOperations';
 
 import { Api } from 'redux/api/Api';
-//import { token } from 'redux/api/Api';
 
 export const getTransaction = createAsyncThunk(
   'transaction/getTransaction',

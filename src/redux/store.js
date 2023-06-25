@@ -25,8 +25,17 @@ const persistConfigAuth = {
   storage,
   whitelist: ['token'],
 };
+const persistConfigCurrencyDate = {
+  key: 'currencyDate',
+  storage,
+  whitelist: ['dataCurrency', 'currency'],
+};
 
 const persistedAuthReducer = persistReducer(persistConfigAuth, authReducer);
+const persistedCurrencyReducer = persistReducer(
+  persistConfigCurrencyDate,
+  CurrencyReducer
+);
 
 export const store = configureStore({
   reducer: {
@@ -37,7 +46,7 @@ export const store = configureStore({
     transaction_categories: TransactionCategoriesReducer,
     transaction_summary_controller: TransactionSummaryControllerReduser,
     modalAddOpen: ModalAddOpenReduser,
-    currency: CurrencyReducer,
+    currency: persistedCurrencyReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
