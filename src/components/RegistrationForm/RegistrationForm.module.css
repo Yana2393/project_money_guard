@@ -4,7 +4,7 @@
     width: 320px;
     flex-direction: column;
     align-items: center;
-    background: var(rgba(255, 255, 255, 0.1));
+    background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(50px);
     background-image: url(../../images/logo.png);
@@ -26,7 +26,7 @@
     padding-right: 0;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-white-60);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -40,7 +40,7 @@
     font-size: 18px;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-white-60);
   }
   .input_name {
     display: flex;
@@ -55,7 +55,7 @@
     padding-right: 0;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-white-60);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -69,7 +69,7 @@
     font-size: 18px;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-white-60);
   }
   .input_last {
     display: flex;
@@ -83,7 +83,7 @@
     padding-right: 0;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-white-60);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -105,13 +105,13 @@
     border-radius: 20px;
     width: 280px;
     height: 50px;
-    color: #623f8b;
+    color: var(--color-text-button);
     text-align: center;
     font-size: 18px;
     letter-spacing: 1.8px;
     text-transform: uppercase;
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-    background-color: rgb(252, 252, 252);
+    background-color: var(--color-white);
   }
   .link:hover {
     background: rgb(252, 252, 252, 0.9);
@@ -120,7 +120,9 @@
     margin-top: 40px;
     width: 280px;
     height: 50px;
+    flex-shrink: 0;
     background: var(--color-gradient-btn);
+    box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 20px;
   }
@@ -134,7 +136,7 @@
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .tittle {
-    color: rgba(255, 255, 255, 1);
+    color: var(--color-white);
     text-align: center;
     font-size: 18px;
     letter-spacing: 1.8px;
@@ -143,7 +145,7 @@
   .error_message {
     position: absolute;
     left: 20px;
-    color: rgba(227, 228, 233, 1);
+    color: var(--color-white);
   }
   .icons_name {
     position: absolute;
@@ -151,7 +153,7 @@
     left: 25px;
     width: 24px;
     height: 24px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-white-40);
   }
   .icons_email {
     position: absolute;
@@ -159,7 +161,7 @@
     left: 25px;
     width: 24px;
     height: 24px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-white-40);
   }
   .icons_password {
     position: absolute;
@@ -167,7 +169,7 @@
     left: 25px;
     width: 24px;
     height: 24px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-white-40);
   }
   .icons_confirmpassword {
     position: absolute;
@@ -175,7 +177,7 @@
     left: 25px;
     width: 24px;
     height: 24px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-white-40);
   }
   .strength_bar {
     display: flex;
@@ -187,38 +189,6 @@
 }
 /* mobile */
 @media screen and (min-width: 375px) {
-  .form {
-    width: 375px;
-    background: var(rgba(255, 255, 255, 0.1));
-    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-    background-size: 128px 54px;
-    background-position-x: 116px;
-    background-position-y: 23px;
-  }
-  .error_message {
-    left: 62px;
-  }
-  .button {
-    margin-top: 52px;
-    width: 300px;
-    height: 50px;
-  }
-  .icons_name {
-    top: 381px;
-    left: 56px;
-  }
-  .icons_email {
-    top: 120px;
-    left: 56px;
-  }
-  .icons_password {
-    top: 197px;
-    left: 56px;
-  }
-  .icons_confirmpassword {
-    top: 278px;
-    left: 56px;
-  }
 }
 /* tablet */
 @media screen and (min-width: 768px) {
@@ -228,7 +198,7 @@
     padding-top: 188px;
     padding-bottom: 80px;
     margin: 205px 118px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-whitw-10);
     box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
     background-size: 182px 76px;
     background-position-x: 175px;
@@ -258,6 +228,9 @@
   .link {
     width: 300px;
     height: 50px;
+  }
+  .error_message {
+    left: 70px;
   }
   .icons_name {
     top: 447px;
