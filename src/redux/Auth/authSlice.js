@@ -58,8 +58,9 @@ export const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
+        console.log('ERROR ', payload);
         state.isLoading = false;
-        state.isError = payload.error;
+        state.isError = payload;
         state.isRefresher = false;
       })
       .addCase(refreshUser.pending, state => {
