@@ -86,7 +86,7 @@ const HomeTab = () => {
                     </li>
                     <li className={css.HomeTabMobileTableItem}>
                       <button
-                        onClick={() => handleDeleteClick(transaction.id)}
+                        onClick={() => handleDeleteClick(transaction)}
                         className={css.HomeTabMobileDeleteBtn}
                       >
                         <p className={css.HomeTabMobileDeleteBtnText}>Delete</p>
