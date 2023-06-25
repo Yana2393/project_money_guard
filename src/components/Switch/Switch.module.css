@@ -1,34 +1,19 @@
 .radioBtnSpan {
-  color: var(--color-white);
+  color: rgb(149, 0, 255);
   padding: 0 24px;
-  align-items: middle;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-/* .radioBtnSpanRight {
-  color: var(--color-white);
-  padding: 0 24px;
+  font-size: 24px;
   text-align: center;
   align-items: middle;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: right;
-} */
+  line-height: 30px;
+}
 
 .switchContainer {
+  background-color: rgb(182, 182, 192);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 254px;
-  margin-bottom: 40px;
+  width: 400px;
+  height: 100%;
 }
 
 .radioBtnLabel {

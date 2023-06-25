@@ -4,19 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
 import { addTransaction } from 'redux/Transaction/transactionOperation';
+import css from './ModalAddTransaction.module.css';
 import { useState } from 'react';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
-import css from './ModalAddTransaction.module.css';
+// import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 
 const ModalAddTransaction = typeOfTransaction => {
-  const [type, setType] = useState('EXPENSE');
+  const [type, setType] = useState(false);
 
   // const transCategory = useSelector(selectTransactionCategories);
+  // const [type, setType] = useState('INCOME');
   // const [categoryId, setCategoryId] = useState(
   const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
   // );
+
+  // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -32,12 +35,11 @@ const ModalAddTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      amount: '0.00',
+      sum: '0.00',
       transactionDate: 'Date()',
       comment: '',
     },
     validationSchema: validationSchema,
-
     onSubmit: (values, { resetForm }) => {
       const { amount, transactionDate, comment } = values;
       const transaction = {
@@ -51,65 +53,65 @@ const ModalAddTransaction = typeOfTransaction => {
       resetForm();
     },
   });
+
   const getStatusType = value => {
-    setType({ value } ? 'INCOME' : 'EXPENSE');
+    setType(value);
+    console.log('type', value);
   };
 
   const closeModal = () => {
-    dispatch(toggleOpenAdd());
+    // dispatch(toggleOpenAdd());
   };
   const statusModal = useSelector(modalAddOpen);
+  // console.log(statusModal);
 
   return (
     statusModal && (
-      <div className={css.modalBody}>
+      <>
         <button className={css.closeBtn} type="button" onClick={closeModal}>
-          <span className={css.closeIcon}>X</span>
+          X
         </button>
         <h1 className={css.addModalTitle}>Add transaction</h1>
-        <div className={css.switchWrapper}>
-          <SwitchExample
-            getStatusType={getStatusType}
-            typeOfTransaction={typeOfTransaction}
-          />
-        </div>
-        <form className={css.formModal} onSubmit={formik.handleSubmit}>
-          {/* {!type && <div><withFormik /></div>} */}
-          <div className={css.inputLine}>
-            <div>
-              <input
-                className={css.amountInput}
-                placeholder=""
-                name="amount"
-                type="number"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.amount}
-              />
-              {formik.touched.amount && formik.errors.amount ? (
-                <div>{formik.errors.amount}</div>
-              ) : null}
-            </div>
+        <SwitchExample
+          getStatusType={getStatusType}
+          typeOfTransaction={typeOfTransaction}
+        />
 
-            <div>
-              <input
-                className={css.dateInput}
-                placeholder=""
-                name="transactionDate"
-                type="date"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.transactionDate}
-              />
-              {formik.touched.transactionDate &&
-              formik.errors.transactionDate ? (
-                <div>{formik.errors.transactionDate}</div>
-              ) : null}
-            </div>
+        {!type && <div>SELECT</div>}
+
+        <form className={css.form} onSubmit={formik.handleSubmit}>
+          <div>
+            <input
+              className={css.input}
+              placeholder=""
+              name="amount"
+              type="number"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.amount}
+            />
+            {formik.touched.amount && formik.errors.amount ? (
+              <div>{formik.errors.amoount}</div>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              className={css.input}
+              placeholder=""
+              name="transactionDate"
+              type="date"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.transactionDate}
+            />
+            {formik.touched.transactionDate && formik.errors.transactionDate ? (
+              <div>{formik.errors.transactionDate}</div>
+            ) : null}
           </div>
           <div>
             <input
-              className={css.commentInput}
+              className={css.input}
               placeholder="Comment"
               name="comment"
               type="text"
@@ -125,12 +127,12 @@ const ModalAddTransaction = typeOfTransaction => {
             <button className={css.button} type="submit">
               <span className={css.tittle}>ADD</span>
             </button>
-            <button className={css.buttonCancel} type="button">
+            <button className={css.button} type="submit">
               <span className={css.tittle}>CANCEL</span>
             </button>
           </div>
         </form>
-      </div>
+      </>
     )
   );
 };

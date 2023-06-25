@@ -84,11 +84,11 @@
     );
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .addModalTitle {
-    color: #fbfbfb;
+  .tittle {
+    color: rgba(255, 255, 255, 1);
     text-align: center;
     font-size: 18px;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     letter-spacing: 1.8px;
     text-transform: uppercase;
   }
