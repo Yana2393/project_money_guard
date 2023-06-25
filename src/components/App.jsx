@@ -35,8 +35,7 @@ const App = () => {
     if (token) {
       dispatch(getTransaction());
       dispatch(getCategories());
-
-    
+    }
   }, [dispatch, token]);
 
   return isRefresher ? (
