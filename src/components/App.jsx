@@ -35,10 +35,12 @@ const App = () => {
     if (token) {
       dispatch(getTransaction());
       dispatch(getCategories());
-      dispatch(getSummary({ month: 6, year: 2023 }));
-      dispatch(getCurrency());
+
+      const date = new Date();
+      dispatch(
+        getSummary({ month: date.getMonth(), year: date.getFullYear() })
+      );
     }
-    // dispatch(fetchContacts());
   }, [dispatch, token]);
 
   return isRefresher ? (

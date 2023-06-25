@@ -24,6 +24,11 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    updateBalance(state, { payload }) {
+      state.balance = state.balance - payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(registrationUser.pending, state => {
@@ -90,3 +95,4 @@ export const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+export const { updateBalance } = authSlice.actions;

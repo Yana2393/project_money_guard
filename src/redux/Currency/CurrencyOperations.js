@@ -7,13 +7,12 @@ export const getCurrency = createAsyncThunk(
   async (_, thunk_Api) => {
     // const state = thunk_Api.getState();
 
-    // const dataCurrency = state.currency.currency;
-    // const time = new Date() - dataCurrency?.dataCurrency;
-
-    // console.log('dataCurrency-state ==  ', state);
-    // console.log('time ==  ', time);
-    // if (time < 3600) {
-    //   console.log('КОРОТКИЙ ЧАС ДЛЯ ЗАПИТУ !!!');
+    // const dataCurrency = state.currency.dataCurrency;
+    // const data = new Date();
+    // console.log('DATA+', data);
+    // const getTime = data - new Date(dataCurrency);
+    // console.log('getTime', getTime, 'dataCurrency:=', dataCurrency);
+    // if (getTime < 3600000) {
     //   return;
     // }
 

@@ -8,7 +8,7 @@ const Balance = () => {
     <div className={css.Balance}>
       Your balance
       <div className={css.Money}>
-        <span className={css.total}>{`$ ${balanse}`}</span>{' '}
+        <span className={css.total}>{`$ ${balanse}`}</span>
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ import { selectTransactionCategories } from 'redux/TransactionCategories/Transac
 import css from './HomeTab.module.css';
 import { useMediaQuery } from 'react-responsive';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+//import { refreshUser } from 'redux/Auth/authOperations';
+import { updateBalance } from 'redux/Auth/authSlice';
 
 const HomeTab = () => {
   const transactionData = useSelector(selectTransaction);
@@ -17,8 +19,9 @@ const HomeTab = () => {
 
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
-  const handleDeleteClick = id => {
-    dispatch(deleteTransaction(id));
+  const handleDeleteClick = transaction => {
+    dispatch(deleteTransaction(transaction));
+    dispatch(updateBalance(transaction.amount));
   };
   const handleEditClick = (id, body) => {
     dispatch(updateTransaction(id, body));
@@ -113,7 +116,7 @@ const HomeTab = () => {
                     >
                       <EditOutlinedIcon color="info" />
                     </button>
-                    <button onClick={() => handleDeleteClick(transaction.id)}>
+                    <button onClick={() => handleDeleteClick(transaction)}>
                       Delete
                     </button>
                   </td>
