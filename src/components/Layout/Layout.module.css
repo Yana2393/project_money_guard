@@ -7,6 +7,11 @@
   background: var(--color-backgroundMain);
   margin: 0 auto;
 }
+.VisiblePageCurrency {
+  background: var(--color-whitw-10);
+
+  border-radius: 0px 0px 8px 8px;
+}
 
 @media screen and (max-width: 320px) {
   .layOut {
@@ -24,6 +29,7 @@
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .position {
     display: flex;
+    gap: 32px;
   }
   .navigate_balance {
     flex: 1;
@@ -34,6 +40,7 @@
   .layOut {
     width: 704px;
     padding: 0 32px;
+    gap: 20px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -44,5 +51,11 @@
   }
   .navigate_balance {
     width: 480px;
+  }
+  .position {
+    border-right: 2px solid var(--color-white-60);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 }

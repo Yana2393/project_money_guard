@@ -1,17 +1,24 @@
 import { useEffect, useRef } from 'react';
 import css from './Statistic.module.css';
 import Chart from 'chart.js/auto';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { summaryController } from 'redux/TransactionSummaryController/TransactionSummaryControllerSelectors';
 
 import Select from 'react-select';
+import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
+import { selectBalanse } from 'redux/Auth/authSelector';
 
 const Statistic = () => {
-  const chartRef = useRef(null);
-  // const balans = useSelector(selectBalanse);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const date = new Date();
+    dispatch(getSummary({ month: date.getMonth(), year: date.getFullYear() }));
+  }, [dispatch]);
 
+  const balans = useSelector(selectBalanse);
+  const chartRef = useRef(null);
   const result = useSelector(summaryController);
-  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', result);
+  // console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', result);
 
   const generateRandomColor = () => {
     const r = Math.floor(Math.random() * 256);
@@ -169,7 +176,7 @@ const Statistic = () => {
       <div className={css.cont_stats}>
         <div className={css.donut}>
           <canvas className={css.dotut_donut} id="acquisitions"></canvas>
-          <p className={css.statistic_balans}>₴balans</p>
+          <p className={css.statistic_balans}>₴{balans}</p>
         </div>
         <div className={css.cont_select_and_list}>
           <ul style={{ display: 'flex' }}>

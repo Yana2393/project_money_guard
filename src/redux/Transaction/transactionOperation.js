@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Api } from 'redux/api/Api';
-//import { token } from 'redux/api/Api';
 
 export const getTransaction = createAsyncThunk(
   'transaction/getTransaction',
@@ -21,7 +20,7 @@ export const addTransaction = createAsyncThunk(
   async (transaction, thunk_Api) => {
     try {
       const { data } = await Api.post('transactions', transaction);
-      console.log('ADD Transaction', data);
+
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);
@@ -36,7 +35,7 @@ export const updateTransaction = createAsyncThunk(
         `transactions/${transaction.transactionId}`,
         transaction.body
       );
-      console.log('update Transaction', data);
+
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);
@@ -45,11 +44,11 @@ export const updateTransaction = createAsyncThunk(
 );
 export const deleteTransaction = createAsyncThunk(
   'transaction/deleteTransaction',
-  async (transactionId, thunk_Api) => {
+  async (transaction, thunk_Api) => {
     try {
-      const { data } = await Api.delete(`transactions/${transactionId}`);
-      console.log('deleteTransaction', data);
-      return transactionId;
+      await Api.delete(`transactions/${transaction.id}`);
+
+      return transaction;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);
     }

@@ -28,7 +28,6 @@ export const TransactionSummaryControllerSlice = createSlice({
         state.isError = '';
       })
       .addCase(getSummary.fulfilled, (state, { payload }) => {
-        console.log('getSummary ', payload);
         state.isLoading = false;
         state.categoriesSummary = payload.categoriesSummary;
         state.incomeSummary = payload.incomeSummary;

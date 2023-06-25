@@ -85,7 +85,7 @@ export const transactionSlice = createSlice({
       })
       .addCase(deleteTransaction.fulfilled, (state, { payload }) => {
         state.transactions = state.transactions.filter(
-          transaction => transaction.id !== payload
+          transaction => transaction.id !== payload.id
         );
         state.isLoading = false;
       })

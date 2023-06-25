@@ -1,20 +1,72 @@
+@import url('../../index.css');
 .header {
   height: 60px;
   width: 320px;
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   margin: 0 auto;
+  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25),
+    0px -3px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.headerInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerBtn {
+  border: none;
+  background: inherit;
+  border-radius: 8px;
+  color: var(--color-white-60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.headerBtn:hover,
+.headerBtn:hover:focus {
+  background: #2e225f;
+}
+.headerRigth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white-60);
+  gap: 12px;
+}
+.iconBtn {
+  width: 18px;
+  height: 18px;
+  color: var(--color-white-60);
 }
 
-/* @media screen and (min-width: 375px) {
+.userText {
+  font-size: 16px;
+  color: inherit;
+}
+@media screen and (max-width: 320px) {
   .header {
-    width: 375px;
+    max-width: 320px;
   }
-} */
+}
+
+@media screen and (min-width: 320px) {
+  .header {
+    width: 320px;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .header {
     height: 80px;
     width: 768px;
+  }
+  .logo {
+    width: 115px;
+    height: 48px;
   }
 }
 @media screen and (min-width: 1280px) {
