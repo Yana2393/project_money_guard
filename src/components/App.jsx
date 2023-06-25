@@ -20,6 +20,8 @@ import { getSummary } from 'redux/TransactionSummaryController/TransactionSummar
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import ModalBackground from './ModalBackground/ModalBackground';
+import { getCurrency } from 'redux/Currency/CurrencyOperations';
+
 // import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
@@ -27,13 +29,14 @@ const App = () => {
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
+
   useEffect(() => {
     dispatch(refreshUser());
     if (token) {
-      console.log('Token: ', token);
       dispatch(getTransaction());
       dispatch(getCategories());
       dispatch(getSummary({ month: 6, year: 2023 }));
+      dispatch(getCurrency());
     }
     // dispatch(fetchContacts());
   }, [dispatch, token]);
@@ -48,27 +51,27 @@ const App = () => {
         </ModalBackground>
       )}
       <Example>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Navigate to="/home" />}></Route>
-              <Route path="/home" element={<DashboardPage />}></Route>
-              <Route path="/statistic" element={<StatisticPage />}></Route>
-              <Route path="/currency" element={<CurrencyPage />}></Route>
-            </Route>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/registration" element={<RegistrationPage />}></Route>
-            <Route
-              path="/transaction/:transactionId"
-              element={<ModalAddTransaction />}
-            ></Route>
-            {/* <Route
+        {/* <div className="container"> */}
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Navigate to="/home" />}></Route>
+            <Route path="/home" element={<DashboardPage />}></Route>
+            <Route path="/statistic" element={<StatisticPage />}></Route>
+            <Route path="/currency" element={<CurrencyPage />}></Route>
+          </Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/registration" element={<RegistrationPage />}></Route>
+          <Route
+            path="/transaction/:transactionId"
+            element={<ModalAddTransaction />}
+          ></Route>
+          {/* <Route
               path="/transaction/add_transaction"
               element={<ModalAddTransaction />}
             ></Route> */}
-            <Route path="*" element={<Navigate to="/home" />}></Route>
-          </Routes>
-        </div>
+          <Route path="*" element={<Navigate to="/home" />}></Route>
+        </Routes>
+        {/* </div> */}
       </Example>
     </>
   );
