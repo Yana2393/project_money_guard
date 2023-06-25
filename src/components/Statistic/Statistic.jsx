@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import css from './Statistic.module.css';
 import Chart from 'chart.js/auto';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,34 +20,29 @@ const Statistic = () => {
   const result = useSelector(summaryController);
   // console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', result);
 
-  const generateRandomColor = () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return `rgb(${r}, ${g}, ${b})`;
-  };
+  // const generateRandomColor = () => {
+  //   const r = Math.floor(Math.random() * 256);
+  //   const g = Math.floor(Math.random() * 256);
+  //   const b = Math.floor(Math.random() * 256);
+  //   return `rgb(${r}, ${g}, ${b})`;
+  // };
 
-  const colors = [
-    'rgb(0, 173, 132)',
-    // 'rgb(227, 38, 54)',
-    'rgb(36, 204, 167)',
-    // 'rgb(159, 43, 104)',
-    'rgb(110, 120, 232)',
-    // 'rgb(74, 86, 226)',
-    'rgb(129, 225, 255)',
-    // 'rgb(68,	148,	74)',
-    'rgb(197, 186, 255)',
-    // 'rgb(106,	90,	205)',
-    'rgb(253, 148, 152)',
-    // 'rgb(0,	49,	83)',
-    'rgb(254, 208, 87)',
-    // 'rgb(167,	252,	0)',
-    'rgb(255, 216, 208)',
-    // 'rgb(245,	255,	250)',
-    'rgb(0,	191,	255)',
-    'rgb(243,	71,	35)',
-    'rgb(183,	132,	167)',
-  ];
+  const colors = useMemo(
+    () => [
+      'rgb(0, 173, 132)',
+      'rgb(36, 204, 167)',
+      'rgb(110, 120, 232)',
+      'rgb(129, 225, 255)',
+      'rgb(197, 186, 255)',
+      'rgb(253, 148, 152)',
+      'rgb(254, 208, 87)',
+      'rgb(255, 216, 208)',
+      'rgb(0, 191, 255)',
+      'rgb(243, 71, 35)',
+      'rgb(183, 132, 167)',
+    ],
+    []
+  );
 
   useEffect(() => {
     if (chartRef.current) {
@@ -69,7 +64,7 @@ const Statistic = () => {
         borderWidth: 1,
       },
     });
-  }, []);
+  }, [colors, result]);
 
   const optionsMonth = [
     { value: 'December', label: 'December' },
