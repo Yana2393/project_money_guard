@@ -193,7 +193,7 @@
   .HomeTabTableEditIcon {
     width: 14px;
     height: 14px;
-    fill: white;
+    fill: var(--color-white-60);
   }
 }
 @media screen and (min-width: 1280px) {
