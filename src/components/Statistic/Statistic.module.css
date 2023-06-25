@@ -1,3 +1,103 @@
 .Statistic {
-    width: 100%;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  font-size: 30px;
+  font-weight: 300;
+  margin-left: 64px;
+}
+
+.donut {
+  position: relative;
+  width: 288px;
+  height: 288px;
+  margin-right: 32px;
+}
+
+.dotut_donut {
+  margin-top: 4px;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.cont_stats {
+  display: flex;
+  flex-direction: row;
+  color: var(--color-white);
+  font-weight: 400;
+  margin-left: 49px;
+}
+
+.cont_select_and_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.transactions_item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  align-items: center;
+  padding: 0 28px 15px 28px;
+}
+
+.transactions_item_color {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+}
+
+.transactions_item_name {
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.transactions_item_price {
+  margin-left: auto;
+}
+
+.transactions_sum_list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 28px;
+}
+
+.transactions_sum_item:not(:last-child) {
+  margin-bottom: 19px;
+}
+
+.transactions_sum_item {
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.transactions_expenses_sum {
+  color: var(--color-dashboard-text);
+}
+
+.transactions_income_sum {
+  color: var(--color-yellow);
+}
+
+.statistic_balans {
+  font-weight: 600;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
