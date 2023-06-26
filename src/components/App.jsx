@@ -11,7 +11,11 @@ import Example from './Example/Example';
 import StatisticPage from 'page/StatisticPage/StatisticPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/Auth/authOperations';
-import { selectIsRefresher, selectToken } from 'redux/Auth/authSelector';
+import {
+  selectIsError,
+  selectIsRefresher,
+  selectToken,
+} from 'redux/Auth/authSelector';
 import { Loader } from './Loader/Loader';
 import { getTransaction } from 'redux/Transaction/transactionOperation';
 import { getCategories } from 'redux/TransactionCategories/TransactionCategorOperations';
@@ -21,14 +25,16 @@ import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 
 import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-
-// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ModalBackground from './ModalBackground/ModalBackground';
 
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
+  const isErrorLoginRegistration = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,11 +44,29 @@ const App = () => {
     }
   }, [dispatch, token]);
 
+  // if (isErrorLogin) {
+  //   console.log('error');
+  // }
+
+  const handleToach = () => {
+    console.log('error');
+    toast.error(isErrorLoginRegistration, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   return isRefresher ? (
     <Loader />
   ) : (
     <>
-      {openModal && <ModalAddTransaction />}
+      {openModal && (
+        <ModalBackground>
+          <ModalAddTransaction />
+        </ModalBackground>
+      )}
+      {isErrorLoginRegistration && handleToach()}
+      <ToastContainer />
+      =========
       <Example>
         <Routes>
           <Route path="/" element={<Layout />}>

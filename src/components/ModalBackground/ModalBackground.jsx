@@ -1,13 +1,19 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
+import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
 import css from './ModalBackground.module.css';
 
-const ModalBackground = ({ children }, onCloseModal) => {
+const ModalBackground = ({ children }) => {
+  const dispatch = useDispatch();
   const modalRoot = document.getElementById('modal-root');
+  const closeModal = () => {
+    dispatch(toggleOpenAdd());
+  };
   useEffect(() => {
     const handleKeydown = e => {
       if (e.key === 'Escape') {
-        onCloseModal();
+        closeModal();
       }
     };
     window.addEventListener('keydown', handleKeydown);
@@ -17,21 +23,18 @@ const ModalBackground = ({ children }, onCloseModal) => {
     };
 
     return clearProcesses;
-  }, [onCloseModal]);
+  });
 
   const handleBackdrop = e => {
     const { target, currentTarget } = e;
     if (target === currentTarget) {
-      onCloseModal();
+      closeModal();
     }
   };
   return createPortal(
     <>
-      <div className={css.modalBack} />
-      <div className={css.modalContent} onClick={handleBackdrop}>
-        <button type="button" onClick={onCloseModal} aria-label="close" />
-
-        <div className={css.modalBody}>{children}</div>
+      <div className={css.modalBack} onClick={handleBackdrop}>
+        {children}
       </div>
     </>,
     modalRoot

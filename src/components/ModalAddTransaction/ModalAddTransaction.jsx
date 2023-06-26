@@ -4,23 +4,29 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
 import { addTransaction } from 'redux/Transaction/transactionOperation';
-import css from './ModalAddTransaction.module.css';
 import { useState } from 'react';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-// import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+import css from './ModalAddTransaction.module.css';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const ModalAddTransaction = typeOfTransaction => {
-  const [type, setType] = useState(false);
+  const [type, setType] = useState('EXPENSE');
+  // const [category, setCategory] = useState([]);
 
-  // const transCategory = useSelector(selectTransactionCategories);
-  // const [type, setType] = useState('INCOME');
+  const transCategory = useSelector(selectTransactionCategories);
+  const categoryList = transCategory.map(e => e.name);
+
+  // `<label for="size"></label>
+  // <select id="size" name="size">
+  //   <option value=${e.id}>${e.name}</option>
+  // </select>
+  //   })
+
   // const [categoryId, setCategoryId] = useState(
   const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
   // );
-
-  // setType(typeOfTransaction ? 'INCOME' : 'EXPENSE');
-
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
@@ -35,11 +41,12 @@ const ModalAddTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      sum: '0.00',
+      amount: '0.00',
       transactionDate: 'Date()',
       comment: '',
     },
     validationSchema: validationSchema,
+
     onSubmit: (values, { resetForm }) => {
       const { amount, transactionDate, comment } = values;
       const transaction = {
@@ -53,65 +60,65 @@ const ModalAddTransaction = typeOfTransaction => {
       resetForm();
     },
   });
-
   const getStatusType = value => {
-    setType(value);
-    console.log('type', value);
+    setType(value ? 'INCOME' : 'EXPENSE');
   };
-
   const closeModal = () => {
-    // dispatch(toggleOpenAdd());
+    dispatch(toggleOpenAdd());
   };
   const statusModal = useSelector(modalAddOpen);
-  // console.log(statusModal);
 
   return (
     statusModal && (
-      <>
-        <button className={css.closeBtn} type="button" onClick={closeModal}>
-          X
-        </button>
+      <div className={css.modalBody}>
+        <span onClick={closeModal}>
+          <AiOutlineClose className={css.closeIcon} />
+        </span>
         <h1 className={css.addModalTitle}>Add transaction</h1>
-        <SwitchExample
-          getStatusType={getStatusType}
-          typeOfTransaction={typeOfTransaction}
-        />
+        <div className={css.switchWrapper}>
+          <SwitchExample
+            getStatusType={getStatusType}
+            typeOfTransaction={typeOfTransaction}
+          />
+        </div>
+        <form className={css.formModal} onSubmit={formik.handleSubmit}>
+          {type === 'EXPENSE' && <div>{categoryList}</div>}
+          <div className={css.inputLine}>
+            <div>
+              <input
+                className={css.amountInput}
+                placeholder=""
+                name="amount"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.amount}
+                onclick=" setSelectionRange(0,0)"
+              />
+              {formik.touched.amount && formik.errors.amount ? (
+                <div>{formik.errors.amount}</div>
+              ) : null}
+            </div>
 
-        {!type && <div>SELECT</div>}
-
-        <form className={css.form} onSubmit={formik.handleSubmit}>
-          <div>
-            <input
-              className={css.input}
-              placeholder=""
-              name="amount"
-              type="number"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.amount}
-            />
-            {formik.touched.amount && formik.errors.amount ? (
-              <div>{formik.errors.amoount}</div>
-            ) : null}
+            <div>
+              <input
+                className={css.dateInput}
+                placeholder=""
+                name="transactionDate"
+                type="date"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.transactionDate}
+              />
+              {formik.touched.transactionDate &&
+              formik.errors.transactionDate ? (
+                <div>{formik.errors.transactionDate}</div>
+              ) : null}
+            </div>
           </div>
-
           <div>
             <input
-              className={css.input}
-              placeholder=""
-              name="transactionDate"
-              type="date"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.transactionDate}
-            />
-            {formik.touched.transactionDate && formik.errors.transactionDate ? (
-              <div>{formik.errors.transactionDate}</div>
-            ) : null}
-          </div>
-          <div>
-            <input
-              className={css.input}
+              className={css.commentInput}
               placeholder="Comment"
               name="comment"
               type="text"
@@ -127,12 +134,12 @@ const ModalAddTransaction = typeOfTransaction => {
             <button className={css.button} type="submit">
               <span className={css.tittle}>ADD</span>
             </button>
-            <button className={css.button} type="submit">
+            <button className={css.buttonCancel} type="button">
               <span className={css.tittle}>CANCEL</span>
             </button>
           </div>
         </form>
-      </>
+      </div>
     )
   );
 };

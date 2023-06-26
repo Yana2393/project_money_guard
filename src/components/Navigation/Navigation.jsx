@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
@@ -9,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 import { useState } from 'react';
 import Balance from 'components/Balance/Balance';
+import NavLinkNavigate from 'components/NavLinkNavigate/NavLinkNavigate';
 
 const Navigation = () => {
   const viewport = useSelector(selectViewPort);
@@ -39,78 +39,30 @@ const Navigation = () => {
       currency: true,
     });
   };
-  // console.log(
-  //   'viewport.mobile ',
-  //   viewport.mobile,
-  //   ' iconActive.currency:',
-  //   iconActive.currency
-  // );
 
   return (
     <>
       <div className={css.navigation}>
-        <div className={css.navigation_block}>
-          <NavLink
-            to="home"
-            className={({ isActive }) =>
-              isActive ? `${css.link} ${css.active}` : `${css.link}`
-            }
-            onClick={handleActiveHome}
-          >
-            <div className={css.navigationBtn}>
-              <AiFillHome className={css.home} />
-            </div>
-          </NavLink>
-          {!viewport.mobile && (
-            <span
-              className={
-                iconActive.home
-                  ? `${css.navigationBtnText} ${css.navigationBtnTextActive}`
-                  : `${css.navigationBtnText}`
-              }
-            >
-              Home
-            </span>
-          )}
+        <div className={css.navigation_block} onClick={handleActiveHome}>
+          <NavLinkNavigate directedTo="home" title="Home">
+            <AiFillHome className="icon_class" />
+          </NavLinkNavigate>
         </div>
-        <div className={css.navigation_block}>
-          <NavLink
-            to="statistic"
-            className={({ isActive }) =>
-              isActive ? `${css.link} ${css.active}` : `${css.link}`
-            }
-            onClick={handleActiveStatistics}
-          >
-            <div className={css.navigationBtn}>
+        <div className={css.navigation_block} onClick={handleActiveStatistics}>
+          <NavLinkNavigate directedTo="statistic" title="Statistic">
+            {
               <TimelineIcon
                 sx={viewport.mobile ? { fontSize: 24 } : { fontSize: 18 }}
               />
-            </div>
-          </NavLink>
-          {!viewport.mobile && (
-            <span
-              className={
-                iconActive.statistics
-                  ? `${css.navigationBtnText} ${css.navigationBtnTextActive}`
-                  : `${css.navigationBtnText}`
-              }
-            >
-              Statistics
-            </span>
-          )}
+            }
+          </NavLinkNavigate>
         </div>
         {viewport.mobile && (
-          <NavLink
-            to="currency"
-            className={({ isActive }) =>
-              isActive ? `${css.link} ${css.active}` : `${css.link}`
-            }
-            onClick={handleActiveCurrency}
-          >
-            <div className={css.navigationBtn}>
-              <AttachMoneyIcon sx={{ fontSize: 24 }} />
-            </div>
-          </NavLink>
+          <div className={css.navigation_block} onClick={handleActiveCurrency}>
+            <NavLinkNavigate directedTo="currency" title="Currency">
+              {<AttachMoneyIcon sx={{ fontSize: 24 }} />}
+            </NavLinkNavigate>
+          </div>
         )}
       </div>
 

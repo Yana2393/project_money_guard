@@ -87,7 +87,7 @@ const ApiRest = () => {
       type: 'EXPENSE',
       categoryId: 'c9d9e447-1b83-4238-8712-edc77b18b739',
       comment: 'gggggg  jjj   yyyyyy',
-      amount: -450,
+      amount: -3690.869,
     };
     dispatch(addTransaction(transaction));
   };
