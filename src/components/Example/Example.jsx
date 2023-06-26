@@ -39,9 +39,9 @@ const Mobile = ({ children }) => {
 
 const Example = ({ children }) => (
   <div>
-    <Desktop>Desktop {children}</Desktop>
-    <Tablet>Tablet {children}</Tablet>
-    <Mobile>Mobile{children}</Mobile>
+    <Desktop>{children}</Desktop>
+    <Tablet> {children}</Tablet>
+    <Mobile>{children}</Mobile>
     {/* <Default>Not mobile (desktop or laptop or tablet)</Default> */}
   </div>
 );
