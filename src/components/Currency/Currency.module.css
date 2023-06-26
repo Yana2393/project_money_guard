@@ -75,6 +75,7 @@
   .CurrencyPage {
     margin: 0;
   }
+
   .Currency tr td {
     padding-top: 0;
     padding-bottom: 0;
@@ -99,6 +100,11 @@
 
   .eurPurch {
     display: none;
+
+  .Diagram {
+    top: -17px;
+    border-radius: 0 8px 8px 0;
+
   }
 }
 
