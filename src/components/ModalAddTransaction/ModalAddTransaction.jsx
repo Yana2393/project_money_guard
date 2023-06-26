@@ -17,6 +17,13 @@ const ModalAddTransaction = typeOfTransaction => {
 
   const transCategory = useSelector(selectTransactionCategories);
   const categoryList = transCategory.map(e => e.name);
+
+  // `<label for="size"></label>
+  // <select id="size" name="size">
+  //   <option value=${e.id}>${e.name}</option>
+  // </select>
+  //   })
+
   // const [categoryId, setCategoryId] = useState(
   const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
   // );
@@ -56,7 +63,6 @@ const ModalAddTransaction = typeOfTransaction => {
   const getStatusType = value => {
     setType(value ? 'INCOME' : 'EXPENSE');
   };
-
   const closeModal = () => {
     dispatch(toggleOpenAdd());
   };
@@ -76,7 +82,7 @@ const ModalAddTransaction = typeOfTransaction => {
           />
         </div>
         <form className={css.formModal} onSubmit={formik.handleSubmit}>
-          {/* {!type && <div><withFormik /></div>} */}
+          {type === 'EXPENSE' && <div>{categoryList}</div>}
           <div className={css.inputLine}>
             <div>
               <input
