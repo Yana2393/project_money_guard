@@ -1,3 +1,8 @@
+.HomeTabPage {
+  overflow: scroll;
+  height: 330px;
+}
+
 .HomeTabMobileItem {
   margin-top: 8px;
   padding: 0px 20px;
@@ -6,22 +11,6 @@
   position: relative;
   border-left: solid 5px var(--color-dashboard-text);
 }
-
-.HomeTabMobileItem:nth-child(1) {
-  margin-top: 32px;
-}
-
-/* .HomeTabMobileSideLine {
-  position: absolute;
-  height: 5px;
-  width: 100%;
-  background-color: var(--color-dashboard-text);
-  rotate: 90deg;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  transform: translate(142px, 157px);
-  z-index: 2;
-} */
 
 .HomeTabMobileTableItem {
   display: flex;
