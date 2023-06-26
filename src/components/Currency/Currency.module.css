@@ -48,7 +48,7 @@
     height: 100%;
   }
   .Diagram {
-    bottom: 80px;
+    top: -17px;
     border-radius: 0 8px 8px 0;
   }
 }
