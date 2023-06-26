@@ -40,7 +40,9 @@ const HomeTab = () => {
                     <li className={css.HomeTabMobileTableItem}>
                       <p className={css.HomeTabMobileTableHeader}>Date</p>
                       <p className={css.HomeTabMobileTableValue}>
-                        {transaction.transactionDate}
+                        {new Date(
+                          transaction.transactionDate
+                        ).toLocaleDateString()}
                       </p>
                       <span className={css.HomeTabMobileTableBottomLine}></span>
                     </li>
@@ -98,7 +100,6 @@ const HomeTab = () => {
                         className={css.HomeTabMobileEditBtn}
                       >
                         <EditOutlinedIcon
-                          color="info"
                           className={css.HomeTabMobileEditIcon}
                         />
                         <p className={css.HomeTabMobileEdit}>Edit</p>
@@ -112,23 +113,27 @@ const HomeTab = () => {
         </ul>
       ) : (
         <table className={css.HomeTabTable}>
-          <thead>
+          <thead className={css.HomeTabTableHead}>
             <tr>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Category</th>
-              <th>Comment</th>
-              <th>Sum</th>
-              <th></th>
+              <th className={css.HomeTabTableHeadRow}>Date</th>
+              <th className={css.HomeTabTableHeadRow}>Type</th>
+              <th className={css.HomeTabTableHeadRow}>Category</th>
+              <th className={css.HomeTabTableHeadRow}>Comment</th>
+              <th className={css.HomeTabTableHeadRow}>Sum</th>
+              <th className={css.HomeTabTableHeadRow}></th>
             </tr>
           </thead>
           <tbody>
             {transactionData.map(transaction => {
               return (
                 <tr key={transaction.id} className={css.HomeTabTableRow}>
-                  <td>{transaction.transactionDate}</td>
-                  <td>{transaction.type === 'INCOME' ? '+' : '-'}</td>
-                  <td>
+                  <td className={css.HomeTabTableData}>
+                    {new Date(transaction.transactionDate).toLocaleDateString()}
+                  </td>
+                  <td className={css.HomeTabTableData}>
+                    {transaction.type === 'INCOME' ? '+' : '-'}
+                  </td>
+                  <td className={css.HomeTabTableData}>
                     {categories.map(category =>
                       category.id === transaction.categoryId ? (
                         category.name
@@ -137,17 +142,19 @@ const HomeTab = () => {
                       )
                     )}
                   </td>
-                  <td>{transaction.comment}</td>
+                  <td className={css.HomeTabTableData}>
+                    {transaction.comment}
+                  </td>
                   <td
                     className={
                       transaction.type === 'INCOME'
-                        ? `${css.income}`
-                        : `${css.outcome}`
+                        ? `${css.HomeTabTableData} ${css.income}`
+                        : `${css.HomeTabTableData} ${css.outcome}`
                     }
                   >
                     {transaction.amount}
                   </td>
-                  <td>
+                  <td className={css.HomeTabTableData}>
                     <button
                       onClick={() =>
                         handleEditClick(transaction.id, transaction)

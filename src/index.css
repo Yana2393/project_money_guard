@@ -40,6 +40,11 @@ body {
     rgba(52, 31, 160, 0.8) 44.63%,
     rgba(101, 35, 146, 0.8) 88.57%
   );
+  --color-background: linear-gradient(
+    220deg,
+    rgba(109, 84, 235, 0.6) 3.47%,
+    rgba(101, 35, 146, 0.6) 90.06%
+  );
 }
 
 code {
@@ -78,16 +83,23 @@ button {
   width: 24px;
   height: 24px;
 }
+.container {
+  width: 280px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
 @media screen and (max-width: 320px) {
   .container {
-    width: 100%;
-    max-width: 320px;
+    max-width: 280px;
+    padding: 0 20px;
+    margin: 0 auto;
+    /* max-width: 320px; */
   }
 }
 /* mobile */
 @media screen and (min-width: 320px) {
   .container {
-    width: 100%;
+    width: 280px;
     padding: 0 20px;
     margin: 0 auto;
   }
@@ -97,7 +109,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .container {
-    /* width: 768px; */
+    width: 704px;
     padding: 0 32px;
   }
   .icon_class {
@@ -109,7 +121,7 @@ button {
 
 @media screen and (min-width: 1280px) {
   .container {
-    /* width: 1280px; */
+    width: 1248px;
     padding: 0 16px;
   }
 }

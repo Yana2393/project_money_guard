@@ -28,12 +28,14 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBackground from './ModalBackground/ModalBackground';
+import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
 
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
+  const ModalEditOpen = useSelector(modalEditOpen);
   const isErrorLoginRegistration = useSelector(selectIsError);
 
   useEffect(() => {
@@ -64,9 +66,9 @@ const App = () => {
           <ModalAddTransaction />
         </ModalBackground>
       )}
+      {ModalEditOpen && <ModalBackground>ModalEditTransaction</ModalBackground>}
       {isErrorLoginRegistration && handleToach()}
       <ToastContainer />
-      =========
       <Example>
         <Routes>
           <Route path="/" element={<Layout />}>

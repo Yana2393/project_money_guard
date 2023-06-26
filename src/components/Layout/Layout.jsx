@@ -15,15 +15,19 @@ const Layout = () => {
       <Header />
 
       <div className={css.layOut}>
-        <div className={css.position}>
-          <div className={css.navigate_balance}>
-            <Navigation />
-          </div>
-          <div className={css.VisiblePageCurrency}>
-            {!viewport.mobile && <CurrencyPage />}
+        <div className="container">
+          <div className={css.container_position}>
+            <div className={css.position}>
+              <div className={css.navigate_balance}>
+                <Navigation />
+              </div>
+              <div className={css.VisiblePageCurrency}>
+                {!viewport.mobile && <CurrencyPage />}
+              </div>
+            </div>
+            <Outlet />
           </div>
         </div>
-        <Outlet />
       </div>
     </>
   );
