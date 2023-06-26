@@ -9,15 +9,17 @@ import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
 import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 import css from './ModalAddTransaction.module.css';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const ModalAddTransaction = typeOfTransaction => {
   const [type, setType] = useState('EXPENSE');
+  // const [category, setCategory] = useState([]);
 
-  // const transCategory = useSelector(selectTransactionCategories);
+  const transCategory = useSelector(selectTransactionCategories);
+  const categoryList = transCategory.map(e => e.name);
   // const [categoryId, setCategoryId] = useState(
   const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
   // );
-
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
@@ -52,7 +54,7 @@ const ModalAddTransaction = typeOfTransaction => {
     },
   });
   const getStatusType = value => {
-    setType({ value } ? 'INCOME' : 'EXPENSE');
+    setType(value ? 'INCOME' : 'EXPENSE');
   };
 
   const closeModal = () => {
@@ -63,9 +65,9 @@ const ModalAddTransaction = typeOfTransaction => {
   return (
     statusModal && (
       <div className={css.modalBody}>
-        <button className={css.closeBtn} type="button" onClick={closeModal}>
-          <span className={css.closeIcon}>X</span>
-        </button>
+        <span onClick={closeModal}>
+          <AiOutlineClose className={css.closeIcon} />
+        </span>
         <h1 className={css.addModalTitle}>Add transaction</h1>
         <div className={css.switchWrapper}>
           <SwitchExample
@@ -81,10 +83,11 @@ const ModalAddTransaction = typeOfTransaction => {
                 className={css.amountInput}
                 placeholder=""
                 name="amount"
-                type="number"
+                type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.amount}
+                onclick=" setSelectionRange(0,0)"
               />
               {formik.touched.amount && formik.errors.amount ? (
                 <div>{formik.errors.amount}</div>

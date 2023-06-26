@@ -34,9 +34,7 @@ const ModalBackground = ({ children }) => {
   return createPortal(
     <>
       <div className={css.modalBack} onClick={handleBackdrop}>
-        {/* <div className={css.modalBody}> */}
         {children}
-        {/* </div> */}
       </div>
     </>,
     modalRoot
