@@ -1,19 +1,28 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
 
 export const SelectComponent = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const date = new Date();
+    dispatch(getSummary({ month: date.getMonth(), year: date.getFullYear() }));
+  }, [dispatch]);
+
   const optionsMonth = [
-    { value: 'December', label: 'December' },
-    { value: 'January', label: 'January' },
-    { value: 'February', label: 'February' },
-    { value: 'March', label: 'March' },
-    { value: 'April', label: 'April' },
-    { value: 'May', label: 'May' },
-    { value: 'June', label: 'June' },
-    { value: 'July', label: 'July' },
-    { value: 'August', label: 'August' },
-    { value: 'September', label: 'September' },
-    { value: 'October', label: 'October' },
-    { value: 'November', label: 'November' },
+    { value: '1', label: 'January' },
+    { value: '2', label: 'February' },
+    { value: '3', label: 'March' },
+    { value: '4', label: 'April' },
+    { value: '5', label: 'May' },
+    { value: '6', label: 'June' },
+    { value: '7', label: 'July' },
+    { value: '8', label: 'August' },
+    { value: '9', label: 'September' },
+    { value: '10', label: 'October' },
+    { value: '11', label: 'November' },
+    { value: '12', label: 'December' },
   ];
   const optionsYear = [
     { value: '2019', label: '2019' },
@@ -76,10 +85,15 @@ export const SelectComponent = () => {
       overflowY: 'scroll',
     }),
   };
+
+  const handleChangeSelect = () => {
+    console.log(new Date().getMonth());
+  };
   return (
     <ul style={{ display: 'flex' }}>
       <li key={122} style={{ width: '182px', marginRight: '32px' }}>
         <Select
+          onChange={handleChangeSelect}
           // classNames={css.container}
           styles={customStyles}
           options={optionsMonth}
@@ -101,6 +115,7 @@ export const SelectComponent = () => {
       </li>
       <li key={222} style={{ width: '182px' }}>
         <Select
+          onChange={handleChangeSelect}
           // classNames={css.container}
           styles={customStyles}
           options={optionsYear}
