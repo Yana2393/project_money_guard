@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project_money_guard/static/css/main.fe0ce133.css",
-    "main.js": "/project_money_guard/static/js/main.31991c6c.js",
+    "main.css": "/project_money_guard/static/css/main.6d046e3f.css",
+    "main.js": "/project_money_guard/static/js/main.b56829ec.js",
     "static/media/register_destop@2x.jpg": "/project_money_guard/static/media/register_destop@2x.fa88aa31d49d7088882d.jpg",
     "static/media/login_destop@2x.jpg": "/project_money_guard/static/media/login_destop@2x.11d72a7bbffefba33e3b.jpg",
     "static/media/register_tablet@2x.jpg": "/project_money_guard/static/media/register_tablet@2x.7e23b35df4b0927013ad.jpg",
@@ -11,13 +11,14 @@
     "static/media/register_tablet.jpg": "/project_money_guard/static/media/register_tablet.6cc215adb418d81fb6ac.jpg",
     "static/media/login_tablet.jpg": "/project_money_guard/static/media/login_tablet.82feff923182bc5824cd.jpg",
     "static/media/mobile@2x.jpg": "/project_money_guard/static/media/mobile@2x.82c4d5c9e6095bce7cd2.jpg",
+    "static/media/bgMobile.png": "/project_money_guard/static/media/bgMobile.40282d3f55befba87ff1.png",
     "static/media/mobile.jpg": "/project_money_guard/static/media/mobile.e0281b0ea10194ce3b63.jpg",
     "index.html": "/project_money_guard/index.html",
-    "main.fe0ce133.css.map": "/project_money_guard/static/css/main.fe0ce133.css.map",
-    "main.31991c6c.js.map": "/project_money_guard/static/js/main.31991c6c.js.map"
+    "main.6d046e3f.css.map": "/project_money_guard/static/css/main.6d046e3f.css.map",
+    "main.b56829ec.js.map": "/project_money_guard/static/js/main.b56829ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe0ce133.css",
-    "static/js/main.31991c6c.js"
+    "static/css/main.6d046e3f.css",
+    "static/js/main.b56829ec.js"
   ]
 }
