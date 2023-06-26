@@ -60,7 +60,7 @@ const App = () => {
     <Loader />
   ) : (
     <>
-      <ModalEditTransaction />
+      {/* <ModalEditTransaction /> */}
       {openModal && (
         <ModalBackground>
           <ModalAddTransaction />

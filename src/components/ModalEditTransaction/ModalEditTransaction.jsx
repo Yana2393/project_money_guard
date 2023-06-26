@@ -102,7 +102,7 @@ const ModalEditTransaction = typeOfTransaction => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.amount}
-              onclick=" setSelectionRange(0,0)"
+              // onClick=" setSelectionRange(0,0)"
             />
             {formik.touched.amount && formik.errors.amount ? (
               <div>{formik.errors.amount}</div>
