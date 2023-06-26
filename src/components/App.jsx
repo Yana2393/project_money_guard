@@ -28,6 +28,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBackground from './ModalBackground/ModalBackground';
+import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const App = () => {
     <Loader />
   ) : (
     <>
+      <ModalEditTransaction />
       {openModal && (
         <ModalBackground>
           <ModalAddTransaction />
@@ -117,7 +119,7 @@ const App = () => {
           ></Route>
           <Route
             path="/transaction/:transactionId"
-            element={<ModalAddTransaction />}
+            element={<ModalEditTransaction />}
           ></Route>
 
           <Route path="*" element={<Navigate to="/home" />}></Route>

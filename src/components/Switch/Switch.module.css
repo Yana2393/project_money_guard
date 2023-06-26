@@ -10,6 +10,10 @@
   text-align: left;
 }
 
+.activeTitle {
+  color: blueviolet;
+}
+
 /* .radioBtnSpanRight {
   color: var(--color-white);
   padding: 0 24px;

@@ -1,32 +1,25 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
+// import { Datetime } from 'react-datetime';
 
 import { SwitchExample } from '../Switch/Switch';
 import { addTransaction } from 'redux/Transaction/transactionOperation';
 import { useState } from 'react';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
+// import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 import css from './ModalAddTransaction.module.css';
 import { AiOutlineClose } from 'react-icons/ai';
+import { SelectCategory } from 'components/Selector/SelectorModal/SelectorModal';
 
-const ModalAddTransaction = typeOfTransaction => {
+const ModalAddTransaction = ({ typeOfTransaction }) => {
   const [type, setType] = useState('EXPENSE');
-  // const [category, setCategory] = useState([]);
+  const [categoryId, setCategoryId] = useState('');
 
-  const transCategory = useSelector(selectTransactionCategories);
-  const categoryList = transCategory.map(e => e.name);
-
-  // `<label for="size"></label>
-  // <select id="size" name="size">
-  //   <option value=${e.id}>${e.name}</option>
-  // </select>
-  //   })
-
-  // const [categoryId, setCategoryId] = useState(
-  const categoryId = '3acd0ecd-5295-4d54-8e7c-d3908f4d0402';
-  // );
+  const getCategoryId = id => {
+    setCategoryId(id);
+  };
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
@@ -39,33 +32,40 @@ const ModalAddTransaction = typeOfTransaction => {
       // .transactionDate('Invalid date')
       .required('Required'),
   });
+
   const formik = useFormik({
     initialValues: {
       amount: '0.00',
-      transactionDate: 'Date()',
+      transactionDate: new Date(),
       comment: '',
     },
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
       const { amount, transactionDate, comment } = values;
+
       const transaction = {
-        amount,
+        amount: type === 'EXPENSE' ? -amount : amount,
         transactionDate,
         comment,
         categoryId,
         type,
       };
       dispatch(addTransaction(transaction));
+
       resetForm();
+      closeModal();
     },
   });
+
   const getStatusType = value => {
     setType(value ? 'INCOME' : 'EXPENSE');
   };
+
   const closeModal = () => {
     dispatch(toggleOpenAdd());
   };
+
   const statusModal = useSelector(modalAddOpen);
 
   return (
@@ -82,7 +82,11 @@ const ModalAddTransaction = typeOfTransaction => {
           />
         </div>
         <form className={css.formModal} onSubmit={formik.handleSubmit}>
-          {type === 'EXPENSE' && <div>{categoryList}</div>}
+          {type === 'EXPENSE' && (
+            <div className={css.selectCategory}>
+              <SelectCategory getCategoryId={getCategoryId} />
+            </div>
+          )}
           <div className={css.inputLine}>
             <div>
               <input
@@ -99,7 +103,6 @@ const ModalAddTransaction = typeOfTransaction => {
                 <div>{formik.errors.amount}</div>
               ) : null}
             </div>
-
             <div>
               <input
                 className={css.dateInput}
