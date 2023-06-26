@@ -22,9 +22,12 @@ import { getCategories } from 'redux/TransactionCategories/TransactionCategorOpe
 
 import ModalAddTransaction from './ModalAddTransaction/ModalAddTransaction';
 import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { getCurrency } from 'redux/Currency/CurrencyOperations';
 
-// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
+import PublicRoute from './PublicRoute/PublicRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ModalBackground from './ModalBackground/ModalBackground';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,11 +59,14 @@ const App = () => {
     <Loader />
   ) : (
     <>
-
-      {openModal && <ModalAddTransaction />}
+      {openModal && (
+        <ModalBackground>
+          <ModalAddTransaction />
+        </ModalBackground>
+      )}
       {isErrorLoginRegistration && handleToach()}
       <ToastContainer />
-
+      =========
       <Example>
         <Routes>
           <Route path="/" element={<Layout />}>
