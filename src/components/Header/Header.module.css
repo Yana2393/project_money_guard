@@ -1,7 +1,7 @@
 @import url('../../index.css');
 .header {
   height: 60px;
-  width: 320px;
+  width: 100%;
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   margin: 0 auto;
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25),
@@ -53,20 +53,20 @@
 }
 @media screen and (max-width: 320px) {
   .header {
-    max-width: 320px;
+    /* max-width: 320px; */
   }
 }
 
 @media screen and (min-width: 320px) {
   .header {
-    width: 320px;
+    /* width: 320px; */
   }
 }
 
 @media screen and (min-width: 768px) {
   .header {
     height: 80px;
-    width: 768px;
+    /* width: 768px; */
   }
   .logo {
     width: 115px;
@@ -75,6 +75,6 @@
 }
 @media screen and (min-width: 1280px) {
   .header {
-    width: 1280px;
+    /* width: 1280px; */
   }
 }

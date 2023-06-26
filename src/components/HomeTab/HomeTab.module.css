@@ -4,13 +4,14 @@
   border-radius: 10px;
   background: rgba(47, 21, 176, 0.73);
   position: relative;
+  border-left: solid 5px var(--color-dashboard-text);
 }
 
 .HomeTabMobileItem:nth-child(1) {
   margin-top: 32px;
 }
 
-.HomeTabMobileSideLine {
+/* .HomeTabMobileSideLine {
   position: absolute;
   height: 5px;
   width: 100%;
@@ -20,14 +21,13 @@
   border-bottom-left-radius: 10px;
   transform: translate(142px, 157px);
   z-index: 2;
-}
+} */
 
 .HomeTabMobileTableItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-
   height: 48px;
 }
 
@@ -40,10 +40,10 @@
 
 .HomeTabMobileTableBottomLine {
   position: absolute;
-  width: 280px;
-  transform: translate(-7%, 24px);
+  width: 275px;
+  transform: translate(-20px, 24px);
   border-bottom: 1px solid;
-  border-color: #ffffff, #ffffff;
+  border-color: grey;
 }
 .HomeTabMobileTableValue {
   color: var(--color-white);
@@ -86,8 +86,8 @@
   border: 0px;
 }
 .HomeTabMobileEditIcon {
-  width: 14px;
-  height: 14px;
+  max-width: 14px;
+  max-height: 14px;
   fill: var(--color-white-60);
 }
 .HomeTabMobileEdit {
@@ -99,24 +99,23 @@
 }
 
 @media screen and (min-width: 768px) {
-  .HomeTabTable {
-    width: 704px;
-  }
   .HomeTabPage {
     padding-top: 20px;
+    max-height: 392px;
+    overflow: scroll;
   }
-  table {
+  .HomeTabTable {
     border-collapse: collapse;
     width: 100%;
   }
-  thead {
+  .HomeTabTableHead {
     border-radius: 8px;
     /* background: rgba(82, 59, 126, 0.6); */
     box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(50px);
     height: 56px;
   }
-  th {
+  .HomeTabTableHeadRow {
     color: var(--color-white);
     font-size: 16px;
     font-family: Poppins;
@@ -125,26 +124,26 @@
     height: 56px;
   }
 
-  th:nth-child(1) {
+  .HomeTabTableHeadRow:nth-child(1) {
     padding-left: 20px;
   }
-  th:nth-child(5) {
+  .HomeTabTableHeadRow:nth-child(5) {
     text-align: right;
   }
 
-  td {
+  .HomeTabTableData {
     color: var(--color-white);
     font-size: 14px;
     font-family: Poppins;
   }
-  td:nth-child(5) {
+  .HomeTabTableData:nth-child(5) {
     text-align: right;
     font-weight: 600;
   }
-  td:nth-child(2) {
+  .HomeTabTableData:nth-child(2) {
     font-size: 16px;
   }
-  td:nth-child(1) {
+  .HomeTabTableData:nth-child(1) {
     padding-left: 20px;
   }
   .income {
@@ -164,7 +163,7 @@
   .HomeTabTableRow:nth-last-child(1) {
     border-bottom: none;
   }
-  td:nth-last-child(1) {
+  .HomeTabTableData:nth-last-child(1) {
     display: flex;
     justify-content: flex-end;
     height: 56px;
@@ -191,19 +190,16 @@
     align-items: center;
   }
   .HomeTabTableEditIcon {
-    width: 14px;
-    height: 14px;
+    max-width: 14px;
+    max-height: 14px;
     fill: var(--color-white-60);
   }
 }
 @media screen and (min-width: 1280px) {
   .HomeTabTable {
-    width: 715px;
+    margin-left: auto;
   }
   .HomeTabPage {
     padding-top: 46px;
-  }
-  table {
-    margin-left: auto;
   }
 }
