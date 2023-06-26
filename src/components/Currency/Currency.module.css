@@ -1,7 +1,6 @@
 @import url('../../index.css');
 .CurrencyPage {
-  height: 200px;
-  /* background-color: rgb(231, 201, 201); */
+  /* height: 200px; */
 }
 
 .Currency th {
@@ -40,19 +39,26 @@
   text-align: center;
 }
 
-.Diagram{  
+.Diagram {
   position: relative;
+  background: rgba(74, 86, 226, 0.1);
+}
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .CurrencyPage {
+    height: 100%;
+  }
+  .Diagram {
+    bottom: 80px;
+    border-radius: 0 8px 8px 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-  .CurrencyPage {
-    margin-left: -16px;
-  }
   .margin {
-    margin-left: -16px;
+    /* margin-left: -16px; */
     /* background: var(--color-whitw-10); */
   }
-  .Diagram{
+  .Diagram {
     width: 480px;
     height: 167px;
     opacity: 60%;

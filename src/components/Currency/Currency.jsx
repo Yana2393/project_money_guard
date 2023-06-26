@@ -18,10 +18,10 @@ const Currency = () => {
   const dataCurrency = useSelector(selectDataCurrency);
 
   const currency = useSelector(selectCurrency);
-  const usdPurch = currency[0].rateBuy.toFixed(2);
-  const usdSale = currency[0].rateSell.toFixed(2);
-  const eurPurch = currency[1].rateBuy.toFixed(2);
-  const eurSale = currency[1].rateSell.toFixed(2);
+  const usdPurch = currency[0]?.rateBuy.toFixed(2);
+  const usdSale = currency[0]?.rateSell.toFixed(2);
+  const eurPurch = currency[1]?.rateBuy.toFixed(2);
+  const eurSale = currency[1]?.rateSell.toFixed(2);
 
   useEffect(() => {
     const getTime = new Date() - new Date(dataCurrency);

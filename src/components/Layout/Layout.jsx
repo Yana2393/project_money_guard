@@ -9,8 +9,6 @@ import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 
 const Layout = () => {
   const viewport = useSelector(selectViewPort);
-  // const array=[1,2,3,4,5,6,7,8,9,10,11,12]
-  //   const options=array.map(e=>({value:e,name:e}))
 
   return (
     <>
