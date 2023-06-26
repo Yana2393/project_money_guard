@@ -59,6 +59,7 @@
     border-right: none;
     background-color: inherit;
     color: var(--color-white);
+    padding-left: 8px;
   }
 
   .navig {
@@ -87,12 +88,13 @@
     background: rgb(252, 252, 252, 0.9);
   }
   .button {
-    background: linear-gradient(
-      167deg,
-      #ffc727 0%,
-      #9e40ba 61.46%,
-      #7000ff 90.54%
-    );
+    background: var(--color-gradient-btn);
+    /* linear-gradient(
+      /* 167deg,
+      /* #ffc727 0%, */
+    /* #9e40ba 61.46%, */
+    /* #7000ff 90.54%  */
+    /* ); */
     border: none;
     border-radius: 20px;
     width: 300px;
@@ -151,7 +153,12 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 .closeIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   color: var(--color-white);
+  width: 16px;
+  height: 16px;
 }
 
 .switchWrapper {
