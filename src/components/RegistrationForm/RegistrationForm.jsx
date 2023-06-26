@@ -71,18 +71,20 @@ const RegistrationForm = () => {
       </div>
 
       <div>
-        <span>
-          <AiOutlineLock className={css.icons_password} />
-        </span>
-        <input
-          className={css.input}
-          placeholder="Password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
+        <div>
+          <span>
+            <AiOutlineLock className={css.icons_password} />
+          </span>
+          <input
+            className={css.input}
+            placeholder="Password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+        </div>
         {formik.touched.password && formik.errors.password ? (
           <div className={css.error_message}>{formik.errors.password}</div>
         ) : null}
