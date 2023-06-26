@@ -18,9 +18,9 @@
   margin-top: 4px;
 }
 
-.container::-webkit-scrollbar {
+/* .container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .cont_stats {
   display: flex;
@@ -28,11 +28,13 @@
   color: var(--color-white);
   font-weight: 400;
   margin-left: 49px;
+  padding-bottom: 46px;
 }
 
 .cont_select_and_list {
   display: flex;
   flex-direction: column;
+  width: 395px;
 }
 
 .transactions {
@@ -100,4 +102,24 @@
   transform: translateY(-50%);
   left: 50%;
   transform: translateX(-50%);
+}
+
+.stats_label {
+  margin-top: 20px;
+  max-width: 395px;
+  padding: 17px 17px;
+
+  border-radius: 8px;
+  background: rgba(82, 59, 126, 0.6);
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats_label_category_sum {
+  font-size: 16px;
+  color: var(--color-white);
+  font-weight: 600;
 }
