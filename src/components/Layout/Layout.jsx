@@ -9,21 +9,27 @@ import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 
 const Layout = () => {
   const viewport = useSelector(selectViewPort);
+  // const array=[1,2,3,4,5,6,7,8,9,10,11,12]
+  //   const options=array.map(e=>({value:e,name:e}))
 
   return (
     <>
       <Header />
 
       <div className={css.layOut}>
-        <div className={css.position}>
-          <div className={css.navigate_balance}>
-            <Navigation />
-          </div>
-          <div className={css.VisiblePageCurrency}>
-            {!viewport.mobile && <CurrencyPage />}
+        <div className="container">
+          <div className={css.container_position}>
+            <div className={css.position}>
+              <div className={css.navigate_balance}>
+                <Navigation />
+              </div>
+              <div className={css.VisiblePageCurrency}>
+                {!viewport.mobile && <CurrencyPage />}
+              </div>
+            </div>
+            <Outlet />
           </div>
         </div>
-        <Outlet />
       </div>
     </>
   );
