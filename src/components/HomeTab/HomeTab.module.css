@@ -1,5 +1,5 @@
 .HomeTabPage {
-  overflow: scroll;
+  /* overflow: scroll; */
   height: 330px;
 }
 
@@ -25,6 +25,8 @@
   font-size: 16px;
   font-family: Poppins;
   font-weight: 600;
+  background: rgba(82, 59, 126, 0.6);
+  border-radius: 8px;
 }
 
 .HomeTabMobileTableBottomLine {
@@ -91,7 +93,7 @@
   .HomeTabPage {
     padding-top: 20px;
     max-height: 392px;
-    overflow: scroll;
+    /* overflow: scroll; */
   }
   .HomeTabTable {
     border-collapse: collapse;
