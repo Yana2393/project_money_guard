@@ -1,14 +1,29 @@
-import { useEffect } from 'react';
+import css from './Statistic.module.css';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
 
 export const SelectComponent = () => {
   const dispatch = useDispatch();
+  const date = new Date();
+
+  const [month, setMonth] = useState(date.getMonth() + 1);
+  const [year, setYear] = useState(date.getFullYear());
+
   useEffect(() => {
-    const date = new Date();
-    dispatch(getSummary({ month: date.getMonth(), year: date.getFullYear() }));
-  }, [dispatch]);
+    dispatch(getSummary({ month, year }));
+    console.log(month, year);
+  }, [dispatch, month, year]);
+
+  const handleChangeSelectMonth = event => {
+    console.log(event.value);
+    setMonth(event.value);
+  };
+  const handleChangeSelectYear = event => {
+    console.log(event.value);
+    setYear(event.value);
+  };
 
   const optionsMonth = [
     { value: '1', label: 'January' },
@@ -25,6 +40,15 @@ export const SelectComponent = () => {
     { value: '12', label: 'December' },
   ];
   const optionsYear = [
+    { value: '2010', label: '2010' },
+    { value: '2011', label: '2011' },
+    { value: '2012', label: '2012' },
+    { value: '2013', label: '2013' },
+    { value: '2014', label: '2014' },
+    { value: '2015', label: '2015' },
+    { value: '2016', label: '2016' },
+    { value: '2017', label: '2017' },
+    { value: '2018', label: '2018' },
     { value: '2019', label: '2019' },
     { value: '2020', label: '2020' },
     { value: '2021', label: '2021' },
@@ -86,14 +110,11 @@ export const SelectComponent = () => {
     }),
   };
 
-  const handleChangeSelect = () => {
-    console.log(new Date().getMonth());
-  };
   return (
-    <ul style={{ display: 'flex' }}>
-      <li key={122} style={{ width: '182px', marginRight: '32px' }}>
+    <ul className={css.stats_select_list}>
+      <li key={122} className={css.stats_select_item}>
         <Select
-          onChange={handleChangeSelect}
+          onChange={handleChangeSelectMonth}
           // classNames={css.container}
           styles={customStyles}
           options={optionsMonth}
@@ -113,9 +134,9 @@ export const SelectComponent = () => {
           })}
         />
       </li>
-      <li key={222} style={{ width: '182px' }}>
+      <li key={222} className={css.stats_select_item}>
         <Select
-          onChange={handleChangeSelect}
+          onChange={handleChangeSelectYear}
           // classNames={css.container}
           styles={customStyles}
           options={optionsYear}
