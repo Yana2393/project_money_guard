@@ -3,10 +3,23 @@ import css from './Statistic.module.css';
 import { useSelector } from 'react-redux';
 import { summaryController } from 'redux/TransactionSummaryController/TransactionSummaryControllerSelectors';
 
-import colors from './Statistic';
+export const colors = [
+  'rgb(0, 173, 132)',
+  'rgb(36, 204, 167)',
+  'rgb(110, 120, 232)',
+  'rgb(129, 225, 255)',
+  'rgb(197, 186, 255)',
+  'rgb(253, 148, 152)',
+  'rgb(254, 208, 87)',
+  'rgb(255, 216, 208)',
+  'rgb(0, 191, 255)',
+  'rgb(243, 71, 35)',
+  'rgb(183, 132, 167)',
+];
 
 export const Transactions = () => {
   const result = useSelector(summaryController);
+  console.log(result);
   const newResult = result.map(el => {
     if (el.type === 'EXPENSE') {
       return { ...el, total: Math.abs(el.total) };

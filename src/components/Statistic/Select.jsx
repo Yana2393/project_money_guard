@@ -1,21 +1,54 @@
+import css from './Statistic.module.css';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { getSummary } from 'redux/TransactionSummaryController/TransactionSummaryControllerOperations';
 
 export const SelectComponent = () => {
+  const dispatch = useDispatch();
+  const date = new Date();
+
+  const [month, setMonth] = useState(date.getMonth() + 1);
+  const [year, setYear] = useState(date.getFullYear());
+
+  useEffect(() => {
+    dispatch(getSummary({ month, year }));
+    console.log(month, year);
+  }, [dispatch, month, year]);
+
+  const handleChangeSelectMonth = event => {
+    console.log(event.value);
+    setMonth(event.value);
+  };
+  const handleChangeSelectYear = event => {
+    console.log(event.value);
+    setYear(event.value);
+  };
+
   const optionsMonth = [
-    { value: 'December', label: 'December' },
-    { value: 'January', label: 'January' },
-    { value: 'February', label: 'February' },
-    { value: 'March', label: 'March' },
-    { value: 'April', label: 'April' },
-    { value: 'May', label: 'May' },
-    { value: 'June', label: 'June' },
-    { value: 'July', label: 'July' },
-    { value: 'August', label: 'August' },
-    { value: 'September', label: 'September' },
-    { value: 'October', label: 'October' },
-    { value: 'November', label: 'November' },
+    { value: '1', label: 'January' },
+    { value: '2', label: 'February' },
+    { value: '3', label: 'March' },
+    { value: '4', label: 'April' },
+    { value: '5', label: 'May' },
+    { value: '6', label: 'June' },
+    { value: '7', label: 'July' },
+    { value: '8', label: 'August' },
+    { value: '9', label: 'September' },
+    { value: '10', label: 'October' },
+    { value: '11', label: 'November' },
+    { value: '12', label: 'December' },
   ];
   const optionsYear = [
+    { value: '2010', label: '2010' },
+    { value: '2011', label: '2011' },
+    { value: '2012', label: '2012' },
+    { value: '2013', label: '2013' },
+    { value: '2014', label: '2014' },
+    { value: '2015', label: '2015' },
+    { value: '2016', label: '2016' },
+    { value: '2017', label: '2017' },
+    { value: '2018', label: '2018' },
     { value: '2019', label: '2019' },
     { value: '2020', label: '2020' },
     { value: '2021', label: '2021' },
@@ -76,10 +109,12 @@ export const SelectComponent = () => {
       overflowY: 'scroll',
     }),
   };
+
   return (
-    <ul style={{ display: 'flex' }}>
-      <li key={122} style={{ width: '182px', marginRight: '32px' }}>
+    <ul className={css.stats_select_list}>
+      <li key={122} className={css.stats_select_item}>
         <Select
+          onChange={handleChangeSelectMonth}
           // classNames={css.container}
           styles={customStyles}
           options={optionsMonth}
@@ -99,8 +134,9 @@ export const SelectComponent = () => {
           })}
         />
       </li>
-      <li key={222} style={{ width: '182px' }}>
+      <li key={222} className={css.stats_select_item}>
         <Select
+          onChange={handleChangeSelectYear}
           // classNames={css.container}
           styles={customStyles}
           options={optionsYear}

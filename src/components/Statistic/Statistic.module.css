@@ -1,17 +1,27 @@
 .Statistic {
-  margin-top: 32px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 8px;
   color: var(--color-white);
   font-size: 30px;
   font-weight: 300;
-  margin-left: 64px;
 }
 
 .donut {
   position: relative;
-  width: 288px;
-  height: 288px;
-  margin-right: 32px;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 32px;
+}
+
+.stats_select_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stats_select_item {
+  max-width: 280px;
+  height: 50px;
 }
 
 .dotut_donut {
@@ -24,17 +34,16 @@
 
 .cont_stats {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   color: var(--color-white);
   font-weight: 400;
-  margin-left: 49px;
-  padding-bottom: 46px;
+  padding-bottom: 32px;
 }
 
 .cont_select_and_list {
   display: flex;
   flex-direction: column;
-  width: 395px;
+  /* width: 395px; */
 }
 
 .transactions {
@@ -106,7 +115,8 @@
 
 .stats_label {
   margin-top: 20px;
-  max-width: 395px;
+  max-width: 280px;
+  /* height: 56px; */
   padding: 17px 17px;
 
   border-radius: 8px;
@@ -122,4 +132,46 @@
   font-size: 16px;
   color: var(--color-white);
   font-weight: 600;
+}
+
+/* @media screen and (max-width: 320px) {
+} */
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1280px) {
+  .Statistic {
+    margin-top: 32px;
+    margin-bottom: 20px;
+    margin-left: 64px;
+  }
+  .donut {
+    width: 288px;
+    height: 288px;
+    margin-right: 32px;
+  }
+
+  .cont_stats {
+    flex-direction: row;
+    margin-left: 49px;
+    padding-bottom: 46px;
+  }
+
+  .cont_select_and_list {
+    width: 395px;
+  }
+
+  .stats_select_item {
+    width: 182px;
+    gap: 32px;
+  }
+  .stats_label {
+    margin-top: 20px;
+    max-width: 395px;
+    padding: 17px 17px;
+    backdrop-filter: blur(50px);
+  }
+
+  .stats_select_list {
+    flex-direction: row;
+  }
 }
