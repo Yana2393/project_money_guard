@@ -1,15 +1,24 @@
 @import url('../../index.css');
 
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .layOut {
   width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  background: var(--color-backgroundMain);
+  /* background: rgba(48, 46, 142, 1); */
+  background-image: url(/src/images/mobile/bgMobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 auto;
   height: calc(100vh - 60px);
 }
 .VisiblePageCurrency {
-  background: var(--color-whitw-10);
+  background: rgba(255, 255, 255, 0.15);
 
   border-radius: 0px 0px 8px 8px;
 }
@@ -31,12 +40,20 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
+  .layOut {
+    background-image: url(/src/images/mobile/bgMobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .position {
     display: flex;
     gap: 32px;
   }
   .navigate_balance {
-    width: 50%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   .VisiblePageCurrency {
     width: 50%;
@@ -53,6 +70,10 @@
   }
   .navigate_balance {
     width: 480px;
+  }
+  .VisiblePageCurrency {
+    margin-left: -16px;
+    background: none;
   }
   .position {
     border-right: 2px solid var(--color-white-60);
