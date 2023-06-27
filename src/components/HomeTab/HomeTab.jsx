@@ -18,6 +18,7 @@ import ModalEditTransaction from 'components/ModalEditTransaction/ModalEditTrans
 import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
 import { useState } from 'react';
 import { writeDownCurrentTransaction } from 'redux/Transaction/transactionSlice';
+import styled from '@emotion/styled';
 // import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
 // import ModalBackground from 'components/ModalBackground/ModalBackground';
 // import ModalEditTransaction from 'components/ModalEditTransaction/ModalEditTransaction';
@@ -29,6 +30,10 @@ const HomeTab = () => {
   const OpenModaiEdit = useSelector(modalEditOpen);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const [transaction, setTransaction] = useState(null);
+
+  const StyledPencil = styled(EditOutlinedIcon)`
+    fill: rgba(255, 255, 255, 0.6);
+  `;
 
   const handleDeleteClick = transaction => {
     dispatch(deleteTransaction(transaction));
@@ -130,9 +135,7 @@ const HomeTab = () => {
                           onClick={() => handleEditClick(transaction)}
                           className={css.HomeTabMobileEditBtn}
                         >
-                          <EditOutlinedIcon
-                            className={css.HomeTabMobileEditIcon}
-                          />
+                          <StyledPencil className={css.HomeTabMobileEditIcon} />
                           <p className={css.HomeTabMobileEdit}>Edit</p>
                         </button>
                       </li>
@@ -193,9 +196,7 @@ const HomeTab = () => {
                         className={css.HomeTabTableEditBtn}
                       >
                         <Link to={`/transaction/${transaction.id}`}>
-                          <EditOutlinedIcon
-                            className={css.HomeTabTableEditIcon}
-                          />
+                          <StyledPencil className={css.HomeTabTableEditIcon} />
                         </Link>
                       </button>
 

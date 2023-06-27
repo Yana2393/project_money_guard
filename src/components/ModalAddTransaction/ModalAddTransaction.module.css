@@ -1,49 +1,184 @@
-@media screen and (max-width: 320px) {
-}
-/* mobile */
-@media screen and (min-width: 375px) {
+.formModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.closeIcon {
+  display: none;
+}
+
+.input {
+  height: 35px;
+  margin-bottom: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: inherit;
+  color: var(--color-white);
+}
+
+.amountInput,
+.dateInput {
+  width: 280px;
+  text-align: start;
+  padding-left: 12px;
+  margin-bottom: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+    border-color: rgba(255, 255, 255, 0.4);
+  background-color: inherit;
+  color: var(--color-white);
+}
+
+.commentInput {
+  width: 280px;
+  margin-bottom: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: inherit;
+  color: var(--color-white);
+  padding-left: 8px;
+  padding-bottom: 52px;
+}
+
+.navig {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border: none;
+  border-radius: 20px;
+  width: 300px;
+  height: 50px;
+  color: #623f8b;
+  text-align: center;
+  font-size: 18px;
+  /* font-family: Poppins; */
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  background-color: rgb(252, 252, 252);
+}
+
+.link:hover {
+  background: rgb(252, 252, 252, 0.9);
+}
+
+.error_message {
+  position: absolute;
+  top: 294px;
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+.button {
+  background: var(--color-gradient-btn);
+  border: none;
+  border-radius: 20px;
+  width: 300px;
+  height: 50px;
+  margin-top: 12px;
+  color: #fbfbfb;
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+}
+
+.button:hover {
+  background: linear-gradient(
+    167deg,
+    #ffc727 20%,
+    #9e40ba 61.46%,
+    #7000ff 80.54%
+  );
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttonCancel {
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 20px;
+  width: 300px;
+  height: 50px;
+  margin-top: 12px;
+  color: #623f8b;
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+}
+
+.addModalTitle {
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 42px;
+}
+
+.modalBody {
+  position: absolute;
+  width: calc(320px - 40px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 28px 20px;
+  border-radius: 8px;
+  background: radial-gradient(rgb(60, 40, 160), rgb(68, 53, 110));
+}
+
+.inputLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: inherit;
+}
+
+.selectCategory {
+  width: 280px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  background: rgba(82, 59, 126, 0.6);
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+}
 /* tablet */
 
 @media screen and (min-width: 768px) {
-}
-/* десктоп */
-
-@media screen and (min-width: 1280px) {
-  .formModal {
-    width: 533px;
-    /* border: 1px solid rgba(255, 255, 255, 0.4); */
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
   }
-  .input {
-    height: 35px;
-    margin-bottom: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: inherit;
+
+  .closeIcon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     color: var(--color-white);
+    width: 16px;
+    height: 16px;
+    z-index: 8;
   }
 
   .amountInput,
   .dateInput {
-    width: 180px;
-    height: 35px;
+    width: 166px;
     text-align: center;
-    margin-bottom: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: inherit;
-    color: var(--color-white);
+    padding-bottom: 8px;
   }
+
   .commentInput {
     width: 394px;
-    height: 35px;
     margin-bottom: 40px;
     border-top: none;
     border-left: none;
@@ -51,91 +186,99 @@
     background-color: inherit;
     color: var(--color-white);
     padding-left: 8px;
+    padding-bottom: 8px;
   }
 
-  .navig {
-    display: flex;
-    flex-direction: column;
-  }
-  .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    border: none;
-    border-radius: 20px;
-    width: 300px;
-    height: 50px;
-    color: #623f8b;
-    text-align: center;
-    font-size: 18px;
-    /* font-family: Poppins; */
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-    background-color: rgb(252, 252, 252);
-  }
-  .link:hover {
-    background: rgb(252, 252, 252, 0.9);
-  }
-  .error_message {
-    position: absolute;
-    top: 294px;
-    font-size: 14px;
-    color: var(--color-white);
-  }
-  .button {
-    background: var(--color-gradient-btn);
-    border: none;
-    border-radius: 20px;
-    width: 300px;
-    height: 50px;
-    margin-top: 12px;
-  }
-  .button:hover {
-    background: linear-gradient(
-      167deg,
-      #ffc727 20%,
-      #9e40ba 61.46%,
-      #7000ff 80.54%
-    );
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
   .buttonCancel {
-    background-color: var(--color-white);
-    border: none;
-    border-radius: 20px;
-    width: 300px;
-    height: 50px;
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
   .addModalTitle {
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    padding: 40px 80px;
-    font-family: Poppins;
     font-size: 30px;
-    font-weight: 400;
-    line-height: 45px;
   }
 
   .modalBody {
     position: absolute;
-    width: 540px;
+    width: calc(540px - 80px);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px 20px;
-
+    padding: 40px 73px;
     border-radius: 8px;
-    background: var(--color-backgroundMain);
+    /* background: var(--color-backgroundMain);
     box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-    /* backdrop-filter: blur(50px); */
+    backdrop-filter: blur(50px); */
+  }
+
+  .inputLine {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .selectCategory {
+    width: 394px;
+  }
+}
+/* десктоп */
+
+@media screen and (min-width: 1280px) {
+  .closeIcon {
+    display: none;
+  }
+
+  .amountInput,
+  .dateInput {
+    width: 166px;
+    text-align: center;
+    padding-bottom: 8px;
+  }
+
+  .commentInput {
+    width: 394px;
+    margin-bottom: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: inherit;
+    color: var(--color-white);
+    padding-left: 8px;
+    padding-bottom: 8px;
+  }
+
+  .buttonCancel {
+    margin-top: 20px;
+  }
+
+  .addModalTitle {
+    font-size: 30px;
+  }
+
+  .modalBody {
+    position: absolute;
+    width: calc(540px - 80px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 73px;
+    border-radius: 8px;
+    /* background: var(--color-backgroundMain);
+    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(50px); */
+  }
+
+  .inputLine {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .selectCategory {
+    width: 394px;
   }
 }
 
-.closeBtn {
+/* .closeBtn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -148,7 +291,7 @@
   color: var(--color-white);
   width: 16px;
   height: 16px;
-}
+} */
 
 .switchWrapper {
   display: flex;
@@ -156,19 +299,19 @@
   justify-content: center;
 }
 
-.inputLine {
+/* .inputLine {
   display: flex;
   gap: 32px;
   align-items: center;
   justify-content: space-around;
   background-color: inherit;
-}
+} */
 
-.selectCategory {
+/* .selectCategory {
   width: 396px;
   border-radius: 8px;
   margin-bottom: 40px;
   background: rgba(82, 59, 126, 0.6);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-}
+} */
