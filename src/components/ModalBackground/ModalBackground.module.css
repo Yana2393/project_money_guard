@@ -8,7 +8,7 @@
     /* height: 800px; */
     display: flex;
     justify-content: center;
-    background-image: url(../../images/mobile/mobile.jpg);
+    /* background-image: url(../../images/mobile/mobile.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,9 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .modalBack {
-      background-image: url(../../images/mobile/mobile@2x.jpg);
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+      /* background-image: url(../../images/mobile/mobile@2x.jpg); */
     }
   }
 }
@@ -26,7 +28,7 @@
   .modalBack {
     display: flex;
     justify-content: center;
-    background-image: url(../../images/mobile/mobile.jpg);
+    /* background-image: url(../../images/mobile/mobile.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,7 +37,9 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .modalBack {
-      background-image: url(../../images/mobile/mobile@2x.jpg);
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+      /* background-image: url(../../images/mobile/mobile@2x.jpg); */
     }
   }
 }
@@ -46,7 +50,7 @@
   .modalBack {
     display: flex;
     justify-content: center;
-    background-image: url(../../images/tablet/register_tablet.jpg);
+    /* background-image: url(../../images/tablet/register_tablet.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +59,9 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .modalBack {
-      background-image: url(../../images/tablet/register_tablet@2x.jpg);
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+      /* background-image: url(../../images/tablet/register_tablet@2x.jpg); */
     }
   }
 }
@@ -65,17 +71,20 @@
   .modalBack {
     display: flex;
     justify-content: center;
-    background-image: url(../../images/desktop/register_destop.jpg);
+    /* background-image: url(../../images/desktop/register_destop.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background: rgba(34, 13, 91, 0.23);
+    backdrop-filter: blur(3.5px);
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .modalBack {
-      background-image: url(../../images/desktop/register_destop@2x.jpg);
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+      /* background-image: url(../../images/desktop/register_destop@2x.jpg); */
     }
   }
 }
-/* ______________________________________________________________________ */
