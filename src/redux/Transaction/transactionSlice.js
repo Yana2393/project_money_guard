@@ -7,35 +7,20 @@ import {
 } from './transactionOperation';
 
 const initialState = {
-  transactions: [
-    {
-      id: '1',
-      transactionDate: '15.06.22',
-      type: 'INCOME',
-      categoryId: '2',
-      userId: '3',
-      comment: 'good morning',
-      amount: 1000,
-      balanceAfter: 1000,
-    },
-    {
-      id: '2',
-      transactionDate: '17.06.22',
-      type: 'INCOME',
-      categoryId: '2',
-      userId: '3',
-      comment: 'good afternoon',
-      amount: 2000,
-      balanceAfter: 3000,
-    },
-  ],
+  transactions: [],
   isLoading: false,
   isError: '',
+  transaction: [],
 };
 
 export const transactionSlice = createSlice({
   name: 'transaction',
   initialState,
+  reducers: {
+    currentTransaction(state, id) {
+      state.transaction = state.transactions.filter(el => el.id === id);
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getTransaction.pending, state => {
@@ -97,3 +82,4 @@ export const transactionSlice = createSlice({
 });
 
 export const transactionReducer = transactionSlice.reducer;
+export const { currentTransaction } = transactionSlice.actions;

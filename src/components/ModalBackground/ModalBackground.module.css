@@ -5,73 +5,8 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    /* height: 800px; */
     display: flex;
     justify-content: center;
-    /* background-image: url(../../images/mobile/mobile.jpg); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .modalBack {
-      background: rgba(34, 13, 91, 0.23);
-      backdrop-filter: blur(3.5px);
-      /* background-image: url(../../images/mobile/mobile@2x.jpg); */
-    }
-  }
-}
-/* mobile */
-@media screen and (min-width: 375px) {
-  .modalBack {
-    display: flex;
-    justify-content: center;
-    /* background-image: url(../../images/mobile/mobile.jpg); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .modalBack {
-      background: rgba(34, 13, 91, 0.23);
-      backdrop-filter: blur(3.5px);
-      /* background-image: url(../../images/mobile/mobile@2x.jpg); */
-    }
-  }
-}
-
-/* tablet */
-
-@media screen and (min-width: 768px) {
-  .modalBack {
-    display: flex;
-    justify-content: center;
-    /* background-image: url(../../images/tablet/register_tablet.jpg); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .modalBack {
-      background: rgba(34, 13, 91, 0.23);
-      backdrop-filter: blur(3.5px);
-      /* background-image: url(../../images/tablet/register_tablet@2x.jpg); */
-    }
-  }
-}
-/* десктоп */
-
-@media screen and (min-width: 1280px) {
-  .modalBack {
-    display: flex;
-    justify-content: center;
-    /* background-image: url(../../images/desktop/register_destop.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,7 +19,69 @@
     .modalBack {
       background: rgba(34, 13, 91, 0.23);
       backdrop-filter: blur(3.5px);
-      /* background-image: url(../../images/desktop/register_destop@2x.jpg); */
+    }
+  }
+}
+/* mobile */
+@media screen and (min-width: 375px) {
+  .modalBack {
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: rgba(34, 13, 91, 0.23);
+    backdrop-filter: blur(3.5px);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .modalBack {
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+    }
+  }
+}
+
+/* tablet */
+
+@media screen and (min-width: 768px) {
+  .modalBack {
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: rgba(34, 13, 91, 0.23);
+    backdrop-filter: blur(3.5px);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .modalBack {
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
+    }
+  }
+}
+/* десктоп */
+
+@media screen and (min-width: 1280px) {
+  .modalBack {
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: rgba(34, 13, 91, 0.23);
+    backdrop-filter: blur(3.5px);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .modalBack {
+      background: rgba(34, 13, 91, 0.23);
+      backdrop-filter: blur(3.5px);
     }
   }
 }

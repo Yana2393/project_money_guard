@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
 import { updateTransaction } from 'redux/Transaction/transactionOperation';
@@ -9,9 +9,21 @@ import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { SelectCategory } from 'components/SelectorModal/SelectorModal';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
+import { useParams } from 'react-router-dom';
+import { selectTransaction } from 'redux/Transaction/transactionSelectors';
+import { useEffect } from 'react';
+import { currentTransaction } from 'redux/Transaction/transactionSlice';
+
 // import { useLocation } from 'react-router-dom';
 
 const ModalEditTransaction = typeOfTransaction => {
+  const transactionId = useParams();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentTransaction(transactionId));
+  }, [dispatch, transactionId]);
+
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
 
@@ -19,9 +31,7 @@ const ModalEditTransaction = typeOfTransaction => {
     setCategoryId(id);
   };
 
-  // const currentTransactionId = useLocation();
-
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
       .string()
