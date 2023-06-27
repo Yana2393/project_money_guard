@@ -13,6 +13,11 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { updateBalance } from 'redux/Auth/authSlice';
 import { Link } from 'react-router-dom';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
+import ModalBackground from 'components/ModalBackground/ModalBackground';
+import ModalEditTransaction from 'components/ModalEditTransaction/ModalEditTransaction';
+import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
+import { useState } from 'react';
+import { writeDownCurrentTransaction } from 'redux/Transaction/transactionSlice';
 // import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
 // import ModalBackground from 'components/ModalBackground/ModalBackground';
 // import ModalEditTransaction from 'components/ModalEditTransaction/ModalEditTransaction';
@@ -21,27 +26,28 @@ const HomeTab = () => {
   const transactionData = useSelector(selectTransaction);
   const categories = useSelector(selectTransactionCategories);
   const dispatch = useDispatch();
-  // const OpenModaiEdit = useSelector(modalEditOpen);
+  const OpenModaiEdit = useSelector(modalEditOpen);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  // const [transaction, setTransaction] = useState(null);
+  const [transaction, setTransaction] = useState(null);
 
   const handleDeleteClick = transaction => {
     dispatch(deleteTransaction(transaction));
     dispatch(updateBalance(transaction.amount));
   };
   const handleEditClick = transaction => {
-    console.log('TRANSACT ', transaction);
-    dispatch(currentTransaction(transaction));
+    setTransaction(transaction);
+    // dispatch(currentTransaction(transaction));
+    dispatch(writeDownCurrentTransaction(transaction));
     dispatch(toggleEditOpen());
   };
   // if (!transaction) return;
   return (
     <>
-      {/* {OpenModaiEdit && (
+      {OpenModaiEdit && (
         <ModalBackground title="edit">
-          <ModalEditTransaction />
+          <ModalEditTransaction transaction={transaction} />
         </ModalBackground>
-      )} */}
+      )}
       <div className={css.HomeTabPage}>
         {isMobile ? (
           <ul className={css.HomeTabMobileList}>

@@ -66,11 +66,11 @@ const App = () => {
           <ModalAddTransaction />
         </ModalBackground>
       )}
-      {ModalEditOpen && (
+      {/* {ModalEditOpen && (
         <ModalBackground title="edit">
           <ModalEditTransaction />
         </ModalBackground>
-      )}
+      )} */}
       {isErrorLoginRegistration && handleToach()}
       <ToastContainer />
       <Example>
