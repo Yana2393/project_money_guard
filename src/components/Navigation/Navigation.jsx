@@ -13,7 +13,7 @@ import NavLinkNavigate from 'components/NavLinkNavigate/NavLinkNavigate';
 const Navigation = () => {
   const viewport = useSelector(selectViewPort);
   const [iconActive, setIconActive] = useState({
-    home: false,
+    home: true,
     statistics: false,
     currency: false,
   });
@@ -66,7 +66,9 @@ const Navigation = () => {
         )}
       </div>
 
-      {(!viewport.mobile || (iconActive.home && viewport.mobile)) && <Balance />}
+      {(!viewport.mobile || (iconActive.home && viewport.mobile)) && (
+        <Balance />
+      )}
     </>
   );
 };
