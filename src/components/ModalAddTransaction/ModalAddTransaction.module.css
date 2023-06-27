@@ -78,6 +78,12 @@
   .link:hover {
     background: rgb(252, 252, 252, 0.9);
   }
+  .error_message {
+    position: absolute;
+    top: 294px;
+    font-size: 14px;
+    color: var(--color-white);
+  }
   .button {
     background: var(--color-gradient-btn);
     border: none;
