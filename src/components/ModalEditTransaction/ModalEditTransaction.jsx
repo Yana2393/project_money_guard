@@ -1,7 +1,10 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { registerLocale, setDefaultLocale } from 'react-datepicker';
+import uk from 'date-fns/locale/uk';
 import { SwitchExample } from '../Switch/Switch';
 import { updateTransaction } from 'redux/Transaction/transactionOperation';
 import css from './ModalEditTransaction.module.css';
@@ -14,7 +17,9 @@ import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionS
 const ModalEditTransaction = typeOfTransaction => {
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
-
+  const [startDate, setStartDate] = useState(new Date());
+  registerLocale('uk', uk);
+  setDefaultLocale('uk');
   const getCategoryId = id => {
     setCategoryId(id);
   };
@@ -24,19 +29,13 @@ const ModalEditTransaction = typeOfTransaction => {
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
-      .string()
-      // .min(2, 'Too Short!')
-      // .max(50, 'Too Long!')
-      .required('Required'),
-    transactionDate: yup
-      .date()
-      // .transactionDate('Invalid date')
+      .number()
+      .positive('The number must be positive')
       .required('Required'),
   });
   const formik = useFormik({
     initialValues: {
-      sum: '0.00',
-      transactionDate: new Date(),
+      sum: '',
       comment: '',
     },
     validationSchema: validationSchema,
@@ -89,7 +88,7 @@ const ModalEditTransaction = typeOfTransaction => {
           <div>
             <input
               className={css.amountInput}
-              placeholder=""
+              placeholder="0"
               name="amount"
               type="text"
               onChange={formik.handleChange}
@@ -98,23 +97,16 @@ const ModalEditTransaction = typeOfTransaction => {
               // onClick=" setSelectionRange(0,0)"
             />
             {formik.touched.amount && formik.errors.amount ? (
-              <div>{formik.errors.amount}</div>
+              <div className={css.error_message}>{formik.errors.amount}</div>
             ) : null}
           </div>
-
           <div>
-            <input
+            <DatePicker
               className={css.dateInput}
-              placeholder=""
-              name="transactionDate"
-              type="date"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.transactionDate}
+              selected={startDate}
+              onChange={date => setStartDate(date)}
+              dateFormat="dd/MM/yyyy"
             />
-            {formik.touched.transactionDate && formik.errors.transactionDate ? (
-              <div>{formik.errors.transactionDate}</div>
-            ) : null}
           </div>
         </div>
         <div>
