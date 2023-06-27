@@ -73,7 +73,7 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
       const { amount, transactionDate, comment } = values;
 
       const transaction = {
-        amount: type === 'EXPENSE' ? -amount : amount,
+        amount: type === 'EXPENSE' ? Number(-amount) : Number(amount),
         transactionDate,
         comment,
         categoryId,
