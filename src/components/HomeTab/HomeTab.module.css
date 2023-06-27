@@ -34,7 +34,7 @@
   width: 275px;
   transform: translate(-20px, 24px);
   border-bottom: 1px solid;
-  border-color: grey;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 .HomeTabMobileTableValue {
   color: var(--color-white);
@@ -72,12 +72,13 @@
 .HomeTabMobileEditBtn {
   background-color: inherit;
   border: 0px;
-}
-.HomeTabEditLink {
   display: flex;
   gap: 4px;
   align-items: center;
 }
+/* .HomeTabEditLink {
+
+} */
 .HomeTabMobileEditIcon {
   max-width: 14px;
   max-height: 14px;
@@ -120,6 +121,11 @@
   .HomeTabTableHeadRow:nth-child(1) {
     padding-left: 20px;
   }
+
+  .HomeTabTableHeadRow:nth-child(2) {
+    text-align: center;
+  }
+
   .HomeTabTableHeadRow:nth-child(5) {
     text-align: right;
   }
@@ -128,6 +134,10 @@
     color: var(--color-white);
     font-size: 14px;
     font-family: Poppins;
+    hyphens: auto;
+  }
+  .HomeTabTableData:nth-child(4) {
+    max-width: 180px;
   }
   .HomeTabTableData:nth-child(5) {
     text-align: right;
@@ -135,9 +145,14 @@
   }
   .HomeTabTableData:nth-child(2) {
     font-size: 16px;
+    min-width: 88px;
+    text-align: center;
   }
   .HomeTabTableData:nth-child(1) {
     padding-left: 20px;
+  }
+  .HomeTabTableData:nth-child(6) {
+    padding-right: 10px;
   }
   .income {
     color: var(--color-yellow);
@@ -148,7 +163,7 @@
 
   .HomeTabTableRow {
     border-bottom: solid 1px;
-    border-color: grey;
+    border-color: rgba(255, 255, 255, 0.1);
     height: 54px;
     padding-right: 20px;
   }
