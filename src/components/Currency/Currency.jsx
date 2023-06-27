@@ -107,8 +107,8 @@ const Currency = () => {
               stroke="#FF868D"
             />
         </svg>
-        <span className={css.usdPurch}>{usdPurch}</span>
-        <span className={css.eurPurch}>{eurPurch}</span>
+{/*         <span className={css.usdPurch}>{usdPurch}</span>
+        <span className={css.eurPurch}>{eurPurch}</span> */}
       </div>
     </div>
   );
