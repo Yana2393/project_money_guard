@@ -68,6 +68,7 @@
   text-align: center;
   font-size: 14px;
   font-family: Poppins;
+  color: var(--color-white);
 }
 .HomeTabMobileEditBtn {
   background-color: inherit;
@@ -188,6 +189,7 @@
     border-radius: 18px;
     background: var(--color-gradient-btn);
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+    color: var(--color-white);
   }
   .HomeTabTableEditBtn {
     background-color: inherit;
