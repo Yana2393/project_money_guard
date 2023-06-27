@@ -3,7 +3,7 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 .layOut {
   width: 100%;
