@@ -22,7 +22,7 @@ import { selectEditTransaction } from 'redux/Transaction/transactionSelectors';
 const ModalEditTransaction = typeOfTransaction => {
   const currentTransaction = useSelector(selectEditTransaction);
 
-  const [newTransaction, setNewTransaction] = useState();
+  // const [newTransaction, setNewTransaction] = useState();
 
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
