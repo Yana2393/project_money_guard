@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/project_money_guard/static/css/main.01c31ea8.css",
+    "main.css": "/project_money_guard/static/css/main.26296b5a.css",
     "main.js": "/project_money_guard/static/js/main.924cbb44.js",
     "static/media/register_destop@2x.jpg": "/project_money_guard/static/media/register_destop@2x.fa88aa31d49d7088882d.jpg",
     "static/media/login_destop@2x.jpg": "/project_money_guard/static/media/login_destop@2x.11d72a7bbffefba33e3b.jpg",
@@ -14,11 +14,11 @@
     "static/media/bgMobile.png": "/project_money_guard/static/media/bgMobile.40282d3f55befba87ff1.png",
     "static/media/mobile.jpg": "/project_money_guard/static/media/mobile.e0281b0ea10194ce3b63.jpg",
     "index.html": "/project_money_guard/index.html",
-    "main.01c31ea8.css.map": "/project_money_guard/static/css/main.01c31ea8.css.map",
+    "main.26296b5a.css.map": "/project_money_guard/static/css/main.26296b5a.css.map",
     "main.924cbb44.js.map": "/project_money_guard/static/js/main.924cbb44.js.map"
   },
   "entrypoints": [
-    "static/css/main.01c31ea8.css",
+    "static/css/main.26296b5a.css",
     "static/js/main.924cbb44.js"
   ]
 }
