@@ -26,7 +26,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     updateBalance(state, { payload }) {
-      state.balance = state.balance - payload;
+      state.balance = state.balance + payload;
     },
   },
   extraReducers: builder => {

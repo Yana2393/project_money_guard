@@ -12,15 +12,12 @@ export class SwitchExample extends Component {
   }
 
   handleChange(checked) {
-    console.log('checked===', checked);
-    // this.props.checked = checked;
     this.setState({ checked });
     const typeOfTransaction = this.state.checked;
     this.props.getStatusType(typeOfTransaction);
   }
 
   render() {
-    console.log('Switch checed', this.props.checked);
     const handleIconContainerStyles = {
       display: 'flex',
       alignItems: 'center',
@@ -34,12 +31,6 @@ export class SwitchExample extends Component {
       width: '80%',
       height: '80%',
     };
-
-    // {
-    //   this.props.checked
-    //     ? this.props.checked
-    //     : this.props.checked ?? this.state.checked;
-    // }
 
     return (
       <div className={css.switchContainer}>

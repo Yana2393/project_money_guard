@@ -7,7 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import uk from 'date-fns/locale/uk';
-import { SwitchExample } from '../Switch/Switch';
+
 import { updateTransaction } from 'redux/Transaction/transactionOperation';
 import css from './ModalEditTransaction.module.css';
 import { useEffect, useState } from 'react';
@@ -16,27 +16,24 @@ import { SelectCategory } from 'components/SelectorModal/SelectorModal';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
 import { selectEditTransaction } from 'redux/Transaction/transactionSelectors';
 import { clearCurrentTransaction } from 'redux/Transaction/transactionSlice';
-// import { useLocation } from 'react-router-dom';
+import AntiSwitch from 'components/AntiSwitch/AntiSwitch';
+import { updateBalance } from 'redux/Auth/authSlice';
 
-const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
-  console.log('ModalEditTransaction', transaction);
+const ModalEditTransaction = typeOfTransaction => {
   const currentTransaction = useSelector(selectEditTransaction);
+  const [typeEdit, setTypeEdit] = useState(currentTransaction.type);
 
-  // const [newTransaction, setNewTransaction] = useState({
-  //   transactionId: currentTransaction.id,
-  //   body: {
-  //     transactionDate: currentTransaction.transactionDate,
-  //     type: currentTransaction.type,
-  //     // const [newTransaction, setNewTransaction] = useState();
+  const dataFormat = value => {
+    const my_data = value.slice(0, 10);
+    const [year, month, day] = my_data.split('-');
+    const convertedDate = new Date(year, month - 1, day);
+    return convertedDate;
+  };
 
-  //     comment: currentTransaction.comment,
-  //     amount: currentTransaction.amount,
-  //   },
-  // });
-  console.log('data', currentTransaction.transactionDate);
-  const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(
+    dataFormat(currentTransaction.transactionDate)
+  );
 
   registerLocale('uk', uk);
   setDefaultLocale('uk');
@@ -44,7 +41,6 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
   const getCategoryId = id => {
     setCategoryId(id);
   };
-  console.log('CURRENT__Transaction', currentTransaction);
 
   useEffect(() => {
     if (currentTransaction) {
@@ -70,14 +66,17 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
-      const { amount, transactionDate, comment } = values;
+      const { amount, comment } = values;
 
       const transaction = {
-        amount: type === 'EXPENSE' ? Number(-amount) : Number(amount),
-        transactionDate,
+        amount: typeEdit === 'EXPENSE' ? Number(-amount) : Number(amount),
+        transactionDate: startDate,
         comment,
-        categoryId,
-        type,
+        categoryId:
+          typeEdit === 'INCOME'
+            ? '063f1132-ba5d-42b4-951d-44011ca46262'
+            : categoryId,
+        type: typeEdit,
       };
       dispatch(
         updateTransaction({
@@ -85,23 +84,32 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
           body: transaction,
         })
       );
+      dispatch(
+        updateBalance(
+          Number(typeEdit === 'EXPENSE' ? Number(-amount) : Number(amount))
+        )
+      );
 
-      resetForm();
       dispatch(clearCurrentTransaction());
+      resetForm();
+
       closeModal();
     },
   });
 
   const getStatusType = value => {
-    setType(value ? 'INCOME' : 'EXPENSE');
+    setTypeEdit(value ? 'INCOME' : 'EXPENSE');
   };
-  // getCategoryId(currentTransaction?.id);
+
   const closeModal = () => {
     dispatch(toggleEditOpen());
     dispatch(clearCurrentTransaction());
   };
-  // const statusModal = useSelector(modalEditOpen);
-  // console.log('newTransaction', newTransaction);
+
+  const onTypeSelected = value => {
+    setTypeEdit(value);
+  };
+
   return (
     currentTransaction && (
       <div className={css.modalBody}>
@@ -110,16 +118,27 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
         </span>
         <h1 className={css.editModalTitle}>Edit transaction</h1>
         <div className={css.switchWrapper}>
-          <SwitchExample
+          <AntiSwitch
+            getStatusType={getStatusType}
+            typeOfTransaction={typeOfTransaction}
+            checked={currentTransaction?.type === 'INCOME' ? false : true}
+            onTypeSelected={onTypeSelected}
+            type={currentTransaction.type}
+          />
+
+          {/* <SwitchExample
             checked={currentTransaction?.type === 'INCOME' ? false : true}
             getStatusType={getStatusType}
             typeOfTransaction={typeOfTransaction}
-          />
+          /> */}
         </div>
         <form className={css.formModal} onSubmit={formik.handleSubmit}>
-          {type === 'EXPENSE' && (
+          {typeEdit === 'EXPENSE' && (
             <div className={css.selectCategory}>
-              <SelectCategory getCategoryId={getCategoryId} />
+              <SelectCategory
+                getCategoryId={getCategoryId}
+                currentCategoryId={currentTransaction.categoryId}
+              />
             </div>
           )}
           <div className={css.inputLine}>
@@ -132,7 +151,6 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.amount}
-                // onClick=" setSelectionRange(0,0)"
               />
               {formik.touched.amount && formik.errors.amount ? (
                 <div className={css.error_message}>{formik.errors.amount}</div>

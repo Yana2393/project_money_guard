@@ -36,7 +36,7 @@ const HomeTab = () => {
 
   const handleDeleteClick = transaction => {
     dispatch(deleteTransaction(transaction));
-    dispatch(updateBalance(transaction.amount));
+    dispatch(updateBalance(-Number(transaction.amount)));
   };
   const handleEditClick = transaction => {
     setTransaction(transaction);
