@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addTransaction,
+  currentTransaction,
   deleteTransaction,
   getTransaction,
   updateTransaction,
@@ -10,16 +11,16 @@ const initialState = {
   transactions: [],
   isLoading: false,
   isError: '',
-  transaction: [],
+  currentTransaction: null,
 };
 
 export const transactionSlice = createSlice({
   name: 'transaction',
   initialState,
   reducers: {
-    currentTransaction(state, id) {
-      state.transaction = state.transactions.filter(el => el.id === id);
-    },
+    // currentTransaction(state, id) {
+    //   state.transaction = state.transactions.filter(el => el.id === id);
+    // },
   },
   extraReducers: builder => {
     builder
@@ -78,8 +79,21 @@ export const transactionSlice = createSlice({
         state.isLoading = false;
         state.isError = payload;
       });
+    // .addCase(currentTransaction.pending, state => {
+    //   state.isLoading = true;
+    //   state.isError = '';
+    // })
+
+    // .addCase(currentTransaction.fulfilled, (state, { payload }) => {
+    //   state.currentTransaction = payload;
+    // })
+    // .addCase(currentTransaction.rejected, (state, { payload }) => {
+    //   state.isLoading = false;
+    //   state.isError = payload;
+    //   state.currentTransaction = null;
+    // });
   },
 });
 
 export const transactionReducer = transactionSlice.reducer;
-export const { currentTransaction } = transactionSlice.actions;
+// export const { currentTransaction } = transactionSlice.actions;

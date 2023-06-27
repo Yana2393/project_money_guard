@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+
+import { useDispatch, useSelector } from 'react-redux';
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
@@ -12,20 +14,13 @@ import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { SelectCategory } from 'components/SelectorModal/SelectorModal';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
-import { useParams } from 'react-router-dom';
-import { selectTransaction } from 'redux/Transaction/transactionSelectors';
-import { useEffect } from 'react';
-import { currentTransaction } from 'redux/Transaction/transactionSlice';
-
+import { selectEditTransaction } from 'redux/Transaction/transactionSelectors';
 // import { useLocation } from 'react-router-dom';
 
 const ModalEditTransaction = typeOfTransaction => {
-  const transactionId = useParams();
+  // const currentTransaction = useSelector(selectEditTransaction);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(currentTransaction(transactionId));
-  }, [dispatch, transactionId]);
+  // const [newTransaction, setNewTransaction] = useState();
 
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
@@ -35,9 +30,9 @@ const ModalEditTransaction = typeOfTransaction => {
   const getCategoryId = id => {
     setCategoryId(id);
   };
+  // console.log('CURRENT__Transaction', currentTransaction);
 
-  // const dispatch = useDispatch();
-  
+  const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
     amount: yup
       .number()
@@ -46,8 +41,11 @@ const ModalEditTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      sum: '',
-      comment: '',
+      amount:
+        currentTransaction?.type === 'EXPENSE'
+          ? -currentTransaction?.amount
+          : currentTransaction?.amount,
+      comment: currentTransaction?.comment,
     },
     validationSchema: validationSchema,
 
@@ -84,6 +82,7 @@ const ModalEditTransaction = typeOfTransaction => {
       <h1 className={css.editModalTitle}>Edit transaction</h1>
       <div className={css.switchWrapper}>
         <SwitchExample
+          checked={currentTransaction.type === 'INCOME' ? false : true}
           getStatusType={getStatusType}
           typeOfTransaction={typeOfTransaction}
         />
