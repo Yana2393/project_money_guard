@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
 import css from './Statistic.module.css';
-import Chart from 'chart.js/auto';
+
 import { useSelector } from 'react-redux';
 import { summaryController } from 'redux/TransactionSummaryController/TransactionSummaryControllerSelectors';
 
