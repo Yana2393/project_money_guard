@@ -54,3 +54,15 @@ export const deleteTransaction = createAsyncThunk(
     }
   }
 );
+export const currentTransaction = createAsyncThunk(
+  'transaction/currentTransaction',
+  async (transaction, thunk_Api) => {
+    try {
+      // await Api.delete(`transactions/${transaction.id}`);
+
+      return transaction;
+    } catch (error) {
+      return thunk_Api.rejectWithValue(error.message);
+    }
+  }
+);

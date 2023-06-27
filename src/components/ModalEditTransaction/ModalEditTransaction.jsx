@@ -1,6 +1,10 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
@@ -12,9 +16,14 @@ import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { SelectCategory } from 'components/SelectorModal/SelectorModal';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
+import { selectEditTransaction } from 'redux/Transaction/transactionSelectors';
 // import { useLocation } from 'react-router-dom';
 
 const ModalEditTransaction = typeOfTransaction => {
+  const currentTransaction = useSelector(selectEditTransaction);
+
+  const [newTransaction, setNewTransaction] = useState();
+
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
   const [startDate, setStartDate] = useState(new Date());
@@ -23,8 +32,7 @@ const ModalEditTransaction = typeOfTransaction => {
   const getCategoryId = id => {
     setCategoryId(id);
   };
-
-  // const currentTransactionId = useLocation();
+  // console.log('CURRENT__Transaction', currentTransaction);
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -35,8 +43,13 @@ const ModalEditTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      sum: '',
-      comment: '',
+
+      amount:
+        currentTransaction?.type === 'EXPENSE'
+          ? -currentTransaction?.amount
+          : currentTransaction?.amount,
+      comment: currentTransaction?.comment,
+
     },
     validationSchema: validationSchema,
 
@@ -74,6 +87,7 @@ const ModalEditTransaction = typeOfTransaction => {
       <h1 className={css.editModalTitle}>Edit transaction</h1>
       <div className={css.switchWrapper}>
         <SwitchExample
+          checked={currentTransaction.type === 'INCOME' ? false : true}
           getStatusType={getStatusType}
           typeOfTransaction={typeOfTransaction}
         />
