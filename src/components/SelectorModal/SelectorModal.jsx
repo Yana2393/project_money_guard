@@ -2,9 +2,17 @@ import { useSelector } from 'react-redux';
 import Select from 'react-select';
 import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
 
-export const SelectCategory = ({ getCategoryId }) => {
+export const SelectCategory = ({ getCategoryId, currentCategoryId }) => {
   const transCategory = useSelector(selectTransactionCategories);
 
+  const nameCurrentCategory = id => {
+    const selectedCategory = transCategory.filter(
+      category => category.id === id
+    );
+
+    return selectedCategory[0]?.name;
+  };
+  const currentNameCategory = nameCurrentCategory(currentCategoryId);
   const customStyles = {
     control: provided => ({
       ...provided,
@@ -18,9 +26,9 @@ export const SelectCategory = ({ getCategoryId }) => {
       ...provided,
 
       backgroundColor: isSelected
-        ? 'rgba(255, 255, 255, 0.10)'
+        ? 'rgba(255, 255, 255, 0.1)'
         : isFocused
-        ? 'rgba(255, 255, 255, 0.10)'
+        ? 'rgba(255, 255, 255, 0.1)'
         : 'transparent', // Стилизация фона активной опции и ховера
       color: isSelected ? '#FF868D' : '#FBFBFB', // Стилизация цвета текста активной опции в списке
       padding: '5px 20px',
@@ -71,7 +79,9 @@ export const SelectCategory = ({ getCategoryId }) => {
 
   return (
     <Select
-      placeholder={'Select a category'}
+      placeholder={
+        currentNameCategory ? currentNameCategory : 'Select a category'
+      }
       options={optionCategory}
       onChange={handleOnChange}
       styles={customStyles}

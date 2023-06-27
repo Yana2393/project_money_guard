@@ -12,11 +12,12 @@ import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
 import css from './ModalAddTransaction.module.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { SelectCategory } from 'components/SelectorModal/SelectorModal';
+import { updateBalance } from 'redux/Auth/authSlice';
 
 const ModalAddTransaction = ({ typeOfTransaction }) => {
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
-  const [startDate, setStartDate] = useState(new Date() - 1);
+  const [startDate, setStartDate] = useState(new Date());
   registerLocale('uk', uk);
   setDefaultLocale('uk');
   const getCategoryId = id => {
@@ -50,8 +51,13 @@ const ModalAddTransaction = ({ typeOfTransaction }) => {
             : '063f1132-ba5d-42b4-951d-44011ca46262',
         type,
       };
-      dispatch(addTransaction(transaction));
 
+      dispatch(addTransaction(transaction));
+      dispatch(
+        updateBalance(
+          Number(type === 'EXPENSE' ? Number(-amount) : Number(amount))
+        )
+      );
       resetForm();
       closeModal();
     },

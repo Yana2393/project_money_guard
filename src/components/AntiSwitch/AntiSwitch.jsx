@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import css from './AntiSwitch.module.css';
 
-const AntiSwitch = ({ onTypeSelected }) => {
-  const [selectedType, setSelectedType] = useState('expense');
+const AntiSwitch = ({ onTypeSelected, type }) => {
+  const [selectedType, setSelectedType] = useState(type);
 
-  const handleTypeSelection = (type) => {
+  const handleTypeSelection = type => {
     setSelectedType(type);
     onTypeSelected(type);
   };
@@ -13,18 +13,18 @@ const AntiSwitch = ({ onTypeSelected }) => {
     <div className={css.AntiSwitchWrap}>
       <button
         className={`${css.AntiSwitchIncome} ${
-          selectedType === 'income' ? css.AntiSwitchIncomeActive : ''
+          selectedType === 'INCOME' ? css.AntiSwitchIncomeActive : ''
         }`}
-        onClick={() => handleTypeSelection('income')}
+        onClick={() => handleTypeSelection('INCOME')}
       >
         Income
       </button>
       <span className={css.AntiSwitchSlesh}>/</span>
       <button
         className={`${css.AntiSwitchExpense} ${
-          selectedType === 'expense' ? css.AntiSwitchExpenseActive : ''
+          selectedType === 'EXPENSE' ? css.AntiSwitchExpenseActive : ''
         }`}
-        onClick={() => handleTypeSelection('expense')}
+        onClick={() => handleTypeSelection('EXPENSE')}
       >
         Expense
       </button>
