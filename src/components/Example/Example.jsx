@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { writeDownViewport } from 'redux/Viewport/viewportSlice';
+import css from '../Layout/Layout.module.css'
 
 let viewport = {
   mobile: false,
@@ -38,7 +39,7 @@ const Mobile = ({ children }) => {
 };
 
 const Example = ({ children }) => (
-  <div>
+  <div className={css.wrap}>
     <Desktop>{children}</Desktop>
     <Tablet> {children}</Tablet>
     <Mobile>{children}</Mobile>
