@@ -7,7 +7,7 @@
   margin-top: 8px;
   padding: 0px 20px;
   border-radius: 10px;
-  background: rgba(47, 21, 176, 0.73);
+  background: rgba(255, 255, 255, 0.1);
   position: relative;
   border-left: solid 5px var(--color-dashboard-text);
 }
@@ -25,7 +25,7 @@
   font-size: 16px;
   font-family: Poppins;
   font-weight: 600;
-  background: rgba(82, 59, 126, 0.6);
+
   border-radius: 8px;
 }
 
