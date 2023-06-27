@@ -66,7 +66,7 @@ const Navigation = () => {
         )}
       </div>
 
-      {!viewport.mobile ? <Balance /> : !iconActive.currency && <Balance />}
+      {(!viewport.mobile || (iconActive.home && viewport.mobile)) && <Balance />}
     </>
   );
 };

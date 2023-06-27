@@ -3,7 +3,7 @@ import Layout from './Layout/Layout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import DashboardPage from 'page/DashboardPage/DashboardPage';
 import LoginPage from 'page/LoginPage/LoginPage';
-import RegistrationPage from 'page/RegistrationPage/RegistrationPage';
+// import RegistrationPage from 'page/RegistrationPage/RegistrationPage';
 import CurrencyPage from 'page/CurrencyPage/CurrencyPage';
 
 import '../index.css';
@@ -52,7 +52,6 @@ const App = () => {
   // }
 
   const handleToach = () => {
-    console.log('error');
     toast.error(isErrorLoginRegistration, {
       position: toast.POSITION.TOP_CENTER,
     });
@@ -63,11 +62,15 @@ const App = () => {
   ) : (
     <>
       {openModal && (
-        <ModalBackground>
+        <ModalBackground title="add">
           <ModalAddTransaction />
         </ModalBackground>
       )}
-      {ModalEditOpen && <ModalBackground>ModalEditTransaction</ModalBackground>}
+      {ModalEditOpen && (
+        <ModalBackground title="edit">
+          <ModalEditTransaction />
+        </ModalBackground>
+      )}
       {isErrorLoginRegistration && handleToach()}
       <ToastContainer />
       <Example>
@@ -109,7 +112,7 @@ const App = () => {
               <PublicRoute redirectTo="/home" component={<LoginPage />} />
             }
           ></Route>
-          <Route
+          {/* <Route
             path="/registration"
             element={
               <PublicRoute
@@ -117,11 +120,11 @@ const App = () => {
                 component={<RegistrationPage />}
               />
             }
-          ></Route>
-          <Route
+          ></Route> */}
+          {/* <Route
             path="/transaction/:transactionId"
-            element={<ModalEditTransaction />}
-          ></Route>
+            element={<ModalAddTransaction />}
+          ></Route> */}
 
           <Route path="*" element={<Navigate to="/home" />}></Route>
         </Routes>

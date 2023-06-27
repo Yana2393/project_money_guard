@@ -2,13 +2,18 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
+import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
 import css from './ModalBackground.module.css';
 
-const ModalBackground = ({ children }) => {
+const ModalBackground = ({ children, title }) => {
   const dispatch = useDispatch();
   const modalRoot = document.getElementById('modal-root');
   const closeModal = () => {
-    dispatch(toggleOpenAdd());
+    if (title === 'add') {
+      dispatch(toggleOpenAdd());
+      return;
+    }
+    dispatch(toggleEditOpen());
   };
   useEffect(() => {
     const handleKeydown = e => {

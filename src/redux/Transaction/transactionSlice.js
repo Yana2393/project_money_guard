@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addTransaction,
+  currentTransaction,
   deleteTransaction,
   getTransaction,
   updateTransaction,
@@ -31,6 +32,7 @@ const initialState = {
   ],
   isLoading: false,
   isError: '',
+  currentTransaction: null,
 };
 
 export const transactionSlice = createSlice({
@@ -92,6 +94,19 @@ export const transactionSlice = createSlice({
       .addCase(deleteTransaction.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.isError = payload;
+      })
+      .addCase(currentTransaction.pending, state => {
+        state.isLoading = true;
+        state.isError = '';
+      })
+
+      .addCase(currentTransaction.fulfilled, (state, { payload }) => {
+        state.currentTransaction = payload;
+      })
+      .addCase(currentTransaction.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = payload;
+        state.currentTransaction = null;
       });
   },
 });

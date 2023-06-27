@@ -12,12 +12,15 @@ export class SwitchExample extends Component {
   }
 
   handleChange(checked) {
+    console.log('checked===', checked);
+    // this.props.checked = checked;
     this.setState({ checked });
     const typeOfTransaction = this.state.checked;
     this.props.getStatusType(typeOfTransaction);
   }
 
   render() {
+    console.log('Switch checed', this.props.checked);
     const handleIconContainerStyles = {
       display: 'flex',
       alignItems: 'center',
@@ -32,18 +35,29 @@ export class SwitchExample extends Component {
       height: '80%',
     };
 
+    // {
+    //   this.props.checked
+    //     ? this.props.checked
+    //     : this.props.checked ?? this.state.checked;
+    // }
+
     return (
       <div className={css.switchContainer}>
         <label className={css.radioBtnLabel}>
-          <span className={css.radioBtnSpan}> Income</span>
+          <span
+            className={
+              !this.state.checked
+                ? `${css.radioBtnSpan} ${css.activeTitleIncome}`
+                : `${css.radioBtnSpan}`
+            }
+          >
+            Income
+          </span>
           <Switch
             onChange={this.handleChange}
             checked={this.state.checked}
             offColor="#FBFBFB"
             onColor="#FBFBFB"
-            // offHandleColor="#FF868D"
-            // onHandleColor="#FFB627"
-
             offHandleColor="#FFB627"
             onHandleColor="#FF868D"
             checkedIcon={false}
@@ -52,9 +66,7 @@ export class SwitchExample extends Component {
             height={40}
             boxShadow={
               this.state.checked
-                ? // ? '1px 4px 15px -6px #FFB627'
-                  // : '1px 4px 15px -6px #FF868D'
-                  '1px 4px 15px -6px #FFB627'
+                ? '1px 4px 15px -6px #FFB627'
                 : '1px 4px 15px -6px #FF868D'
             }
             activeBoxShadow={'none'}
@@ -70,7 +82,16 @@ export class SwitchExample extends Component {
               </div>
             }
           />
-          <span className={css.radioBtnSpan}> Expense</span>
+          <span
+            className={
+              this.state.checked
+                ? `${css.radioBtnSpan} ${css.activeTitleExpense}`
+                : `${css.radioBtnSpan}`
+            }
+          >
+            {' '}
+            Expense
+          </span>
         </label>
       </div>
     );

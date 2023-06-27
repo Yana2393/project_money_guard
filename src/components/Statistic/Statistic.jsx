@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
 import css from './Statistic.module.css';
-import Chart from 'chart.js/auto';
+
 import { useSelector } from 'react-redux';
 import { summaryController } from 'redux/TransactionSummaryController/TransactionSummaryControllerSelectors';
 
@@ -11,10 +10,40 @@ import { Transactions } from './Transactions';
 
 import { colors } from './Transactions';
 
+import React from 'react';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 const Statistic = () => {
   const balans = useSelector(selectBalanse);
-  const chartRef = useRef(null);
+  // const chartRef = useRef(null);
   const result = useSelector(summaryController);
+
+  const data = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+
+    datasets: [
+      {
+        label: '# of Votes',
+        data: result.map(el => el.total),
+        backgroundColor: colors,
+        borderColor: ['rgba(255, 255, 255, 0.6)'],
+        borderWidth: 1,
+        cutout: '70%',
+        hoverOffset: 2,
+      },
+    ],
+  };
+
+  const options = {
+    plugins: {
+      legend: {
+        display: false, // Установите значение false, чтобы скрыть легенду
+      },
+    },
+  };
 
   const formatBalans = balans.toLocaleString('uk-UA', {
     minimumFractionDigits: 2,
@@ -22,34 +51,35 @@ const Statistic = () => {
     useGrouping: true,
   });
 
-  useEffect(() => {
-    if (chartRef.current) {
-      chartRef.current.destroy();
-    }
-    chartRef.current = new Chart(document.getElementById('acquisitions'), {
-      type: 'doughnut',
-      data: {
-        datasets: [
-          {
-            data: result.map(el => el.total),
-            hoverOffset: 2,
-            backgroundColor: colors,
-          },
-        ],
-      },
-      options: {
-        cutout: '70%',
-        borderWidth: 1,
-      },
-    });
-  }, [result]);
+  // useEffect(() => {
+  //   if (chartRef.current) {
+  //     chartRef.current.destroy();
+  //   }
+  //   chartRef.current = new Chart(document.getElementById('acquisitions'), {
+  //     type: 'doughnut',
+  //     data: {
+  //       datasets: [
+  //         {
+  //           data: result.map(el => el.total),
+  //           hoverOffset: 2,
+  //           backgroundColor: colors,
+  //         },
+  //       ],
+  //     },
+  //     options: {
+  //       cutout: '70%',
+  //       borderWidth: 1,
+  //     },
+  //   });
+  // }, [result]);
 
   return (
-    <>
+    <div>
       <h2 className={css.Statistic}>Statistic</h2>
       <div className={css.cont_stats}>
         <div className={css.donut}>
-          <canvas className={css.dotut_donut} id="acquisitions"></canvas>
+          {/* <canvas className={css.dotut_donut} id="acquisitions"></canvas> */}
+          <Doughnut className={css.dotut_donut} data={data} options={options} />
           <p className={css.statistic_balans}>₴{formatBalans}</p>
         </div>
         <div className={css.cont_select_and_list}>
@@ -63,7 +93,7 @@ const Statistic = () => {
           <Transactions />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
