@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  currentTransaction,
   deleteTransaction,
   // updateTransaction,
 } from 'redux/Transaction/transactionOperation';

@@ -28,15 +28,15 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBackground from './ModalBackground/ModalBackground';
-import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
-import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
+// import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
+// import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
 const App = () => {
   const dispatch = useDispatch();
   const isRefresher = useSelector(selectIsRefresher);
   const token = useSelector(selectToken);
   const openModal = useSelector(modalAddOpen);
-  const ModalEditOpen = useSelector(modalEditOpen);
+  // const ModalEditOpen = useSelector(modalEditOpen);
   const isErrorLoginRegistration = useSelector(selectIsError);
 
   useEffect(() => {

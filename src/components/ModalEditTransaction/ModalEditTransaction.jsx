@@ -22,17 +22,17 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
   console.log('ModalEditTransaction', transaction);
   const currentTransaction = useSelector(selectEditTransaction);
 
-  const [newTransaction, setNewTransaction] = useState({
-    transactionId: currentTransaction.id,
-    body: {
-      transactionDate: currentTransaction.transactionDate,
-      type: currentTransaction.type,
-      // const [newTransaction, setNewTransaction] = useState();
+  // const [newTransaction, setNewTransaction] = useState({
+  //   transactionId: currentTransaction.id,
+  //   body: {
+  //     transactionDate: currentTransaction.transactionDate,
+  //     type: currentTransaction.type,
+  //     // const [newTransaction, setNewTransaction] = useState();
 
-      comment: currentTransaction.comment,
-      amount: currentTransaction.amount,
-    },
-  });
+  //     comment: currentTransaction.comment,
+  //     amount: currentTransaction.amount,
+  //   },
+  // });
   console.log('data', currentTransaction.transactionDate);
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
@@ -81,7 +81,7 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
       };
       dispatch(
         updateTransaction({
-          transactionId: newTransaction.transactionId,
+          transactionId: currentTransaction.id,
           body: transaction,
         })
       );
@@ -101,7 +101,7 @@ const ModalEditTransaction = (typeOfTransaction, { transaction }) => {
     dispatch(clearCurrentTransaction());
   };
   // const statusModal = useSelector(modalEditOpen);
-  console.log('newTransaction', newTransaction);
+  // console.log('newTransaction', newTransaction);
   return (
     currentTransaction && (
       <div className={css.modalBody}>
