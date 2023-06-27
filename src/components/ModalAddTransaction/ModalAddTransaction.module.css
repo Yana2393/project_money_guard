@@ -205,9 +205,6 @@
     transform: translate(-50%, -50%);
     padding: 40px 73px;
     border-radius: 8px;
-    /* background: var(--color-backgroundMain);
-    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(50px); */
   }
 
   .inputLine {
@@ -223,9 +220,6 @@
 /* десктоп */
 
 @media screen and (min-width: 1280px) {
-  .closeIcon {
-    display: none;
-  }
 
   .amountInput,
   .dateInput {
@@ -262,9 +256,6 @@
     transform: translate(-50%, -50%);
     padding: 40px 73px;
     border-radius: 8px;
-    /* background: var(--color-backgroundMain);
-    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(50px); */
   }
 
   .inputLine {
@@ -278,40 +269,8 @@
   }
 }
 
-/* .closeBtn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.closeIcon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: var(--color-white);
-  width: 16px;
-  height: 16px;
-} */
-
 .switchWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* .inputLine {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  justify-content: space-around;
-  background-color: inherit;
-} */
-
-/* .selectCategory {
-  width: 396px;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  background: rgba(82, 59, 126, 0.6);
-  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(50px);
-} */
