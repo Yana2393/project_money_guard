@@ -89,7 +89,6 @@ export class SwitchExample extends Component {
                 : `${css.radioBtnSpan}`
             }
           >
-            {' '}
             Expense
           </span>
         </label>

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
 import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
 import css from './ModalBackground.module.css';
+import { clearCurrentTransaction } from 'redux/Transaction/transactionSlice';
 
 const ModalBackground = ({ children, title }) => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const ModalBackground = ({ children, title }) => {
       return;
     }
     dispatch(toggleEditOpen());
+    dispatch(clearCurrentTransaction());
   };
   useEffect(() => {
     const handleKeydown = e => {

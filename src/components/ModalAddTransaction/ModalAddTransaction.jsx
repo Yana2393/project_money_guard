@@ -16,7 +16,7 @@ import { SelectCategory } from 'components/SelectorModal/SelectorModal';
 const ModalAddTransaction = ({ typeOfTransaction }) => {
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date() - 1);
   registerLocale('uk', uk);
   setDefaultLocale('uk');
   const getCategoryId = id => {
@@ -38,13 +38,16 @@ const ModalAddTransaction = ({ typeOfTransaction }) => {
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
-      const { amount, transactionDate, comment } = values;
+      const { amount, comment } = values;
 
       const transaction = {
-        amount: type === 'EXPENSE' ? -amount : amount,
-        transactionDate,
+        amount: type === 'EXPENSE' ? Number(-amount) : Number(amount),
+        transactionDate: startDate,
         comment,
-        categoryId,
+        categoryId:
+          type === 'EXPENSE'
+            ? categoryId
+            : '063f1132-ba5d-42b4-951d-44011ca46262',
         type,
       };
       dispatch(addTransaction(transaction));
