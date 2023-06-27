@@ -62,13 +62,16 @@ const App = () => {
     <Loader />
   ) : (
     <>
-      {/* <ModalEditTransaction /> */}
       {openModal && (
-        <ModalBackground>
+        <ModalBackground title="add">
           <ModalAddTransaction />
         </ModalBackground>
       )}
-      {ModalEditOpen && <ModalBackground>ModalEditTransaction</ModalBackground>}
+      {ModalEditOpen && (
+        <ModalBackground title="edit">
+          <ModalEditTransaction />
+        </ModalBackground>
+      )}
       {isErrorLoginRegistration && handleToach()}
       <ToastContainer />
       <Example>
@@ -121,7 +124,11 @@ const App = () => {
           ></Route>
           <Route
             path="/transaction/:transactionId"
-            element={<ModalEditTransaction />}
+            element={
+              <ModalBackground title="edit">
+                <ModalEditTransaction />
+              </ModalBackground>
+            }
           ></Route>
 
           <Route path="*" element={<Navigate to="/home" />}></Route>

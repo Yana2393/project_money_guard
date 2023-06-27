@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteTransaction,
-  updateTransaction,
+  // updateTransaction,
 } from 'redux/Transaction/transactionOperation';
 import { selectTransaction } from 'redux/Transaction/transactionSelectors';
 import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
@@ -11,6 +11,8 @@ import { useMediaQuery } from 'react-responsive';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 //import { refreshUser } from 'redux/Auth/authOperations';
 import { updateBalance } from 'redux/Auth/authSlice';
+import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
+import { Link } from 'react-router-dom';
 
 const HomeTab = () => {
   const transactionData = useSelector(selectTransaction);
@@ -24,7 +26,8 @@ const HomeTab = () => {
     dispatch(updateBalance(transaction.amount));
   };
   const handleEditClick = (id, body) => {
-    dispatch(updateTransaction(id, body));
+    // dispatch(updateTransaction(id, body));
+    dispatch(toggleEditOpen());
   };
 
   return (
@@ -99,10 +102,12 @@ const HomeTab = () => {
                         }
                         className={css.HomeTabMobileEditBtn}
                       >
-                        <EditOutlinedIcon
-                          className={css.HomeTabMobileEditIcon}
-                        />
-                        <p className={css.HomeTabMobileEdit}>Edit</p>
+                        <Link to={`/transaction/${transaction.id}`}>
+                          <EditOutlinedIcon
+                            className={css.HomeTabMobileEditIcon}
+                          />
+                          <p className={css.HomeTabMobileEdit}>Edit</p>
+                        </Link>
                       </button>
                     </li>
                   </ul>
@@ -161,7 +166,11 @@ const HomeTab = () => {
                       }
                       className={css.HomeTabTableEditBtn}
                     >
-                      <EditOutlinedIcon className={css.HomeTabTableEditIcon} />
+                      <Link to={`/transaction/${transaction.id}`}>
+                        <EditOutlinedIcon
+                          className={css.HomeTabTableEditIcon}
+                        />
+                      </Link>
                     </button>
                     <button
                       onClick={() => handleDeleteClick(transaction)}

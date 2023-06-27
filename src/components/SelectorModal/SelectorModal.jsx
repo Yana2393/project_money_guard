@@ -66,12 +66,12 @@ export const SelectCategory = ({ getCategoryId }) => {
 
   const handleOnChange = e => {
     const categoryId = e.value;
-    // console.log('categoryId', categoryId);
     getCategoryId(categoryId);
   };
 
   return (
     <Select
+      placeholder={'Select a category'}
       options={optionCategory}
       onChange={handleOnChange}
       styles={customStyles}

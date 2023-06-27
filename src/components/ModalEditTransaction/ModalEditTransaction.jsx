@@ -1,30 +1,25 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { SwitchExample } from '../Switch/Switch';
-import {
-  addTransaction,
-  updateTransaction,
-} from 'redux/Transaction/transactionOperation';
+import { updateTransaction } from 'redux/Transaction/transactionOperation';
 import css from './ModalEditTransaction.module.css';
 import { useState } from 'react';
-import { modalAddOpen } from 'redux/ModalAddOpen/ModalAddOpenSelector';
-import { toggleOpenAdd } from 'redux/ModalAddOpen/ModalAddOpenSlice';
-import { selectTransactionCategories } from 'redux/TransactionCategories/TransactionCategoriesSelectors';
-import { selectTransaction } from 'redux/Transaction/transactionSelectors';
 import { AiOutlineClose } from 'react-icons/ai';
-import { SelectCategory } from 'components/Selector/SelectorModal/SelectorModal';
+import { SelectCategory } from 'components/SelectorModal/SelectorModal';
+import { toggleEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSlice';
+// import { useLocation } from 'react-router-dom';
 
 const ModalEditTransaction = typeOfTransaction => {
-  const modalEditOpen = 'true';
-
   const [type, setType] = useState('EXPENSE');
   const [categoryId, setCategoryId] = useState('');
 
   const getCategoryId = id => {
     setCategoryId(id);
   };
+
+  // const currentTransactionId = useLocation();
 
   const dispatch = useDispatch();
   const validationSchema = yup.object().shape({
@@ -56,7 +51,7 @@ const ModalEditTransaction = typeOfTransaction => {
         categoryId,
         type,
       };
-      dispatch(addTransaction(transaction));
+      dispatch(updateTransaction(transaction));
 
       resetForm();
       closeModal();
@@ -68,13 +63,11 @@ const ModalEditTransaction = typeOfTransaction => {
   };
 
   const closeModal = () => {
-    dispatch(toggleOpenAdd());
+    dispatch(toggleEditOpen());
   };
   // const statusModal = useSelector(modalEditOpen);
 
   return (
-    // statusModal && (
-
     <div className={css.modalBody}>
       <span onClick={closeModal}>
         <AiOutlineClose className={css.closeIcon} />
@@ -142,13 +135,17 @@ const ModalEditTransaction = typeOfTransaction => {
           <button className={css.button} type="submit">
             <span className={css.tittle}>SAVE</span>
           </button>
-          <button className={css.buttonCancel} type="submit">
+          <button
+            className={css.buttonCancel}
+            type="submit"
+            onClick={closeModal}
+          >
             <span className={css.tittle}>CANCEL</span>
           </button>
         </div>
       </form>
     </div>
   );
-  // );
 };
+
 export default ModalEditTransaction;

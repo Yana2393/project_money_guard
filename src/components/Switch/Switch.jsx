@@ -38,7 +38,7 @@ export class SwitchExample extends Component {
           <span
             className={
               !this.state.checked
-                ? `${css.radioBtnSpan} ${css.activeTitle}`
+                ? `${css.radioBtnSpan} ${css.activeTitleIncome}`
                 : `${css.radioBtnSpan}`
             }
           >
@@ -77,7 +77,7 @@ export class SwitchExample extends Component {
           <span
             className={
               this.state.checked
-                ? `${css.radioBtnSpan} ${css.activeTitle}`
+                ? `${css.radioBtnSpan} ${css.activeTitleExpense}`
                 : `${css.radioBtnSpan}`
             }
           >
