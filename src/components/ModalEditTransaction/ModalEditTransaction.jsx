@@ -18,7 +18,7 @@ import { selectEditTransaction } from 'redux/Transaction/transactionSelectors';
 // import { useLocation } from 'react-router-dom';
 
 const ModalEditTransaction = typeOfTransaction => {
-  // const currentTransaction = useSelector(selectEditTransaction);
+  const currentTransaction = useSelector(selectEditTransaction);
 
   // const [newTransaction, setNewTransaction] = useState();
 
@@ -41,11 +41,11 @@ const ModalEditTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
-      amount:
-        currentTransaction?.type === 'EXPENSE'
-          ? -currentTransaction?.amount
-          : currentTransaction?.amount,
-      comment: currentTransaction?.comment,
+      // amount:
+      //   currentTransaction?.type === 'EXPENSE'
+      //     ? -currentTransaction?.amount
+      //     : currentTransaction?.amount,
+      // comment: currentTransaction?.comment,
     },
     validationSchema: validationSchema,
 

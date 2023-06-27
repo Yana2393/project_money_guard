@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addTransaction,
-  currentTransaction,
+  // currentTransaction,
   deleteTransaction,
   getTransaction,
   updateTransaction,
