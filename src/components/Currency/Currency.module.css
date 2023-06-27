@@ -9,7 +9,7 @@
 .CurrencyPage {
   /* height: 200px; */
   position: relative;
-  margin: 0 -20px;
+  margin: 0
   /* background-color: rgb(231, 201, 201); */
 }
 
@@ -70,38 +70,40 @@
   left: 0;
 }
 
-.usdPurch {
+/* .usdPurch {
   display: none;
 }
 
 .eurPurch {
   display: none;
-}
+} */
+/* --------------------------------------------------- */
 
-@media screen and (min-width: 768px) {
-  .CurrencyPage {
-    margin: 0;
-  }
+
+/* Medie screen */
+/* --------------------------------------------------- */
+@media screen and (max-width: 1280px) {
+  
 
   .Currency tr td {
     padding-top: 0;
     padding-bottom: 0;
     height: 38px;
-    text-align: start;
+    /* text-align: start; */
   }
 
-  .Currency td:nth-last-child(1) {
+/*   .Currency td:nth-last-child(1) {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
-  }
+  } */
 
   .Currency th {
     height: 48px;
-    text-align: start;
+    /* text-align: start; */
     background-color: #ffffff33;
-    padding: 0px;
+    /* padding: 0px; */
   }
 
   .usdPurch {
@@ -112,33 +114,34 @@
     display: none;
   }
 }
+/* --------------------------------------------------- */
+
+
 
 @media screen and (min-width: 1280px) {
   .Currency {
     margin-bottom: 42px;
   }
 
-  .Currency tr td {
+/*   .Currency tr td {
     text-align: center;
-  }
+  } */
 
-  .Currency td:nth-last-child(1) {
+/*   .Currency td:nth-last-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-  }
+  } */
 
   .Currency th {
     height: 48px;
     text-align: center;
-    padding: 0px;
+    /* padding: 0px; */
   }
 
-  .margin {
-    /* margin-left: -16px; */
-    /* background: var(--color-whitw-10); */
-  }
+
+  /* ---------------------------------------------- */
 
   .Diagram {
     width: 100%;
