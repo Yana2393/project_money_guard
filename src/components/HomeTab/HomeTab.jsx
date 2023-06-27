@@ -11,6 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 //import { refreshUser } from 'redux/Auth/authOperations';
 import { updateBalance } from 'redux/Auth/authSlice';
+import { Link } from 'react-router-dom';
 
 const HomeTab = () => {
   const transactionData = useSelector(selectTransaction);
@@ -93,16 +94,19 @@ const HomeTab = () => {
                       >
                         <p className={css.HomeTabMobileDeleteBtnText}>Delete</p>
                       </button>
+
                       <button
                         onClick={() =>
                           handleEditClick(transaction.id, transaction)
                         }
                         className={css.HomeTabMobileEditBtn}
                       >
-                        <EditOutlinedIcon
-                          className={css.HomeTabMobileEditIcon}
-                        />
-                        <p className={css.HomeTabMobileEdit}>Edit</p>
+                        <Link to={`/transaction/${transaction.id}`}>
+                          <EditOutlinedIcon
+                            className={css.HomeTabMobileEditIcon}
+                          />
+                          <p className={css.HomeTabMobileEdit}>Edit</p>
+                        </Link>
                       </button>
                     </li>
                   </ul>
@@ -161,8 +165,13 @@ const HomeTab = () => {
                       }
                       className={css.HomeTabTableEditBtn}
                     >
-                      <EditOutlinedIcon className={css.HomeTabTableEditIcon} />
+                      <Link to={`/transaction/${transaction.id}`}>
+                        <EditOutlinedIcon
+                          className={css.HomeTabTableEditIcon}
+                        />
+                      </Link>
                     </button>
+
                     <button
                       onClick={() => handleDeleteClick(transaction)}
                       className={css.HomeTabTableDeleteBtn}
