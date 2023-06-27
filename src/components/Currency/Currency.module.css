@@ -1,6 +1,16 @@
 @import url('../../index.css');
+
+@media screen and (max-width: 320px) {
+  .container {
+    margin: 0 -20px;
+  }
+}
+
 .CurrencyPage {
   /* height: 200px; */
+  position: relative;
+  margin: 0 -20px;
+  /* background-color: rgb(231, 201, 201); */
 }
 
 .Currency th {
@@ -12,6 +22,7 @@
   text-align: left;
   color: #fbfbfb;
 }
+
 .Currency td {
   font-family: Poppins;
   font-size: 16px;
@@ -21,17 +32,20 @@
   text-align: left;
   color: #fbfbfb;
 }
+
 .Currency {
   width: 100%;
   border: none;
   border-collapse: collapse;
 }
+
 .Currency th {
   height: 56px;
   text-align: center;
   background-color: #ffffff33;
   padding: 0px;
 }
+
 .Currency td {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -41,27 +55,114 @@
 
 .Diagram {
   position: relative;
-  background: rgba(74, 86, 226, 0.1);
+  margin-bottom: -5px;
 }
-@media screen and (min-width: 768px) and (max-width: 1280px) {
+
+.Diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.Diagram svg:nth-child(2) {
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
+
+.usdPurch {
+  display: none;
+}
+
+.eurPurch {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
   .CurrencyPage {
-    height: 100%;
+    margin: 0;
   }
-  .Diagram {
-    bottom: 80px;
-    border-radius: 0 8px 8px 0;
+
+  .Currency tr td {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 38px;
+    text-align: start;
+  }
+
+  .Currency td:nth-last-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .Currency th {
+    height: 48px;
+    text-align: start;
+    background-color: #ffffff33;
+    padding: 0px;
+  }
+
+  .usdPurch {
+    display: none;
+  }
+
+  .eurPurch {
+    display: none;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .Currency {
+    margin-bottom: 42px;
+  }
+
+  .Currency tr td {
+    text-align: center;
+  }
+
+  .Currency td:nth-last-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .Currency th {
+    height: 48px;
+    text-align: center;
+    padding: 0px;
+  }
+
   .margin {
     /* margin-left: -16px; */
     /* background: var(--color-whitw-10); */
   }
+
   .Diagram {
-    width: 480px;
+    width: 100%;
     height: 167px;
     opacity: 60%;
     position: relative;
+    margin-bottom: 20px;
+  }
+
+  .usdPurch {
+    display: block;
+    position: absolute;
+    color: #ff868d;
+    font-size: 12px;
+    left: 9.5%;
+    bottom: 87.5%;
+  }
+
+  .eurPurch {
+    display: block;
+    position: absolute;
+    color: #ff868d;
+    font-size: 12px;
+    left: 73.8%;
+    bottom: 108%;
   }
 }

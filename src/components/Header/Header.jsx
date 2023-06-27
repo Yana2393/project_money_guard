@@ -30,6 +30,7 @@ const Header = () => {
             <span className={css.userText}>
               {currentUser?.username && currentUser.username}
             </span>
+            <div className={css.verticalLine}></div>
             <button className={css.headerBtn} onClick={handleLogOut}>
               <IoMdExit className={css.iconBtn} />
               {!viewport.mobile && <span className={css.userText}>Exit</span>}
