@@ -37,7 +37,12 @@
     background-color: inherit;
     color: var(--color-white);
   }
-
+  .error_message {
+    position: absolute;
+    top: 325px;
+    font-size: 14px;
+    color: var(--color-white);
+  }
   .amountInput,
   .dateInput {
     width: 180px;

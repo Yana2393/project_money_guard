@@ -1,6 +1,10 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+
 import { useDispatch, useSelector } from 'react-redux';
+
+
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
@@ -39,11 +43,13 @@ const ModalEditTransaction = typeOfTransaction => {
   });
   const formik = useFormik({
     initialValues: {
+
       amount:
         currentTransaction?.type === 'EXPENSE'
           ? -currentTransaction?.amount
           : currentTransaction?.amount,
       comment: currentTransaction?.comment,
+
     },
     validationSchema: validationSchema,
 

@@ -22,7 +22,7 @@ const Statistic = () => {
   const result = useSelector(summaryController);
 
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: result.map(el => el.name),
 
     datasets: [
       {
