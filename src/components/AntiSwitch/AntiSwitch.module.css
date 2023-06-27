@@ -1,0 +1,44 @@
+.AntiSwitchWrap {
+    
+}
+
+.AntiSwitchIncome {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.AntiSwitchSlesh {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.AntiSwitchExpense {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 600;
+}
+
+.AntiSwitchIncomeActive {
+  color: #FFB627;
+}
+
+.AntiSwitchExpenseActive {
+  color: #FF868D;
+}
