@@ -1,5 +1,5 @@
 .HomeTabPage {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 330px;
 }
 
@@ -70,11 +70,13 @@
   font-family: Poppins;
 }
 .HomeTabMobileEditBtn {
+  background-color: inherit;
+  border: 0px;
+}
+.HomeTabEditLink {
   display: flex;
   gap: 4px;
   align-items: center;
-  background-color: inherit;
-  border: 0px;
 }
 .HomeTabMobileEditIcon {
   max-width: 14px;
@@ -93,7 +95,7 @@
   .HomeTabPage {
     padding-top: 20px;
     height: 392px;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   .HomeTabTable {
     border-collapse: collapse;

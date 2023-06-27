@@ -102,7 +102,10 @@ const HomeTab = () => {
                         }
                         className={css.HomeTabMobileEditBtn}
                       >
-                        <Link to={`/transaction/${transaction.id}`}>
+                        <Link
+                          to={`/transaction/${transaction.id}`}
+                          className={css.HomeTabEditLink}
+                        >
                           <EditOutlinedIcon
                             className={css.HomeTabMobileEditIcon}
                           />
