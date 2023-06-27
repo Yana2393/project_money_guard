@@ -38,7 +38,7 @@ const ModalAddTransaction = ({ typeOfTransaction }) => {
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
-      const { amount, transactionDate, comment } = values;
+      const { amount, comment } = values;
 
       const transaction = {
         amount: type === 'EXPENSE' ? Number(-amount) : Number(amount),
