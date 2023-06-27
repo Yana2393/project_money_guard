@@ -87,8 +87,7 @@ const ModalEditTransaction = typeOfTransaction => {
       <h1 className={css.editModalTitle}>Edit transaction</h1>
       <div className={css.switchWrapper}>
         <SwitchExample
-          // checked={currentTransaction.type === 'INCOME' ? false : true} з цією умовою в мне не відкривалась модалка editModal, а тою що нижче відкривається
-          checked={currentTransaction && currentTransaction.type === 'INCOME' ? false : true}
+          checked={currentTransaction.type === 'INCOME' ? false : true}
           getStatusType={getStatusType}
           typeOfTransaction={typeOfTransaction}
         />
