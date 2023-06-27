@@ -24,9 +24,9 @@
   height: 50px;
 }
 
-.dotut_donut {
+/* .dotut_donut {
   margin-top: 4px;
-}
+} */
 
 /* .container::-webkit-scrollbar {
   display: none;
@@ -43,6 +43,7 @@
 .cont_select_and_list {
   display: flex;
   flex-direction: column;
+  width: 280px;
   /* width: 395px; */
 }
 
@@ -104,11 +105,12 @@
 }
 
 .statistic_balans {
+  /* text-align: center; */
   font-weight: 600;
   font-size: 18px;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 47%;
+  transform: translateY(-47%);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -137,6 +139,37 @@
 /* @media screen and (max-width: 320px) {
 } */
 @media screen and (min-width: 768px) {
+  .Statistic {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* margin-right: 32px; */
+  }
+  .cont_stats {
+    flex-direction: row;
+  }
+  .donut {
+    width: 336px;
+    height: 336px;
+    margin-right: 32px;
+  }
+
+  .cont_select_and_list {
+    width: 336px;
+    margin-top: -20px;
+  }
+  .stats_select_list {
+    flex-direction: row;
+  }
+  .stats_select_item {
+    width: 160px;
+    gap: 16px;
+  }
+
+  .stats_label {
+    max-width: 336px;
+    padding: 17px 17px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .Statistic {
@@ -168,7 +201,6 @@
     margin-top: 20px;
     max-width: 395px;
     padding: 17px 17px;
-    backdrop-filter: blur(50px);
   }
 
   .stats_select_list {
