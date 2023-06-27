@@ -1,5 +1,5 @@
 .HomeTabPage {
-  /* overflow: scroll; */
+  overflow: scroll;
   height: 330px;
 }
 
@@ -92,8 +92,8 @@
 @media screen and (min-width: 768px) {
   .HomeTabPage {
     padding-top: 20px;
-    max-height: 392px;
-    /* overflow: scroll; */
+    height: 392px;
+    overflow: scroll;
   }
   .HomeTabTable {
     border-collapse: collapse;
