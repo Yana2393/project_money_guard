@@ -114,7 +114,7 @@ const ModalAddTransaction = ({ typeOfTransaction }) => {
             />
           </div>
         </div>
-        <div>
+        <div className={css.commentWrap}>
           <input
             className={css.commentInput}
             placeholder="Comment"
