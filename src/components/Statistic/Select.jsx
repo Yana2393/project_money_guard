@@ -12,12 +12,13 @@ export const SelectComponent = () => {
   const [year, setYear] = useState(date.getFullYear());
 
   useEffect(() => {
-    dispatch(getSummary({ month, year }));
-    console.log(month, year);
+    dispatch(getSummary({ month: Number(month), year: Number(year) }));
+    //console.log(month, year);
   }, [dispatch, month, year]);
 
   const handleChangeSelectMonth = event => {
     console.log(event.value);
+
     setMonth(event.value);
   };
   const handleChangeSelectYear = event => {
