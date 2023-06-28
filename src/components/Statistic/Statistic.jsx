@@ -78,9 +78,8 @@ const Statistic = () => {
       <h2 className={css.Statistic}>Statistic</h2>
       <div className={css.cont_stats}>
         <div className={css.donut}>
-          {/* <canvas className={css.dotut_donut} id="acquisitions"></canvas> */}
           <Doughnut className={css.dotut_donut} data={data} options={options} />
-          <p className={css.statistic_balans}>₴{formatBalans}</p>
+          {result && <p className={css.statistic_balans}>₴{formatBalans}</p>}
         </div>
         <div className={css.cont_select_and_list}>
           <SelectComponent />

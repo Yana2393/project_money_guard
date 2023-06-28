@@ -27,7 +27,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-    border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
   background-color: inherit;
   color: var(--color-white);
 }
@@ -75,9 +75,9 @@
 
 .error_message {
   position: absolute;
-  top: 294px;
+  top: 265px;
   font-size: 14px;
-  color: var(--color-white);
+  color: var(--color-dashboard-text);
 }
 
 .button {
@@ -88,7 +88,7 @@
   height: 50px;
   margin-top: 12px;
   color: #fbfbfb;
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
@@ -109,7 +109,7 @@
   height: 50px;
   margin-top: 12px;
   color: #623f8b;
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 .addModalTitle {
@@ -175,6 +175,7 @@
     width: 166px;
     text-align: center;
     padding-bottom: 8px;
+    outline: none;
   }
 
   .commentInput {
@@ -187,6 +188,7 @@
     color: var(--color-white);
     padding-left: 8px;
     padding-bottom: 8px;
+    outline: none;
   }
 
   .buttonCancel {
@@ -220,7 +222,6 @@
 /* десктоп */
 
 @media screen and (min-width: 1280px) {
-
   .amountInput,
   .dateInput {
     width: 166px;

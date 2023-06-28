@@ -35,8 +35,8 @@ export const SelectCategory = ({ getCategoryId, currentCategoryId }) => {
     }),
     menu: provided => ({
       ...provided,
-      background: 'var(--color-backgroundMain)',
-      // 'linear-gradient(360deg, rgba(83, 61, 186, 0.90) 0%, rgba(80, 48, 154, 0.90) 35.94%, rgba(106, 70, 165, 0.72) 61.04%, rgba(133, 93, 175, 0.33) 100%)', // Градиентный фон для списка опций
+      background:
+        'linear-gradient(360deg, rgba(83, 61, 186, 1) 0%, rgba(80, 48, 154, 1) 35.94%, rgba(106, 70, 165, 1) 61.04%, rgba(133, 93, 175, 1) 100%)', // Градиентный фон для списка опций
     }),
     singleValue: provided => ({
       ...provided,

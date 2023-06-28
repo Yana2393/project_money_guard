@@ -12,8 +12,10 @@ export const SelectComponent = () => {
   const [year, setYear] = useState(date.getFullYear());
 
   useEffect(() => {
+
     dispatch(getSummary({ month: Number(month), year: Number(year) }));
     //console.log(month, year);
+
   }, [dispatch, month, year]);
 
   const handleChangeSelectMonth = event => {
@@ -41,20 +43,20 @@ export const SelectComponent = () => {
     { value: '12', label: 'December' },
   ];
   const optionsYear = [
-    { value: '2010', label: '2010' },
-    { value: '2011', label: '2011' },
-    { value: '2012', label: '2012' },
-    { value: '2013', label: '2013' },
-    { value: '2014', label: '2014' },
-    { value: '2015', label: '2015' },
-    { value: '2016', label: '2016' },
-    { value: '2017', label: '2017' },
-    { value: '2018', label: '2018' },
-    { value: '2019', label: '2019' },
-    { value: '2020', label: '2020' },
-    { value: '2021', label: '2021' },
-    { value: '2022', label: '2022' },
     { value: '2023', label: '2023' },
+    { value: '2022', label: '2022' },
+    { value: '2021', label: '2021' },
+    { value: '2020', label: '2020' },
+    { value: '2019', label: '2019' },
+    { value: '2018', label: '2018' },
+    { value: '2017', label: '2017' },
+    { value: '2016', label: '2016' },
+    { value: '2015', label: '2015' },
+    { value: '2014', label: '2014' },
+    { value: '2013', label: '2013' },
+    { value: '2012', label: '2012' },
+    { value: '2011', label: '2011' },
+    { value: '2010', label: '2010' },
   ];
 
   const customStyles = {
@@ -80,7 +82,7 @@ export const SelectComponent = () => {
     menu: provided => ({
       ...provided,
       background:
-        'linear-gradient(360deg, rgba(83, 61, 186, 0.90) 0%, rgba(80, 48, 154, 0.90) 35.94%, rgba(106, 70, 165, 0.72) 61.04%, rgba(133, 93, 175, 0.33) 100%)', // Градиентный фон для списка опций
+        'linear-gradient(360deg, rgba(83, 61, 186, 1) 0%, rgba(80, 48, 154, 1) 35.94%, rgba(106, 70, 165, 1) 61.04%, rgba(133, 93, 175, 1) 100%)', // Градиентный фон для списка опций
     }),
     singleValue: provided => ({
       ...provided,
