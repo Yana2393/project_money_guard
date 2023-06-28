@@ -145,9 +145,9 @@ const ModalEditTransaction = typeOfTransaction => {
             <div>
               <input
                 className={css.amountInput}
-                placeholder="0"
+                placeholder="0.00"
                 name="amount"
-                type="text"
+                type="number"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.amount}

@@ -144,7 +144,7 @@
 .error_message {
   position: absolute;
   left: 20px;
-  color: var(--color-white);
+  color: var(--color-dashboard-text);
 }
 .icons_name {
   position: absolute;
