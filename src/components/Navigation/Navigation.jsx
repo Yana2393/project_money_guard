@@ -9,11 +9,17 @@ import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 import { useState } from 'react';
 import Balance from 'components/Balance/Balance';
 import NavLinkNavigate from 'components/NavLinkNavigate/NavLinkNavigate';
+import { useLocation } from 'react-router-dom';
 
 const Navigation = () => {
+  const location = useLocation();
+
+  console.log('location', location.pathname);
   const viewport = useSelector(selectViewPort);
   const [iconActive, setIconActive] = useState({
-    home: true,
+
+    home: location.pathname === '/home' ? true : false,
+
     statistics: false,
     currency: false,
   });
