@@ -96,7 +96,7 @@ button {
   position: relative;
   display: inline-block;
   width: 100%;
-  z-index: -3;
+  z-index: 0;
 }
 
 @media screen and (max-width: 320px) {
