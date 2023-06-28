@@ -91,6 +91,14 @@ button {
   padding: 0 20px;
   margin: 0 auto;
 }
+
+.react-datepicker__input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  z-index: -3;
+}
+
 @media screen and (max-width: 320px) {
   .container {
     max-width: 280px;
