@@ -14,10 +14,8 @@ import { useLocation } from 'react-router-dom';
 const Navigation = () => {
   const location = useLocation();
 
-  console.log('location', location.pathname);
   const viewport = useSelector(selectViewPort);
   const [iconActive, setIconActive] = useState({
-
     home: location.pathname === '/home' ? true : false,
 
     statistics: false,
