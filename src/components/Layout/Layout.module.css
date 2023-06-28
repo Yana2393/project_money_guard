@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
 }
 .VisiblePageCurrency {
   background: rgba(255, 255, 255, 0.15);
@@ -60,13 +60,13 @@
   }
   .layOut {
     gap: 20px;
-    height: calc(100vh - 80px);
+    /* height: calc(100vh - 80px); */
   }
 }
 @media screen and (min-width: 1280px) {
   .layOut {
     flex-direction: row;
-    height: calc(100vh - 80px);
+    /* height: calc(100vh - 80px); */
   }
   .navigate_balance {
     width: 480px;
