@@ -8,7 +8,9 @@ export const getSummary = createAsyncThunk(
   async (period, thunk_Api) => {
     try {
       const { data } = await Api.get('transactions-summary', {
+
         params: period,
+
       });
 
       return data;
