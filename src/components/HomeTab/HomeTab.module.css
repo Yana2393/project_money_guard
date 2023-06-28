@@ -1,6 +1,7 @@
 .HomeTabPage {
   overflow-y: scroll;
-  height: 330px;
+  overflow-x: hidden;
+  max-height: 335px;
 }
 
 .HomeTabMobileItem {
@@ -11,6 +12,9 @@
   position: relative;
   border-left: solid 5px var(--color-dashboard-text);
 }
+.HomeTabMobileItem:nth-child(1) {
+  margin-top: 0px;
+}
 
 .HomeTabMobileTableItem {
   display: flex;
@@ -18,6 +22,9 @@
   align-items: center;
   position: relative;
   height: 48px;
+}
+.HomeTabMobileTableItem:nth-child(6) {
+  height: 53px;
 }
 
 .HomeTabMobileTableHeader {

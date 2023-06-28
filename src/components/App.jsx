@@ -28,6 +28,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBackground from './ModalBackground/ModalBackground';
+import RegistrationPage from 'page/RegistrationPage/RegistrationPage';
 // import { modalEditOpen } from 'redux/ModalEditTransaction/ModalEditTransactionSelector';
 // import ModalEditTransaction from './ModalEditTransaction/ModalEditTransaction';
 
@@ -112,7 +113,7 @@ const App = () => {
               <PublicRoute redirectTo="/home" component={<LoginPage />} />
             }
           ></Route>
-          {/* <Route
+          <Route
             path="/registration"
             element={
               <PublicRoute
@@ -120,7 +121,7 @@ const App = () => {
                 component={<RegistrationPage />}
               />
             }
-          ></Route> */}
+          ></Route>
           {/* <Route
             path="/transaction/:transactionId"
             element={<ModalAddTransaction />}

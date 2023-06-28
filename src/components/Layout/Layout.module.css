@@ -11,7 +11,7 @@
   flex: 1;
   flex-direction: column;
   /* background: rgba(48, 46, 142, 1); */
-  background-image: url(/src/images/mobile/bgMobile.png);
+  background-image: url(/src/images/mobile/MobileBg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
@@ -41,7 +41,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .layOut {
-    background-image: url(/src/images/mobile/bgMobile.png);
+    background-image: url(/src/images/tablet/TabletBg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -67,6 +67,8 @@
   .layOut {
     flex-direction: row;
     /* height: calc(100vh - 80px); */
+    height: calc(100vh - 80px);
+    background-image: url(/src/images/desktop/DesctopBg.jpg);
   }
   .navigate_balance {
     width: 480px;
