@@ -119,7 +119,7 @@
 .error_message {
   position: absolute;
   left: 40px;
-  color: var(--color-white);
+  color: var(--color-dashboard-text);
 }
 .icons_email {
   position: absolute;
