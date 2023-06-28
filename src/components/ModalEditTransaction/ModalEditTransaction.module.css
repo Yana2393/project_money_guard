@@ -149,7 +149,7 @@
   width: 100%;
   border-radius: 8px;
   margin-bottom: 40px;
-  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(50px); */
 }
 
 
@@ -173,7 +173,7 @@
     width: 166px;
     text-align: center;
     padding-bottom: 8px;
-    z-index: -3;
+    /* z-index: -3; */
   }
 
   .commentInput {
@@ -232,6 +232,6 @@
 .selectCategory {
   width: 394px;
   border-radius: 8px;
-  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(50px); */
   margin-bottom: 40px;
 }
