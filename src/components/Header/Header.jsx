@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from 'redux/Auth/authSelector';
 import { selectViewPort } from 'redux/Viewport/viewportSelectors';
 import logo from '../../images/logo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,16 @@ const Header = () => {
     <div className={css.header}>
       <div className="container">
         <div className={css.headerInfo}>
-          <img
-            className={css.logo}
-            src={logo}
-            alt="logo"
-            width="86px"
-            height="36px"
-          />
+          <Link to="/home">
+            <img
+              className={css.logo}
+              src={logo}
+              alt="logo"
+              width="86px"
+              height="36px"
+            />
+          </Link>
+
           <div className={css.headerRigth}>
             <span className={css.userText}>
               {currentUser?.username && currentUser.username}
