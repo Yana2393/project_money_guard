@@ -19,7 +19,6 @@ export const colors = [
 
 export const Transactions = () => {
   const result = useSelector(summaryController);
-  console.log(result);
   const newResult = result.map(el => {
     if (el.type === 'EXPENSE') {
       return { ...el, total: Math.abs(el.total) };

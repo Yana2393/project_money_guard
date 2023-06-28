@@ -13,7 +13,6 @@ export const SelectComponent = () => {
 
   useEffect(() => {
     dispatch(getSummary({ month, year }));
-    console.log(month, year);
   }, [dispatch, month, year]);
 
   const handleChangeSelectMonth = event => {
